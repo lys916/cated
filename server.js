@@ -24,9 +24,9 @@ const server = express();
 server.use(cors());   // https://medium.com/trisfera/using-cors-in-express-cac7e29b005b
 server.use(bodyParser.json());
 
-server.get('/', function(req, res) {
-  res.status(200).json({ status: 'API Running' });
-});
+// server.get('/', function(req, res) {
+//   res.status(200).json({ status: 'API Running' });
+// });
 
 mongoose
   .connect('mongodb://lys:lys916@ds149742.mlab.com:49742/get-fit')
@@ -43,7 +43,7 @@ server.use('/order', orderRouter);
 // server.use('/systemFood', systemFoodRouter);
 
 // serve static assets if we're in production
-// if(process.env.NODE_ENV === 'production'){
+if(process.env.NODE_ENV === 'production'){
   // set static folder
   server.use(express.static('client/build'));
 
@@ -51,7 +51,7 @@ server.use('/order', orderRouter);
   server.get('*', (req, res)=>{
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
-// }
+}
 
 const port = process.env.PORT || 5000;
 server.listen(port, () => {
