@@ -1,0 +1,2382 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://material-ui.com/demos/cards/ -->
+<html lang="en" dir="ltr" class=" "><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title class="next-head">Card React component - Material-UI</title><meta name="twitter:card" content="summary_large_image" class="next-head"><meta name="twitter:site" content="@MaterialUI" class="next-head"><meta name="twitter:image" content="https://material-ui.com/static/brand.png" class="next-head"><meta property="og:type" content="website" class="next-head"><meta property="og:image" content="https://material-ui.com/static/brand.png" class="next-head"><meta property="og:ttl" content="604800" class="next-head"><link rel="preload" href="./paella_files/index.js.download" as="script"><link rel="preload" href="./paella_files/_app.js.download" as="script"><link rel="preload" href="./paella_files/_error.js.download" as="script"><link rel="preload" href="./paella_files/webpack-42652fa8b82c329c0559.js.download" as="script"><link rel="preload" href="./paella_files/commons.ff4460430503ed04c81d.js.download" as="script"><link rel="preload" href="./paella_files/main-a90753e6dd067e900b5c.js.download" as="script"><meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"><link rel="manifest" href="https://material-ui.com/static/manifest.json"><meta name="theme-color" content="#2196f3"><link rel="shortcut icon" href="https://material-ui.com/static/favicon.ico"><link rel="canonical" href="https://material-ui.com/"><link rel="stylesheet" href="./paella_files/css"><link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin="anonymous"><link rel="stylesheet" href="./paella_files/icon" media="all"><link rel="stylesheet" href="./paella_files/docsearch.min.css" media="all"><style id="insertion-point-jss"></style><!--insertion-point-jss--><style data-jss="" data-meta="MuiTypography">
+.j117 {
+  margin: 0;
+  display: block;
+}
+.j118 {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 7rem;
+  font-weight: 300;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.14286em;
+  margin-left: -.04em;
+  letter-spacing: -.04em;
+}
+.j119 {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 3.5rem;
+  font-weight: 400;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.30357em;
+  margin-left: -.02em;
+  letter-spacing: -.02em;
+}
+.j120 {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 2.8125rem;
+  font-weight: 400;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.13333em;
+  margin-left: -.02em;
+}
+.j121 {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 2.125rem;
+  font-weight: 400;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.20588em;
+}
+.j122 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.35417em;
+}
+.j123 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1.3125rem;
+  font-weight: 500;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.16667em;
+}
+.j124 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.5em;
+}
+.j125 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01071em;
+}
+.j126 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+.j127 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 0.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+}
+.j128 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+}
+.j129 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 6rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.01562em;
+}
+.j130 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 3.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.00833em;
+}
+.j131 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 3rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: 0em;
+}
+.j132 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 2.125rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.17;
+  letter-spacing: 0.00735em;
+}
+.j133 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1.5rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: 0em;
+}
+.j134 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1.25rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+}
+.j135 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.00938em;
+}
+.j136 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.57;
+  letter-spacing: 0.00714em;
+}
+.j137 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 0.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 2.66;
+  letter-spacing: 0.08333em;
+  text-transform: uppercase;
+}
+.j138 {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+}
+.j139 {
+  text-align: left;
+}
+.j140 {
+  text-align: center;
+}
+.j141 {
+  text-align: right;
+}
+.j142 {
+  text-align: justify;
+}
+.j143 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.j144 {
+  margin-bottom: 0.35em;
+}
+.j145 {
+  margin-bottom: 16px;
+}
+.j146 {
+  color: inherit;
+}
+.j147 {
+  color: #2196f3;
+}
+.j148 {
+  color: rgb(225, 0, 80);
+}
+.j149 {
+  color: rgba(0, 0, 0, 0.87);
+}
+.j150 {
+  color: rgba(0, 0, 0, 0.54);
+}
+.j151 {
+  color: #f44336;
+}
+</style><style data-jss="" data-meta="MuiTouchRipple">
+.j79 {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  position: absolute;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.j80 {
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  position: absolute;
+}
+.j81 {
+  opacity: 0.3;
+  transform: scale(1);
+  animation: mui-ripple-enter 550ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.j82 {
+  animation-duration: 200ms;
+}
+.j83 {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  display: block;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+.j84 {
+  opacity: 0;
+  animation: mui-ripple-exit 550ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.j85 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  animation: mui-ripple-pulsate 2500ms cubic-bezier(0.4, 0, 0.2, 1) 200ms infinite;
+}
+@-webkit-keyframes mui-ripple-enter {
+  0% {
+    opacity: 0.1;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes mui-ripple-exit {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes mui-ripple-pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.92);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style><style data-jss="" data-meta="MuiButtonBase">
+.j67 {
+  color: inherit;
+  cursor: pointer;
+  margin: 0;
+  border: 0;
+  display: inline-flex;
+  padding: 0;
+  outline: none;
+  position: relative;
+  user-select: none;
+  align-items: center;
+  border-radius: 0;
+  vertical-align: middle;
+  justify-content: center;
+  -moz-appearance: none;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.j67::-moz-focus-inner {
+  border-style: none;
+}
+.j67.j68 {
+  cursor: default;
+  pointer-events: none;
+}
+</style><style data-jss="" data-meta="MuiButton">
+.j152 {
+  color: rgba(0, 0, 0, 0.87);
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  min-width: 64px;
+  min-height: 36px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  box-sizing: border-box;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+  border-radius: 4px;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+}
+.j152:hover {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.j152.j172 {
+  color: rgba(0, 0, 0, 0.26);
+}
+@media (hover: none) {
+  .j152:hover {
+    background-color: transparent;
+  }
+}
+.j152:hover.j172 {
+  background-color: transparent;
+}
+.j153 {
+  width: 100%;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+}
+.j155 {
+  color: #2196f3;
+}
+.j155:hover {
+  background-color: rgba(33, 150, 243, 0.08);
+}
+@media (hover: none) {
+  .j155:hover {
+    background-color: transparent;
+  }
+}
+.j156 {
+  color: rgb(225, 0, 80);
+}
+.j156:hover {
+  background-color: rgba(225, 0, 80, 0.08);
+}
+@media (hover: none) {
+  .j156:hover {
+    background-color: transparent;
+  }
+}
+.j160 {
+  border: 1px solid rgba(0, 0, 0, 0.23);
+}
+.j161 {
+  border: 1px solid rgba(33, 150, 243, 0.5);
+}
+.j161:hover {
+  border: 1px solid #2196f3;
+}
+.j161.j172 {
+  border: 1px solid rgba(0, 0, 0, 0.26);
+}
+.j162 {
+  border: 1px solid rgba(225, 0, 80, 0.5);
+}
+.j162:hover {
+  border: 1px solid rgb(225, 0, 80);
+}
+.j162.j172 {
+  border: 1px solid rgba(0, 0, 0, 0.26);
+}
+.j163 {
+  color: rgba(0, 0, 0, 0.87);
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  background-color: #e0e0e0;
+}
+.j163.j171 {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 6px 10px 0px rgba(0, 0, 0, 0.14),0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+.j163:active {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),0px 8px 10px 1px rgba(0, 0, 0, 0.14),0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.j163.j172 {
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+.j163:hover {
+  background-color: #d5d5d5;
+}
+@media (hover: none) {
+  .j163:hover {
+    background-color: #e0e0e0;
+  }
+}
+.j163:hover.j172 {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+.j164 {
+  color: #fff;
+  background-color: #2196f3;
+}
+.j164:hover {
+  background-color: #1976d2;
+}
+@media (hover: none) {
+  .j164:hover {
+    background-color: #2196f3;
+  }
+}
+.j165 {
+  color: #fff;
+  background-color: rgb(225, 0, 80);
+}
+.j165:hover {
+  background-color: rgb(157, 0, 56);
+}
+@media (hover: none) {
+  .j165:hover {
+    background-color: rgb(225, 0, 80);
+  }
+}
+.j169 {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  min-width: 0;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 6px 10px 0px rgba(0, 0, 0, 0.14),0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+}
+.j169:active {
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),0px 12px 17px 2px rgba(0, 0, 0, 0.14),0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+}
+.j170 {
+  width: auto;
+  height: 48px;
+  padding: 0 16px;
+  min-width: 48px;
+  border-radius: 24px;
+}
+.j173 {
+  color: inherit;
+}
+.j174 {
+  width: 40px;
+  height: 40px;
+}
+.j175 {
+  padding: 7px 8px;
+  min-width: 64px;
+  font-size: 0.8125rem;
+  min-height: 32px;
+}
+.j176 {
+  padding: 8px 24px;
+  min-width: 112px;
+  font-size: 0.9375rem;
+  min-height: 40px;
+}
+.j177 {
+  width: 100%;
+}
+</style><style data-jss="" data-meta="MuiDivider">
+.j286 {
+  height: 1px;
+  margin: 0;
+  border: none;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+.j287 {
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+.j288 {
+  margin-left: 72px;
+}
+.j289 {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+</style><style data-jss="" data-meta="MuiSvgIcon">
+.j70 {
+  fill: currentColor;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 24px;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  user-select: none;
+  flex-shrink: 0;
+}
+.j71 {
+  color: #2196f3;
+}
+.j72 {
+  color: rgb(225, 0, 80);
+}
+.j73 {
+  color: rgba(0, 0, 0, 0.54);
+}
+.j74 {
+  color: #f44336;
+}
+.j75 {
+  color: rgba(0, 0, 0, 0.26);
+}
+.j76 {
+  font-size: inherit;
+}
+.j77 {
+  font-size: 20px;
+}
+.j78 {
+  font-size: 36px;
+}
+</style><style data-jss="">
+.j285 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 16px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+.j285 .anchor-link {
+  position: absolute;
+  margin-top: -96px;
+}
+.j285 pre, .j285 pre[class*="language-"] {
+  margin: 24px 0;
+  padding: 12px 18px;
+  overflow: auto;
+  border-radius: 4px;
+  background-color: #fff;
+  -webkit-overflow-scrolling: touch;
+}
+.j285 code {
+  color: rgba(0, 0, 0, 0.87);
+  display: inline-block;
+  padding: 3px 6px;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  background-color: #fff;
+}
+.j285 p code, .j285 ul code, .j285 pre code {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.j285 h1 {
+  color: rgba(0, 0, 0, 0.87);
+  margin: 32px 0 16px;
+  font-size: 3.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.00833em;
+}
+.j285 .description {
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0 0 40px;
+  font-size: 1.5rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: 0em;
+}
+.j285 h2 {
+  color: rgba(0, 0, 0, 0.87);
+  margin: 32px 0 24px;
+  font-size: 2.125rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.17;
+  letter-spacing: 0.00735em;
+}
+.j285 h3 {
+  color: rgba(0, 0, 0, 0.87);
+  margin: 32px 0 24px;
+  font-size: 1.5rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: 0em;
+}
+.j285 h4 {
+  color: rgba(0, 0, 0, 0.87);
+  margin: 24px 0 16px;
+  font-size: 1.25rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+}
+.j285 p, .j285 ul, .j285 ol {
+  line-height: 1.6;
+}
+.j285 table {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  overflow-x: auto;
+  border-spacing: 0;
+  border-collapse: collapse;
+  -webkit-overflow-scrolling: touch;
+}
+.j285 thead {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 14px;
+  font-weight: 500;
+}
+.j285 tbody {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.j285 td {
+  padding: 8px 16px 8px 8px;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.j285 td:last-child {
+  padding-right: 24px;
+}
+.j285 td compact {
+  padding-right: 24px;
+}
+.j285 td code {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.j285 th {
+  padding: 0 16px 0 8px;
+  text-align: left;
+  white-space: pre;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.j285 th:last-child {
+  padding-right: 24px;
+}
+.j285 tr {
+  height: 48px;
+}
+.j285 thead tr {
+  height: 64px;
+}
+.j285 strong {
+  font-weight: 500;
+}
+.j285 blockquote {
+  margin: 24px 0;
+  padding: 4px 24px;
+  border-left: 5px solid rgba(0, 0, 0, 0.38);
+  background-color: #fff;
+}
+.j285 a, .j285 a code {
+  color: rgb(225, 0, 80);
+  text-decoration: none;
+}
+.j285 img {
+  max-width: 100%;
+}
+.j285 a:hover, .j285 a code:hover {
+  text-decoration: underline;
+}
+.j285 table .prop-name {
+  font-size: 13px;
+  font-family: Consolas, "Liberation Mono", Menlo, monospace;
+}
+.j285 table .required {
+  color: #006500;
+}
+.j285 table .prop-type {
+  color: #932981;
+  font-size: 13px;
+  font-family: Consolas, "Liberation Mono", Menlo, monospace;
+}
+.j285 table .prop-default {
+  font-size: 13px;
+  font-family: Consolas, "Liberation Mono", Menlo, monospace;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.38);
+}
+.j285 h1 code, .j285 h2 code, .j285 h3 code, .j285 h4 code {
+  font-size: inherit;
+  word-break: break-word;
+  line-height: inherit;
+}
+.j285 h1 .anchor-link-style, .j285 h2 .anchor-link-style, .j285 h3 .anchor-link-style, .j285 h4 .anchor-link-style {
+  opacity: 0;
+  display: none;
+}
+.j285 h1:hover .anchor-link-style, .j285 h2:hover .anchor-link-style, .j285 h3:hover .anchor-link-style, .j285 h4:hover .anchor-link-style {
+  color: rgba(0, 0, 0, 0.38);
+  display: inline-block;
+  opacity: 1;
+  padding: 0 8px;
+}
+.j285 h1:hover .anchor-link-style:hover, .j285 h2:hover .anchor-link-style:hover, .j285 h3:hover .anchor-link-style:hover, .j285 h4:hover .anchor-link-style:hover {
+  color: rgba(0, 0, 0, 0.54);
+}
+.j285 h1:hover .anchor-link-style svg, .j285 h2:hover .anchor-link-style svg, .j285 h3:hover .anchor-link-style svg, .j285 h4:hover .anchor-link-style svg {
+  fill: currentColor;
+  width: 0.55em;
+  height: 0.55em;
+}
+</style><style data-jss="">
+.j97 {
+  text-decoration: none;
+}
+.j97:hover {
+  text-decoration: underline;
+}
+.j98 {
+  color: inherit;
+}
+.j99 {
+  color: #2196f3;
+}
+.j100 {
+  color: rgb(225, 0, 80);
+}
+.j101:hover {
+  text-decoration: inherit;
+}
+</style><style data-jss="" data-meta="MuiPaper">
+.j30 {
+  background-color: #fff;
+}
+.j31 {
+  border-radius: 4px;
+}
+.j32 {
+  box-shadow: none;
+}
+.j33 {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),0px 1px 1px 0px rgba(0, 0, 0, 0.14),0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+.j34 {
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+.j35 {
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),0px 3px 4px 0px rgba(0, 0, 0, 0.14),0px 3px 3px -2px rgba(0, 0, 0, 0.12);
+}
+.j36 {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),0px 4px 5px 0px rgba(0, 0, 0, 0.14),0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+.j37 {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 5px 8px 0px rgba(0, 0, 0, 0.14),0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+}
+.j38 {
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 6px 10px 0px rgba(0, 0, 0, 0.14),0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+.j39 {
+  box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2),0px 7px 10px 1px rgba(0, 0, 0, 0.14),0px 2px 16px 1px rgba(0, 0, 0, 0.12);
+}
+.j40 {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),0px 8px 10px 1px rgba(0, 0, 0, 0.14),0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.j41 {
+  box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2),0px 9px 12px 1px rgba(0, 0, 0, 0.14),0px 3px 16px 2px rgba(0, 0, 0, 0.12);
+}
+.j42 {
+  box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2),0px 10px 14px 1px rgba(0, 0, 0, 0.14),0px 4px 18px 3px rgba(0, 0, 0, 0.12);
+}
+.j43 {
+  box-shadow: 0px 6px 7px -4px rgba(0, 0, 0, 0.2),0px 11px 15px 1px rgba(0, 0, 0, 0.14),0px 4px 20px 3px rgba(0, 0, 0, 0.12);
+}
+.j44 {
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),0px 12px 17px 2px rgba(0, 0, 0, 0.14),0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+}
+.j45 {
+  box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),0px 13px 19px 2px rgba(0, 0, 0, 0.14),0px 5px 24px 4px rgba(0, 0, 0, 0.12);
+}
+.j46 {
+  box-shadow: 0px 7px 9px -4px rgba(0, 0, 0, 0.2),0px 14px 21px 2px rgba(0, 0, 0, 0.14),0px 5px 26px 4px rgba(0, 0, 0, 0.12);
+}
+.j47 {
+  box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2),0px 15px 22px 2px rgba(0, 0, 0, 0.14),0px 6px 28px 5px rgba(0, 0, 0, 0.12);
+}
+.j48 {
+  box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),0px 16px 24px 2px rgba(0, 0, 0, 0.14),0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+.j49 {
+  box-shadow: 0px 8px 11px -5px rgba(0, 0, 0, 0.2),0px 17px 26px 2px rgba(0, 0, 0, 0.14),0px 6px 32px 5px rgba(0, 0, 0, 0.12);
+}
+.j50 {
+  box-shadow: 0px 9px 11px -5px rgba(0, 0, 0, 0.2),0px 18px 28px 2px rgba(0, 0, 0, 0.14),0px 7px 34px 6px rgba(0, 0, 0, 0.12);
+}
+.j51 {
+  box-shadow: 0px 9px 12px -6px rgba(0, 0, 0, 0.2),0px 19px 29px 2px rgba(0, 0, 0, 0.14),0px 7px 36px 6px rgba(0, 0, 0, 0.12);
+}
+.j52 {
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),0px 20px 31px 3px rgba(0, 0, 0, 0.14),0px 8px 38px 7px rgba(0, 0, 0, 0.12);
+}
+.j53 {
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),0px 21px 33px 3px rgba(0, 0, 0, 0.14),0px 8px 40px 7px rgba(0, 0, 0, 0.12);
+}
+.j54 {
+  box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.2),0px 22px 35px 3px rgba(0, 0, 0, 0.14),0px 8px 42px 7px rgba(0, 0, 0, 0.12);
+}
+.j55 {
+  box-shadow: 0px 11px 14px -7px rgba(0, 0, 0, 0.2),0px 23px 36px 3px rgba(0, 0, 0, 0.14),0px 9px 44px 8px rgba(0, 0, 0, 0.12);
+}
+.j56 {
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),0px 24px 38px 3px rgba(0, 0, 0, 0.14),0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+</style><style data-jss="" data-meta="MuiAppBar">
+.j21 {
+  width: 100%;
+  display: flex;
+  z-index: 1100;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+.j22 {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: fixed;
+}
+.j23 {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: absolute;
+}
+.j24 {
+  top: 0;
+  left: auto;
+  right: 0;
+  position: sticky;
+}
+.j25 {
+  position: static;
+}
+.j26 {
+  position: relative;
+}
+.j27 {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #f5f5f5;
+}
+.j28 {
+  color: #fff;
+  background-color: #2196f3;
+}
+.j29 {
+  color: #fff;
+  background-color: rgb(225, 0, 80);
+}
+</style><style data-jss="" data-meta="MuiToolbar">
+.j57 {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.j58 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media (min-width:600px) {
+  .j58 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+.j59 {
+  min-height: 56px;
+}
+@media (min-width:0px) and (orientation: landscape) {
+  .j59 {
+    min-height: 48px;
+  }
+}
+@media (min-width:600px) {
+  .j59 {
+    min-height: 64px;
+  }
+}
+.j60 {
+  min-height: 48px;
+}
+</style><style data-jss="" data-meta="MuiIconButton">
+.j61 {
+  flex: 0 0 auto;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 12px;
+  overflow: visible;
+  font-size: 1.5rem;
+  text-align: center;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 50%;
+}
+.j61:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.j61.j65 {
+  color: rgba(0, 0, 0, 0.26);
+}
+@media (hover: none) {
+  .j61:hover {
+    background-color: transparent;
+  }
+}
+.j61:hover.j65 {
+  background-color: transparent;
+}
+.j62 {
+  color: inherit;
+}
+.j63 {
+  color: #2196f3;
+}
+.j63:hover {
+  background-color: rgba(33, 150, 243, 0.08);
+}
+@media (hover: none) {
+  .j63:hover {
+    background-color: transparent;
+  }
+}
+.j64 {
+  color: rgb(225, 0, 80);
+}
+.j64:hover {
+  background-color: rgba(225, 0, 80, 0.08);
+}
+@media (hover: none) {
+  .j64:hover {
+    background-color: transparent;
+  }
+}
+.j66 {
+  width: 100%;
+  display: flex;
+  align-items: inherit;
+  justify-content: inherit;
+}
+</style><style data-jss="" data-meta="MuiTooltip">
+.j90 {
+  z-index: 1500;
+  opacity: 0.9;
+}
+.j91 {
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.625rem;
+  max-width: 300px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.4em;
+  border-radius: 4px;
+  background-color: #616161;
+}
+.j92 {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  line-height: 1.14286em;
+}
+.j93 {
+  margin: 0 24px ;
+  transform-origin: right center;
+}
+@media (min-width:600px) {
+  .j93 {
+    margin: 0 14px;
+  }
+}
+.j94 {
+  margin: 0 24px;
+  transform-origin: left center;
+}
+@media (min-width:600px) {
+  .j94 {
+    margin: 0 14px;
+  }
+}
+.j95 {
+  margin: 24px 0;
+  transform-origin: center bottom;
+}
+@media (min-width:600px) {
+  .j95 {
+    margin: 14px 0;
+  }
+}
+.j96 {
+  margin: 24px 0;
+  transform-origin: center top;
+}
+@media (min-width:600px) {
+  .j96 {
+    margin: 14px 0;
+  }
+}
+</style><style data-jss="" data-meta="MuiCssBaseline">
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  background-color: #fafafa;
+}
+@media print {
+  body {
+    background-color: #fff;
+  }
+}
+</style><style data-jss="">
+#nprogress {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 1500;
+  position: fixed;
+  direction: ltr;
+  pointer-events: none;
+  background-color: #e0e0e0;
+}
+#nprogress .nprogress-bar {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  position: fixed;
+  background-color: #000;
+}
+#nprogress dd, #nprogress dt {
+  top: 0;
+  height: 2px;
+  position: absolute;
+  animation: nprogress-pulse 2s ease-out 0s infinite;
+  box-shadow: #000 1px 0 6px 1px;
+  border-radius: 100%;
+}
+#nprogress dd {
+  clip: rect(-6px,22px,14px,10px);
+  width: 20px;
+  right: 0;
+  opacity: 0.6;
+}
+#nprogress dt {
+  clip: rect(-6px,90px,14px,-6px);
+  width: 180px;
+  right: -80px;
+  opacity: 0.6;
+}
+@-webkit-keyframes nprogress-pulse {
+  30% {
+    opacity: 0.6;
+  }
+  60% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+</style><style data-jss="" data-meta="MuiList">
+.j341 {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  list-style: none;
+}
+.j342 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.j343 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.j344 {
+  padding-top: 0;
+}
+</style><style data-jss="" data-meta="MuiBackdrop">
+.j799 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  position: fixed;
+  touch-action: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+}
+.j800 {
+  background-color: transparent;
+}
+</style><style data-jss="" data-meta="MuiModal">
+.j337 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1300;
+  position: fixed;
+}
+.j338 {
+  visibility: hidden;
+}
+</style><style data-jss="" data-meta="MuiDrawer">
+.j326 {
+  flex: 0 0 auto;
+}
+.j327 {
+  top: 0;
+  flex: 1 0 auto;
+  height: 100%;
+  display: flex;
+  z-index: 1200;
+  outline: none;
+  position: fixed;
+  overflow-y: auto;
+  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
+}
+.j328 {
+  left: 0;
+  right: auto;
+}
+.j329 {
+  left: auto;
+  right: 0;
+}
+.j330 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  height: auto;
+  max-height: 100%;
+}
+.j331 {
+  top: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: auto;
+  max-height: 100%;
+}
+.j332 {
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+.j333 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.j334 {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+}
+.j335 {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+</style><style data-jss="">
+.j801 {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1199;
+  position: fixed;
+}
+.j802 {
+  right: auto;
+}
+.j803 {
+  left: auto;
+  right: 0;
+}
+.j804 {
+  right: 0;
+  bottom: auto;
+}
+.j805 {
+  top: auto;
+  right: 0;
+  bottom: 0;
+}
+</style><style data-jss="">
+@media (min-width:0px) and (max-width:599.95px) {
+  .j376 {
+    display: none;
+  }
+}
+@media (min-width:0px) {
+  .j377 {
+    display: none;
+  }
+}
+@media (max-width:599.95px) {
+  .j378 {
+    display: none;
+  }
+}
+@media (min-width:600px) and (max-width:959.95px) {
+  .j379 {
+    display: none;
+  }
+}
+@media (min-width:600px) {
+  .j380 {
+    display: none;
+  }
+}
+@media (max-width:959.95px) {
+  .j381 {
+    display: none;
+  }
+}
+@media (min-width:960px) and (max-width:1279.95px) {
+  .j382 {
+    display: none;
+  }
+}
+@media (min-width:960px) {
+  .j383 {
+    display: none;
+  }
+}
+@media (max-width:1279.95px) {
+  .j384 {
+    display: none;
+  }
+}
+@media (min-width:1280px) and (max-width:1919.95px) {
+  .j385 {
+    display: none;
+  }
+}
+@media (min-width:1280px) {
+  .j386 {
+    display: none;
+  }
+}
+@media (max-width:1919.95px) {
+  .j387 {
+    display: none;
+  }
+}
+@media (min-width:1920px) {
+  .j388 {
+    display: none;
+  }
+}
+@media (min-width:1920px) {
+  .j389 {
+    display: none;
+  }
+}
+@media (min-width:0px) {
+  .j390 {
+    display: none;
+  }
+}
+</style><style data-jss="" data-meta="MuiListItem">
+.j350 {
+  width: 100%;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  text-align: left;
+  align-items: center;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+.j350.j360, .j350.j360:hover {
+  background-color: rgba(0, 0, 0, 0.14);
+}
+.j351 {
+  position: relative;
+}
+.j352 {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+.j354 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.j355 {
+  opacity: 0.5;
+}
+.j356 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  background-clip: padding-box;
+}
+.j357 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media (min-width:600px) {
+  .j357 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+.j358 {
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.j358:hover {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+@media (hover: none) {
+  .j358:hover {
+    background-color: transparent;
+  }
+}
+.j359 {
+  padding-right: 32px;
+}
+</style><style data-jss="" data-meta="MuiCollapse">
+.j361 {
+  height: 0;
+  overflow: hidden;
+  transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.j362 {
+  height: auto;
+}
+.j363 {
+  display: flex;
+}
+.j364 {
+  width: 100%;
+}
+</style><style data-jss="">
+.j345 {
+  display: block;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.j346 {
+  display: flex;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.j347 {
+  width: 100%;
+  letter-spacing: 0;
+  text-transform: none;
+  justify-content: flex-start;
+}
+.j348 {
+  width: 100%;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  justify-content: flex-start;
+}
+.j348.depth-0 {
+  font-weight: 500;
+}
+.j349 {
+  color: #2196f3;
+  font-weight: 500;
+}
+</style><style data-jss="">
+.j109 {
+  width: 240px;
+  background-color: #fff;
+}
+.j110 {
+  color: rgba(0, 0, 0, 0.54);
+  margin-bottom: 4px;
+}
+.j110:hover {
+  color: #2196f3;
+}
+.j111 {
+  display: flex;
+}
+.j112 {
+  display: flex;
+  flex-grow: 1;
+  min-height: 56px;
+  align-items: flex-start;
+  padding-left: 24px;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width:0px) and (orientation: landscape) {
+  .j112 {
+    min-height: 48px;
+  }
+}
+@media (min-width:600px) {
+  .j112 {
+    min-height: 64px;
+  }
+}
+.j113 {
+  color: rgba(0, 0, 0, 0.54);
+}
+</style><style data-jss="" data-meta="MuiInputBase">
+.j779 {
+  color: rgba(0, 0, 0, 0.87);
+  cursor: text;
+  display: inline-flex;
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.1875em;
+  align-items: center;
+}
+.j779.j782 {
+  color: rgba(0, 0, 0, 0.38);
+  cursor: default;
+}
+.j787 {
+  padding: 6px 0 7px;
+}
+.j788 {
+  width: 100%;
+}
+.j789 {
+  font: inherit;
+  width: 100%;
+  color: currentColor;
+  border: 0;
+  margin: 0;
+  padding: 6px 0 7px;
+  display: block;
+  min-width: 0;
+  box-sizing: content-box;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.j789::-webkit-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.j789::-moz-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.j789:-ms-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.j789::-ms-input-placeholder {
+  color: currentColor;
+  opacity: 0.42;
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.j789:focus {
+  outline: 0;
+}
+.j789:invalid {
+  box-shadow: none;
+}
+.j789::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+.j789.j782 {
+  opacity: 1;
+}
+label[data-shrink=false] + .j780 .j789::-webkit-input-placeholder {
+  opacity: 0;
+}
+label[data-shrink=false] + .j780 .j789::-moz-placeholder {
+  opacity: 0;
+}
+label[data-shrink=false] + .j780 .j789:-ms-input-placeholder {
+  opacity: 0;
+}
+label[data-shrink=false] + .j780 .j789::-ms-input-placeholder {
+  opacity: 0;
+}
+label[data-shrink=false] + .j780 .j789:focus::-webkit-input-placeholder {
+  opacity: 0.42;
+}
+label[data-shrink=false] + .j780 .j789:focus::-moz-placeholder {
+  opacity: 0.42;
+}
+label[data-shrink=false] + .j780 .j789:focus:-ms-input-placeholder {
+  opacity: 0.42;
+}
+label[data-shrink=false] + .j780 .j789:focus::-ms-input-placeholder {
+  opacity: 0.42;
+}
+.j790 {
+  padding-top: 3px;
+}
+.j791 {
+  resize: none;
+  padding: 0;
+}
+.j792 {
+  height: 1.1875em;
+}
+.j793 {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+}
+</style><style data-jss="" data-meta="MuiInput">
+.j766 {
+  position: relative;
+}
+label + .j767 {
+  margin-top: 16px;
+}
+.j770:after {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  transform: scaleX(0);
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+  border-bottom: 2px solid #1976d2;
+  pointer-events: none;
+}
+.j770.j768:after {
+  transform: scaleX(1);
+}
+.j770.j771:after {
+  transform: scaleX(1);
+  border-bottom-color: #f44336;
+}
+.j770:before {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "\00a0";
+  position: absolute;
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  pointer-events: none;
+}
+.j770:hover:not(.j769):not(.j768):not(.j771):before {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.87);
+}
+.j770.j769:before {
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.42);
+}
+</style><style data-jss="">
+.algolia-autocomplete {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header-lvl0 {
+  color: rgba(0, 0, 0, 0.87);
+}
+.algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column {
+  width: 30%;
+  opacity: 1;
+  padding: 5.33px 10.66px;
+  text-align: right;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--content {
+  float: right;
+  width: 70%;
+  padding: 5.33px 0 5.33px 10.66px;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column-text {
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 400;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+  color: #174d8c;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion {
+  background: transparent;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--title {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1.25rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--text {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 0.875rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01071em;
+}
+.algolia-autocomplete .ds-dropdown-menu {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),0px 1px 1px 0px rgba(0, 0, 0, 0.14),0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+}
+.algolia-autocomplete .ds-dropdown-menu::before {
+  display: none;
+}
+.algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
+  border: 0;
+  border-radius: 2px;
+  background-color: #fff;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--content:before {
+  display: block;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column:before {
+  display: block;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion .algolia-docsearch-suggestion--subcategory-column:after {
+  display: none;
+}
+.j86 {
+  position: relative;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  margin-left: 8px;
+  margin-right: 16px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.j86:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.j86 .j89 {
+  width: 120px;
+  transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.j86 .j89:focus {
+  width: 170px;
+}
+.j87 {
+  width: 72px;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+}
+.j88 {
+  color: inherit;
+}
+.j89 {
+  padding: 8px 8px 8px 72px;
+}
+</style><style data-jss="" data-meta="MuiSnackbar">
+.j102 {
+  left: 0;
+  right: 0;
+  z-index: 1400;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+}
+.j103 {
+  top: 0;
+}
+@media (min-width:960px) {
+  .j103 {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+.j104 {
+  bottom: 0;
+}
+@media (min-width:960px) {
+  .j104 {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+.j105 {
+  top: 0;
+  justify-content: flex-end;
+}
+@media (min-width:960px) {
+  .j105 {
+    top: 24px;
+    left: auto;
+    right: 24px;
+  }
+}
+.j106 {
+  bottom: 0;
+  justify-content: flex-end;
+}
+@media (min-width:960px) {
+  .j106 {
+    left: auto;
+    right: 24px;
+    bottom: 24px;
+  }
+}
+.j107 {
+  top: 0;
+  justify-content: flex-start;
+}
+@media (min-width:960px) {
+  .j107 {
+    top: 24px;
+    left: 24px;
+    right: auto;
+  }
+}
+.j108 {
+  bottom: 0;
+  justify-content: flex-start;
+}
+@media (min-width:960px) {
+  .j108 {
+    left: 24px;
+    right: auto;
+    bottom: 24px;
+  }
+}
+</style><style data-jss="">
+.j13 {
+  display: flex;
+}
+.j14 {
+  flex: 1 1 auto;
+}
+.j15 {
+  flex: 0 1 auto;
+  margin-left: 24px;
+}
+.j16 {
+  transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+@media print {
+  .j16 {
+    position: absolute;
+  }
+}
+.j17 {
+  box-shadow: none;
+}
+@media (min-width:1280px) {
+  .j18 {
+    width: calc(100% - 240px);
+  }
+}
+@media (min-width:1280px) {
+  .j19 {
+    width: 240px;
+  }
+}
+@media (min-width:1280px) {
+  .j20 {
+    display: none;
+  }
+}
+</style><style data-jss="">
+.j395 {
+  flex: 1 1 100%;
+  margin: 0 auto;
+  max-width: 100%;
+  padding-top: 80px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media (min-width:600px) {
+  .j395 {
+    max-width: calc(100% - 162px);
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media (min-width:1280px) {
+  .j395 {
+    max-width: calc(100% - 240px - 162px);
+    padding-left: 40px;
+    padding-right: 72px;
+  }
+}
+</style><style data-jss="" data-meta="MuiPopover">
+.j402 {
+  outline: none;
+  position: absolute;
+  min-width: 16px;
+  max-width: calc(100% - 32px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 16px;
+  max-height: calc(100% - 32px);
+}
+</style><style data-jss="" data-meta="MuiMenu">
+.j401 {
+  max-height: calc(100% - 96px);
+  -webkit-overflow-scrolling: touch;
+}
+</style><style data-jss="">
+.j396 {
+  position: relative;
+  margin-left: -16px;
+  margin-right: -16px;
+  margin-bottom: 40px;
+}
+@media (min-width:600px) {
+  .j396 {
+    padding: 0 8px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.j397 {
+  display: flex;
+  padding-top: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 4px;
+  padding-bottom: 16px;
+  justify-content: center;
+  background-color: #eeeeee;
+}
+@media (min-width:600px) {
+  .j397 {
+    padding-top: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+  }
+}
+.j398 {
+  padding-top: 16px;
+}
+@media (min-width:600px) {
+  .j398 {
+    padding-top: 24px;
+  }
+}
+.j399 {
+  display: none;
+}
+@media (min-width:600px) {
+  .j399 {
+    top: 0;
+    right: 8px;
+    display: flex;
+    position: absolute;
+  }
+}
+.j400 {
+  margin: 0;
+  display: none;
+  padding: 0;
+}
+@media (min-width:600px) {
+  .j400 {
+    display: block;
+  }
+}
+.j400 pre {
+  margin: 0px !important;
+  overflow: auto;
+  border-radius: 0px !important;
+}
+</style><style data-jss="">
+#carbonads {
+  padding: 8px;
+  background-color: #fff;
+}
+#carbonads img {
+  vertical-align: middle;
+}
+#carbonads a {
+  text-decoration: none;
+}
+#carbonads .carbon-wrap {
+  display: block;
+}
+#carbonads .carbon-text {
+  color: rgba(0, 0, 0, 0.87);
+  margin: 8px 0;
+  display: block;
+  font-size: 1rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+#carbonads .carbon-poweredby {
+  color: rgba(0, 0, 0, 0.87);
+  display: block;
+  font-size: 0.75rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+}
+</style><style data-jss="">
+.j796 {
+  position: relative;
+  min-height: 180px;
+}
+.j797 {
+  color: rgba(0, 0, 0, 0.87);
+  right: 0;
+  cursor: default;
+  bottom: 0;
+  padding: 8px;
+  position: absolute;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.66;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  letter-spacing: 0.03333em;
+}
+.j798 {
+  padding: 8px;
+}
+</style><style data-jss="">
+.j391 {
+  top: 70px;
+  width: 162px;
+  order: 2;
+  height: calc(100vh - 70px);
+  padding: 16px 16px 16px 0;
+  display: none;
+  position: sticky;
+  word-break: break-word;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+@media (min-width:600px) {
+  .j391 {
+    display: block;
+  }
+}
+.j392 {
+  margin-top: 16px;
+}
+.j393 {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.j394 {
+  padding: 4px 0;
+  font-size: 13px;
+}
+</style><style data-jss="">
+.j373 {
+  margin-bottom: 100px;
+}
+.j374 {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.j375 {
+  padding: 0 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+</style><style data-jss="" data-meta="MuiCard">
+.j732 {
+  overflow: hidden;
+}
+</style><style data-jss="" data-meta="MuiCardActions">
+.j734 {
+  display: flex;
+  padding: 8px 4px;
+  box-sizing: border-box;
+  align-items: center;
+}
+@media (min-width:600px) {
+  .j734 {
+    padding: 8px 12px;
+  }
+}
+.j735 {
+  margin: 0 4px;
+}
+</style><style data-jss="" data-meta="MuiCardContent">
+.j733 {
+  padding-top: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+}
+.j733:last-child {
+  padding-bottom: 24px;
+}
+@media (min-width:600px) {
+  .j733 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+</style><style data-jss="">
+.j728 {
+  min-width: 275px;
+}
+.j729 {
+  margin: 0 2px;
+  display: inline-block;
+  transform: scale(0.8);
+}
+.j730 {
+  font-size: 14px;
+}
+.j731 {
+  margin-bottom: 12px;
+}
+</style><style data-jss="" data-meta="MuiCardActionArea">
+.j738 {
+  display: block;
+  text-align: inherit;
+}
+.j738:hover .j740 {
+  opacity: 0.08;
+}
+.j738.j739 .j740 {
+  opacity: 0.12;
+}
+.j740 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  pointer-events: none;
+  background-color: currentcolor;
+}
+</style><style data-jss="" data-meta="MuiCardMedia">
+.j741 {
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.j742 {
+  width: 100%;
+}
+</style><style data-jss="">
+.j736 {
+  max-width: 345px;
+}
+.j737 {
+  height: 140px;
+}
+</style><style data-jss="">
+.j743 {
+  max-width: 345px;
+}
+.j744 {
+  object-fit: cover;
+}
+</style><style data-jss="">
+.j745 {
+  display: flex;
+}
+.j746 {
+  display: flex;
+  flex-direction: column;
+}
+.j747 {
+  flex: 1 0 auto;
+}
+.j748 {
+  width: 151px;
+}
+.j749 {
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  padding-bottom: 8px;
+}
+.j750 {
+  width: 38px;
+  height: 38px;
+}
+</style><style data-jss="" data-meta="MuiCardHeader">
+.j757 {
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+}
+@media (min-width:600px) {
+  .j757 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+.j758 {
+  flex: 0 0 auto;
+  margin-right: 16px;
+}
+.j759 {
+  flex: 0 0 auto;
+  align-self: flex-start;
+  margin-top: -8px;
+  margin-right: -12px;
+}
+@media (min-width:600px) {
+  .j759 {
+    margin-right: -20px;
+  }
+}
+.j760 {
+  flex: 1 1 auto;
+}
+</style><style data-jss="" data-meta="MuiAvatar">
+.j763 {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  align-items: center;
+  user-select: none;
+  border-radius: 50%;
+  justify-content: center;
+}
+.j764 {
+  color: #fafafa;
+  background-color: #bdbdbd;
+}
+.j765 {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  object-fit: cover;
+}
+</style><style data-jss="">
+.j751 {
+  max-width: 400px;
+}
+.j752 {
+  height: 0;
+  padding-top: 56.25%;
+}
+.j753 {
+  display: flex;
+}
+.j754 {
+  transform: rotate(0deg);
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  margin-left: auto;
+}
+@media (min-width:600px) {
+  .j754 {
+    margin-right: -8px;
+  }
+}
+.j755 {
+  transform: rotate(180deg);
+}
+.j756 {
+  background-color: #f44336;
+}
+</style><style data-prism="true">/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #9a6e3a;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function,
+.token.class-name {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style><script id="_carbonads_projs" type="text/javascript" src="./paella_files/CKYIL27L.json"></script><script id="_carbonads_projs" type="text/javascript" src="./paella_files/CKYIL27L.json"></script><style type="text/css" id="cf-style">#cf_ad {  margin: 0 auto;  max-width: 330px;}#cf_ad .cf-wrapper {     border-radius: 4px;     display: block;     padding: 15px;     overflow: hidden;     font-size: 14px;     line-height: 1.4;     text-align: left;     background-color: rgba(0,0,0,0.05);     font-family: Helvetica;}#cf_ad .cf-img-wrapper {     float: left;     margin-right: 15px;}#cf_ad .cf-img {     vertical-align: middle;     border-style: none;     max-width: 130px;}#cf_ad .cf-text {     color: #333;     text-decoration: none;}#cf_ad .cf-powered-by {     margin-top: 5px;     font-size: 12px;     display: block;     color: #777;     text-decoration: none;}</style><meta name="description" content="Cards contain content and actions about a single subject." class="next-head"><meta name="twitter:title" content="Card React component - Material-UI" class="next-head"><meta name="twitter:description" content="Cards contain content and actions about a single subject." class="next-head"><meta property="og:title" content="Card React component - Material-UI" class="next-head"><meta property="og:url" content="https://material-ui.com/demos/cards/" class="next-head"><meta property="og:description" content="Cards contain content and actions about a single subject." class="next-head"><script id="_carbonads_projs" type="text/javascript" src="./paella_files/CKYIL27L.json"></script></head><body dir="ltr" cz-shortcut-listen="true" style=""><div id="__next"><div class="j13"><header class="j30 j36 j21 j22 j28 mui-fixed j16 j18"><div class="j57 j59 j58"><button tabindex="0" class="j67 j61 j62 j20" type="button" aria-label="Open drawer"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0z"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></span><span class="j79"></span></button><h6 class="j117 j134 j146 j143 j15">Cards</h6><div class="j14"></div><div class="j86" style="display: none;"><div class="j87"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg></div><div class="j779 j766 j88"><span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;"><input class="j789 j774 j89 ds-input" id="docsearch-input" placeholder="Search…" type="text" value="" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-10" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="ds-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-10" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="ds-dataset-11"></div></span></span></div></div><a class="j97 j98 j67 j61 j62" tabindex="0" role="button" aria-label="Edit docs colors" title="Edit docs colors" href="https://material-ui.com/style/color/#color-tool"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M24 0H0v24h24z"></path><path d="M17.66 7.93L12 2.27 6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58c2.05 0 4.1-.78 5.66-2.34 3.12-3.12 3.12-8.19 0-11.31zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"></path></svg></span><span class="j79"></span></a><button tabindex="0" class="j67 j61 j62" type="button" aria-label="Toggle light/dark theme" title="Toggle light/dark theme"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61 j62" type="button" aria-label="Toggle right-to-left/left-to-right" title="Toggle right-to-left/left-to-right"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M10 10v5h2V4h2v11h2V4h2V2h-8C7.79 2 6 3.79 6 6s1.79 4 4 4zm-2 7v-3l-4 4 4 4v-3h12v-2H8z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg></span><span class="j79"></span></button><a tabindex="0" class="j67 j61 j62" role="button" href="https://github.com/mui-org/material-ui" aria-label="GitHub repository" title="GitHub repository"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg></span><span class="j79"></span></a></div></header><nav class="j19"><div class="j801 j802" style="width: 20px;"></div><div class="j384"><div class="j326"><div class="j30 j32 j327 j109 j328 j332"><div><div class="j111"><div class="j112"><a class="j97 j98 j110" href="https://material-ui.com/"><h6 class="j117 j134 j146">Material-UI</h6></a><a class="j97 j98 j113" href="https://material-ui.com/versions/"><span class="j117 j127">v3.2.0</span></a></div></div><hr class="j286"><ul class="j341 j342"><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Getting Started</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Style</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Layout</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Utils</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153 algolia-lvl0">Component Demos</span><span class="j79"></span></button><div class="j361 j362" style="min-height: 0px;"><div class="j363"><div class="j364"><ul class="j341 j342"><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/app-bar/" style="padding-left: 40px;"><span class="j153">App Bar</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/autocomplete/" style="padding-left: 40px;"><span class="j153">Autocomplete</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/avatars/" style="padding-left: 40px;"><span class="j153">Avatars</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/badges/" style="padding-left: 40px;"><span class="j153">Badges</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/bottom-navigation/" style="padding-left: 40px;"><span class="j153">Bottom Navigation</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/buttons/" style="padding-left: 40px;"><span class="j153">Buttons</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1 j349" tabindex="0" role="button" href="https://material-ui.com/demos/cards/" style="padding-left: 40px;"><span class="j153">Cards</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/chips/" style="padding-left: 40px;"><span class="j153">Chips</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/dialogs/" style="padding-left: 40px;"><span class="j153">Dialogs</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/dividers/" style="padding-left: 40px;"><span class="j153">Dividers</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/drawers/" style="padding-left: 40px;"><span class="j153">Drawers</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/expansion-panels/" style="padding-left: 40px;"><span class="j153">Expansion Panels</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/grid-list/" style="padding-left: 40px;"><span class="j153">Grid List</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/lists/" style="padding-left: 40px;"><span class="j153">Lists</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/menus/" style="padding-left: 40px;"><span class="j153">Menus</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/paper/" style="padding-left: 40px;"><span class="j153">Paper</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/pickers/" style="padding-left: 40px;"><span class="j153">Pickers</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/progress/" style="padding-left: 40px;"><span class="j153">Progress</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/selection-controls/" style="padding-left: 40px;"><span class="j153">Selection Controls</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/selects/" style="padding-left: 40px;"><span class="j153">Selects</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/snackbars/" style="padding-left: 40px;"><span class="j153">Snackbars</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/steppers/" style="padding-left: 40px;"><span class="j153">Steppers</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/tables/" style="padding-left: 40px;"><span class="j153">Tables</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/tabs/" style="padding-left: 40px;"><span class="j153">Tabs</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/text-fields/" style="padding-left: 40px;"><span class="j153">Text Fields</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/tooltips/" style="padding-left: 40px;"><span class="j153">Tooltips</span></a></li></ul></div></div></div></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Component API</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Customization</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Guides</span><span class="j79"></span></button></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-0" tabindex="0" role="button" href="https://material-ui.com/page-layout-examples/" style="padding-left: 24px;"><span class="j153">Page Layout Examples</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-0" tabindex="0" role="button" href="https://material-ui.com/premium-themes/" style="padding-left: 24px;"><span class="j153">Premium Themes</span></a></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Lab</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Discover More</span><span class="j79"></span></button></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-0" tabindex="0" role="button" href="https://material-ui.com/versions/" style="padding-left: 24px;"><span class="j153">Versions</span></a></li></ul></div></div></div></div></nav><nav class="j391"><div class="j796"><div id="carbon-ad"><script async="" src="./paella_files/carbon.js.download" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42QIF6SD6KJLCEB4YKQMCKAI5K3LCKADPZ3JCW7IL27ECYSIKK7KC6BIC5QNC6AI6K3EHJNCLSIZ?segment=placement:material-uicom;" class="carbon-img" target="_blank" rel="noopener"><img src="./paella_files/1538677439-digitalocean-260x200-blue_1_.png" alt="" border="0" height="100" width="130" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42QIF6SD6KJLCEB4YKQMCKAI5K3LCKADPZ3JCW7IL27ECYSIKK7KC6BIC5QNC6AI6K3EHJNCLSIZ?segment=placement:material-uicom;" class="carbon-text" target="_blank" rel="noopener">Try DigitalOcean today and get a free $100 credit.</a></span><a href="http://carbonads.net/?utm_source=material-uicom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener">ads via Carbon</a><img src="./paella_files/B21757417.230484297" border="0" height="1" width="1" style="display: none;"></span></div></div><span class="j797" title="This ad is designed to support Open Source.">i</span></div><p class="j117 j125 j144 j392">Contents</p><ul class="j393"><li><a class="j97 j117 j125 j150 j394" href="https://material-ui.com/#simple-card"><span>Simple Card</span></a></li><li><a class="j97 j117 j125 j150 j394" href="https://material-ui.com/#media"><span>Media</span></a></li><li><a class="j97 j117 j125 j150 j394" href="https://material-ui.com/#ui-controls"><span>UI Controls</span></a></li><li><a class="j97 j117 j125 j150 j394" href="https://material-ui.com/#complex-interaction"><span>Complex Interaction</span></a></li><li><a class="j97 j117 j125 j149 j394" href="https://material-ui.com/#api"><span>API</span></a></li></ul></nav><main class="j395 j373"><div class="j374"><a tabindex="0" class="j67 j152 j154 j157" role="button" href="https://github.com/mui-org/material-ui/tree/master/docs/src/pages/demos/cards/cards.md"><span class="j153">Edit this page</span><span class="j79"></span></a></div><div class="j285 markdown-body j375">
+    <h1>
+      <a class="anchor-link" id="cards"></a>Cards<a class="anchor-link-style" href="https://material-ui.com/demos/cards/#cards">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M46.9 13.9c-.5-.6-1.2-.94-2.07-.94h-6.67l1.86-8.98c.17-.85 0-1.7-.52-2.3-.48-.6-1.2-.94-2.07-.94-1.6 0-3.2 1.27-3.54 2.93l-.5 2.42c0 .07-.07.13-.07.2l-1.37 6.62H20.7l1.88-8.96c.16-.85 0-1.7-.53-2.3-.48-.6-1.2-.94-2.07-.94-1.65 0-3.2 1.27-3.56 2.93l-.52 2.58v.08l-1.37 6.64H7.3c-1.67 0-3.22 1.3-3.58 2.96-.16.86 0 1.7.52 2.3.48.6 1.2.93 2.07.93h6.97l-2 9.65H4c-1.67 0-3.22 1.27-3.56 2.94-.2.8 0 1.67.5 2.27.5.6 1.2.93 2.08.93H10l-1.84 9.05c-.2.84 0 1.67.52 2.3.5.6 1.25.92 2.08.92 1.66 0 3.2-1.3 3.55-2.94l1.94-9.33h11.22l-1.87 9.05c-.15.84.03 1.67.53 2.3.5.6 1.2.92 2.07.92 1.65 0 3.22-1.3 3.56-2.94l1.9-9.33h7c1.6 0 3.2-1.28 3.53-2.93.2-.87 0-1.7-.52-2.3-.48-.62-1.2-.96-2.05-.96h-6.7l2.02-9.65h6.93c1.67 0 3.22-1.27 3.56-2.92.2-.85 0-1.7-.5-2.3l-.04.03zM17.53 28.77l1.95-9.65H30.7l-1.97 9.66H17.5h.03z"></path></svg>
+      </a></h1>
+  <p class="description">Cards contain content and actions about a single subject.</p>
+
+<p><a href="https://material.io/design/components/cards.html">Cards</a> are surfaces that display content and actions on a single topic.</p>
+<p>They should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy.</p>
+
+    <h2>
+      <a class="anchor-link" id="simple-card"></a>Simple Card<a class="anchor-link-style" href="https://material-ui.com/demos/cards/#simple-card">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M46.9 13.9c-.5-.6-1.2-.94-2.07-.94h-6.67l1.86-8.98c.17-.85 0-1.7-.52-2.3-.48-.6-1.2-.94-2.07-.94-1.6 0-3.2 1.27-3.54 2.93l-.5 2.42c0 .07-.07.13-.07.2l-1.37 6.62H20.7l1.88-8.96c.16-.85 0-1.7-.53-2.3-.48-.6-1.2-.94-2.07-.94-1.65 0-3.2 1.27-3.56 2.93l-.52 2.58v.08l-1.37 6.64H7.3c-1.67 0-3.22 1.3-3.58 2.96-.16.86 0 1.7.52 2.3.48.6 1.2.93 2.07.93h6.97l-2 9.65H4c-1.67 0-3.22 1.27-3.56 2.94-.2.8 0 1.67.5 2.27.5.6 1.2.93 2.08.93H10l-1.84 9.05c-.2.84 0 1.67.52 2.3.5.6 1.25.92 2.08.92 1.66 0 3.2-1.3 3.55-2.94l1.94-9.33h11.22l-1.87 9.05c-.15.84.03 1.67.53 2.3.5.6 1.2.92 2.07.92 1.65 0 3.22-1.3 3.56-2.94l1.9-9.33h7c1.6 0 3.2-1.28 3.53-2.93.2-.87 0-1.7-.52-2.3-.48-.62-1.2-.96-2.05-.96h-6.7l2.02-9.65h6.93c1.67 0 3.22-1.27 3.56-2.92.2-.85 0-1.7-.5-2.3l-.04.03zM17.53 28.77l1.95-9.65H30.7l-1.97 9.66H17.5h.03z"></path></svg>
+      </a></h2>
+  <p>Although cards can support multiple actions, UI controls, and an overflow menu, use restraint and remember that cards are entry points to more complex and detailed information.</p>
+</div><div class="j396"><div><div class="j399"><a tabindex="0" class="j67 j61" role="button" href="https://github.com/mui-org/material-ui/tree/master/docs/src/pages/demos/cards/SimpleCard.js" target="_blank" aria-label="GitHub" title="See the source on GitHub"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg></span><span class="j79"></span></a><button tabindex="0" class="j67 j61" type="button" aria-label="CodeSandbox" title="Edit in CodeSandbox"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-label="Source of demo n°1" title="Show the source"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-haspopup="true" aria-label="See more"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></span><span class="j79"></span></button></div></div><div class="j397"><div class="j30 j33 j31 j732 j728"><div class="j733"><p class="j117 j125 j150 j144 j730">Word of the Day</p><h2 class="j117 j133">be<span class="j729">•</span>nev<span class="j729">•</span>o<span class="j729">•</span>lent</h2><p class="j117 j125 j150 j731">adjective</p><p class="j117 j125">well meaning and kindly.<br>"a benevolent smile"</p></div><div class="j734"><button tabindex="0" class="j67 j152 j154 j157 j175 j735" type="button"><span class="j153">Learn More</span><span class="j79"></span></button></div></div></div></div><div class="j285 markdown-body j375">
+    <h2>
+      <a class="anchor-link" id="media"></a>Media<a class="anchor-link-style" href="https://material-ui.com/demos/cards/#media">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M46.9 13.9c-.5-.6-1.2-.94-2.07-.94h-6.67l1.86-8.98c.17-.85 0-1.7-.52-2.3-.48-.6-1.2-.94-2.07-.94-1.6 0-3.2 1.27-3.54 2.93l-.5 2.42c0 .07-.07.13-.07.2l-1.37 6.62H20.7l1.88-8.96c.16-.85 0-1.7-.53-2.3-.48-.6-1.2-.94-2.07-.94-1.65 0-3.2 1.27-3.56 2.93l-.52 2.58v.08l-1.37 6.64H7.3c-1.67 0-3.22 1.3-3.58 2.96-.16.86 0 1.7.52 2.3.48.6 1.2.93 2.07.93h6.97l-2 9.65H4c-1.67 0-3.22 1.27-3.56 2.94-.2.8 0 1.67.5 2.27.5.6 1.2.93 2.08.93H10l-1.84 9.05c-.2.84 0 1.67.52 2.3.5.6 1.25.92 2.08.92 1.66 0 3.2-1.3 3.55-2.94l1.94-9.33h11.22l-1.87 9.05c-.15.84.03 1.67.53 2.3.5.6 1.2.92 2.07.92 1.65 0 3.22-1.3 3.56-2.94l1.9-9.33h7c1.6 0 3.2-1.28 3.53-2.93.2-.87 0-1.7-.52-2.3-.48-.62-1.2-.96-2.05-.96h-6.7l2.02-9.65h6.93c1.67 0 3.22-1.27 3.56-2.92.2-.85 0-1.7-.5-2.3l-.04.03zM17.53 28.77l1.95-9.65H30.7l-1.97 9.66H17.5h.03z"></path></svg>
+      </a></h2>
+  <p>Example of a card using an image to reinforce the content.</p>
+</div><div class="j396"><div><div class="j399"><a tabindex="0" class="j67 j61" role="button" href="https://github.com/mui-org/material-ui/tree/master/docs/src/pages/demos/cards/MediaCard.js" target="_blank" aria-label="GitHub" title="See the source on GitHub"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg></span><span class="j79"></span></a><button tabindex="0" class="j67 j61" type="button" aria-label="CodeSandbox" title="Edit in CodeSandbox"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-label="Source of demo n°3" title="Show the source"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-haspopup="true" aria-label="See more"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></span><span class="j79"></span></button></div></div><div class="j397"><div class="j30 j33 j31 j732 j736"><button tabindex="0" class="j67 j738" type="button"><div class="j741 j737" title="Contemplative Reptile" style="background-image: url(&quot;/static/images/cards/contemplative-reptile.jpg&quot;);"></div><div class="j733"><h2 class="j117 j133 j144">Lizard</h2><p class="j117 j125">Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica</p></div><span class="j740"></span><span class="j79"></span></button><div class="j734"><button tabindex="0" class="j67 j152 j154 j155 j157 j158 j175 j735" type="button"><span class="j153">Share</span><span class="j79"></span></button><button tabindex="0" class="j67 j152 j154 j155 j157 j158 j175 j735" type="button"><span class="j153">Learn More</span><span class="j79"></span></button></div></div></div></div><div class="j285 markdown-body j375"><p>By default, we use the combination of a <code>&lt;div&gt;</code> element and a <em>background image</em> to display the media. It can be problematic in some situations. For instance, you might want to display a video or a responsive image. Use the <code>component</code> property for these use cases:</p>
+</div><div class="j396"><div><div class="j399"><a tabindex="0" class="j67 j61" role="button" href="https://github.com/mui-org/material-ui/tree/master/docs/src/pages/demos/cards/ImgMediaCard.js" target="_blank" aria-label="GitHub" title="See the source on GitHub"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg></span><span class="j79"></span></a><button tabindex="0" class="j67 j61" type="button" aria-label="CodeSandbox" title="Edit in CodeSandbox"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-label="Source of demo n°5" title="Show the source"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-haspopup="true" aria-label="See more"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></span><span class="j79"></span></button></div></div><div class="j397"><div class="j30 j33 j31 j732 j743"><button tabindex="0" class="j67 j738" type="button"><img class="j741 j742 j744" src="./paella_files/contemplative-reptile.jpg" alt="Contemplative Reptile" height="140" title="Contemplative Reptile"><div class="j733"><h2 class="j117 j133 j144">Lizard</h2><p class="j117 j125">Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica</p></div><span class="j740"></span><span class="j79"></span></button><div class="j734"><button tabindex="0" class="j67 j152 j154 j155 j157 j158 j175 j735" type="button"><span class="j153">Share</span><span class="j79"></span></button><button tabindex="0" class="j67 j152 j154 j155 j157 j158 j175 j735" type="button"><span class="j153">Learn More</span><span class="j79"></span></button></div></div></div></div><div class="j285 markdown-body j375">
+    <h2>
+      <a class="anchor-link" id="ui-controls"></a>UI Controls<a class="anchor-link-style" href="https://material-ui.com/demos/cards/#ui-controls">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M46.9 13.9c-.5-.6-1.2-.94-2.07-.94h-6.67l1.86-8.98c.17-.85 0-1.7-.52-2.3-.48-.6-1.2-.94-2.07-.94-1.6 0-3.2 1.27-3.54 2.93l-.5 2.42c0 .07-.07.13-.07.2l-1.37 6.62H20.7l1.88-8.96c.16-.85 0-1.7-.53-2.3-.48-.6-1.2-.94-2.07-.94-1.65 0-3.2 1.27-3.56 2.93l-.52 2.58v.08l-1.37 6.64H7.3c-1.67 0-3.22 1.3-3.58 2.96-.16.86 0 1.7.52 2.3.48.6 1.2.93 2.07.93h6.97l-2 9.65H4c-1.67 0-3.22 1.27-3.56 2.94-.2.8 0 1.67.5 2.27.5.6 1.2.93 2.08.93H10l-1.84 9.05c-.2.84 0 1.67.52 2.3.5.6 1.25.92 2.08.92 1.66 0 3.2-1.3 3.55-2.94l1.94-9.33h11.22l-1.87 9.05c-.15.84.03 1.67.53 2.3.5.6 1.2.92 2.07.92 1.65 0 3.22-1.3 3.56-2.94l1.9-9.33h7c1.6 0 3.2-1.28 3.53-2.93.2-.87 0-1.7-.52-2.3-.48-.62-1.2-.96-2.05-.96h-6.7l2.02-9.65h6.93c1.67 0 3.22-1.27 3.56-2.92.2-.85 0-1.7-.5-2.3l-.04.03zM17.53 28.77l1.95-9.65H30.7l-1.97 9.66H17.5h.03z"></path></svg>
+      </a></h2>
+  <p>Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically placed at the bottom of the card.</p>
+<p>Here's an example of a media control card.</p>
+</div><div class="j396"><div><div class="j399"><a tabindex="0" class="j67 j61" role="button" href="https://github.com/mui-org/material-ui/tree/master/docs/src/pages/demos/cards/MediaControlCard.js" target="_blank" aria-label="GitHub" title="See the source on GitHub"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg></span><span class="j79"></span></a><button tabindex="0" class="j67 j61" type="button" aria-label="CodeSandbox" title="Edit in CodeSandbox"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-label="Source of demo n°7" title="Show the source"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-haspopup="true" aria-label="See more"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></span><span class="j79"></span></button></div></div><div class="j397"><div class="j30 j33 j31 j732 j745"><div class="j746"><div class="j733 j747"><h5 class="j117 j133">Live From Space</h5><h6 class="j117 j135 j150">Mac Miller</h6></div><div class="j749"><button tabindex="0" class="j67 j61" type="button" aria-label="Previous"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-label="Play/pause"><span class="j66"><svg class="j70 j750" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M8 5v14l11-7z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-label="Next"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg></span><span class="j79"></span></button></div></div><div class="j741 j748" title="Live from space album cover" style="background-image: url(&quot;/static/images/cards/live-from-space.jpg&quot;);"></div></div></div></div><div class="j285 markdown-body j375">
+    <h2>
+      <a class="anchor-link" id="complex-interaction"></a>Complex Interaction<a class="anchor-link-style" href="https://material-ui.com/demos/cards/#complex-interaction">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M46.9 13.9c-.5-.6-1.2-.94-2.07-.94h-6.67l1.86-8.98c.17-.85 0-1.7-.52-2.3-.48-.6-1.2-.94-2.07-.94-1.6 0-3.2 1.27-3.54 2.93l-.5 2.42c0 .07-.07.13-.07.2l-1.37 6.62H20.7l1.88-8.96c.16-.85 0-1.7-.53-2.3-.48-.6-1.2-.94-2.07-.94-1.65 0-3.2 1.27-3.56 2.93l-.52 2.58v.08l-1.37 6.64H7.3c-1.67 0-3.22 1.3-3.58 2.96-.16.86 0 1.7.52 2.3.48.6 1.2.93 2.07.93h6.97l-2 9.65H4c-1.67 0-3.22 1.27-3.56 2.94-.2.8 0 1.67.5 2.27.5.6 1.2.93 2.08.93H10l-1.84 9.05c-.2.84 0 1.67.52 2.3.5.6 1.25.92 2.08.92 1.66 0 3.2-1.3 3.55-2.94l1.94-9.33h11.22l-1.87 9.05c-.15.84.03 1.67.53 2.3.5.6 1.2.92 2.07.92 1.65 0 3.22-1.3 3.56-2.94l1.9-9.33h7c1.6 0 3.2-1.28 3.53-2.93.2-.87 0-1.7-.52-2.3-.48-.62-1.2-.96-2.05-.96h-6.7l2.02-9.65h6.93c1.67 0 3.22-1.27 3.56-2.92.2-.85 0-1.7-.5-2.3l-.04.03zM17.53 28.77l1.95-9.65H30.7l-1.97 9.66H17.5h.03z"></path></svg>
+      </a></h2>
+  <p>On desktop, card content can expand.</p>
+</div><div class="j396"><div><div class="j399"><a tabindex="0" class="j67 j61" role="button" href="https://github.com/mui-org/material-ui/tree/master/docs/src/pages/demos/cards/RecipeReviewCard.js" target="_blank" aria-label="GitHub" title="See the source on GitHub"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg></span><span class="j79"></span></a><button tabindex="0" class="j67 j61" type="button" aria-label="CodeSandbox" title="Edit in CodeSandbox"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-label="Source of demo n°9" title="Show the source"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-haspopup="true" aria-label="See more"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></span><span class="j79"></span></button></div></div><div class="j397"><div class="j30 j33 j31 j732 j751"><div class="j757"><div class="j758"><div class="j763 j764 j756" aria-label="Recipe">R</div></div><div class="j760"><span class="j117 j125 j761">Shrimp and Chorizo Paella</span><span class="j117 j125 j150 j762">September 14, 2016</span></div><div class="j759"><button tabindex="0" class="j67 j61" type="button"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></span><span class="j79"></span></button></div></div><div class="j741 j752" title="Contemplative Reptile" style="background-image: url(&quot;/static/images/cards/paella.jpg&quot;);"></div><div class="j733"><p class="j117 j125">This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.</p></div><div class="j734 j753"><button tabindex="0" class="j67 j61" type="button" aria-label="Add to favorites"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61" type="button" aria-label="Share"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path fill="none" d="M0 0h24v24H0z"></path><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"></path></svg></span><span class="j79"></span></button><button tabindex="0" class="j67 j61 j754" type="button" aria-expanded="false" aria-label="Show more"><span class="j66"><svg class="j70" focusable="false" viewBox="0 0 24 24" aria-hidden="true" role="presentation"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path><path fill="none" d="M0 0h24v24H0z"></path></svg></span><span class="j79"></span></button></div></div></div></div><div class="j285 markdown-body j375">
+    <h2>
+      <a class="anchor-link" id="api"></a>API<a class="anchor-link-style" href="https://material-ui.com/demos/cards/#api">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M46.9 13.9c-.5-.6-1.2-.94-2.07-.94h-6.67l1.86-8.98c.17-.85 0-1.7-.52-2.3-.48-.6-1.2-.94-2.07-.94-1.6 0-3.2 1.27-3.54 2.93l-.5 2.42c0 .07-.07.13-.07.2l-1.37 6.62H20.7l1.88-8.96c.16-.85 0-1.7-.53-2.3-.48-.6-1.2-.94-2.07-.94-1.65 0-3.2 1.27-3.56 2.93l-.52 2.58v.08l-1.37 6.64H7.3c-1.67 0-3.22 1.3-3.58 2.96-.16.86 0 1.7.52 2.3.48.6 1.2.93 2.07.93h6.97l-2 9.65H4c-1.67 0-3.22 1.27-3.56 2.94-.2.8 0 1.67.5 2.27.5.6 1.2.93 2.08.93H10l-1.84 9.05c-.2.84 0 1.67.52 2.3.5.6 1.25.92 2.08.92 1.66 0 3.2-1.3 3.55-2.94l1.94-9.33h11.22l-1.87 9.05c-.15.84.03 1.67.53 2.3.5.6 1.2.92 2.07.92 1.65 0 3.22-1.3 3.56-2.94l1.9-9.33h7c1.6 0 3.2-1.28 3.53-2.93.2-.87 0-1.7-.52-2.3-.48-.62-1.2-.96-2.05-.96h-6.7l2.02-9.65h6.93c1.67 0 3.22-1.27 3.56-2.92.2-.85 0-1.7-.5-2.3l-.04.03zM17.53 28.77l1.95-9.65H30.7l-1.97 9.66H17.5h.03z"></path></svg>
+      </a></h2>
+  <ul>
+<li><a href="https://material-ui.com/api/card/">&lt;Card /&gt;</a></li>
+<li><a href="https://material-ui.com/api/card-action-area/">&lt;CardActionArea /&gt;</a></li>
+<li><a href="https://material-ui.com/api/card-actions/">&lt;CardActions /&gt;</a></li>
+<li><a href="https://material-ui.com/api/card-content/">&lt;CardContent /&gt;</a></li>
+<li><a href="https://material-ui.com/api/card-header/">&lt;CardHeader /&gt;</a></li>
+<li><a href="https://material-ui.com/api/card-media/">&lt;CardMedia /&gt;</a></li>
+<li><a href="https://material-ui.com/api/collapse/">&lt;Collapse /&gt;</a></li>
+<li><a href="https://material-ui.com/api/paper/">&lt;Paper /&gt;</a></li>
+</ul>
+</div></main></div></div><script async="" src="./paella_files/analytics.js.download"></script><script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-106598593-2', 'material-ui.com');
+              </script><script>__NEXT_DATA__ = {"props":{"pageProps":{"reduxServerState":{"theme":{"paletteType":"light","paletteColors":{"primary":{"50":"#e3f2fd","100":"#bbdefb","200":"#90caf9","300":"#64b5f6","400":"#42a5f5","500":"#2196f3","600":"#1e88e5","700":"#1976d2","800":"#1565c0","900":"#0d47a1","A100":"#82b1ff","A200":"#448aff","A400":"#2979ff","A700":"#2962ff","main":"#2196f3","light":"#64b5f6","dark":"#1976d2","contrastText":"#fff"},"secondary":{"main":"rgb(225, 0, 80)"}},"direction":"ltr"}}}},"page":"/","pathname":"/","query":{},"buildId":"fYKMuTIga1YDzK1BcfwxU","nextExport":true};__NEXT_LOADED_PAGES__=[];__NEXT_REGISTER_PAGE=function(r,f){__NEXT_LOADED_PAGES__.push([r, f])}</script><script async="" id="__NEXT_PAGE__/" src="./paella_files/index.js.download"></script><script async="" id="__NEXT_PAGE__/_app" src="./paella_files/_app.js.download"></script><script async="" id="__NEXT_PAGE__/_error" src="./paella_files/_error.js.download"></script><script src="./paella_files/webpack-42652fa8b82c329c0559.js.download" async=""></script><script src="./paella_files/commons.ff4460430503ed04c81d.js.download" async=""></script><script src="./paella_files/main-a90753e6dd067e900b5c.js.download" async=""></script><script async="" src="./paella_files/docsearch.min.js.download"></script><script src="./paella_files/installation.js.download"></script><script src="./paella_files/usage.js.download"></script><script src="./paella_files/premium-themes.js.download"></script><script src="./paella_files/app-bar.js.download"></script><script src="./paella_files/tabs.js.download"></script><script src="./paella_files/buttons.js.download"></script><script src="./paella_files/cards.js.download"></script><div class="j337 j336 j338"><div class="j799" aria-hidden="true" style="opacity: 0; will-change: opacity;"></div><div class="j30 j48 j327 j109 algolia-drawer j328" direction="right" role="document" tabindex="-1" style="visibility: inherit; pointer-events: none; transform: translateX(-264px);"><div><div class="j111"><div class="j112"><a class="j97 j98 j110" href="https://material-ui.com/"><h6 class="j117 j134 j146">Material-UI</h6></a><a class="j97 j98 j113" href="https://material-ui.com/versions/"><span class="j117 j127">v3.2.0</span></a></div></div><hr class="j286"><ul class="j341 j342"><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Getting Started</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Style</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Layout</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Utils</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153 algolia-lvl0">Component Demos</span><span class="j79"></span></button><div class="j361 j362" style="min-height: 0px;"><div class="j363"><div class="j364"><ul class="j341 j342"><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/app-bar/" style="padding-left: 40px;"><span class="j153">App Bar</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/autocomplete/" style="padding-left: 40px;"><span class="j153">Autocomplete</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/avatars/" style="padding-left: 40px;"><span class="j153">Avatars</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/badges/" style="padding-left: 40px;"><span class="j153">Badges</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/bottom-navigation/" style="padding-left: 40px;"><span class="j153">Bottom Navigation</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/buttons/" style="padding-left: 40px;"><span class="j153">Buttons</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1 j349" tabindex="0" role="button" href="https://material-ui.com/demos/cards/" style="padding-left: 40px;"><span class="j153">Cards</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/chips/" style="padding-left: 40px;"><span class="j153">Chips</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/dialogs/" style="padding-left: 40px;"><span class="j153">Dialogs</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/dividers/" style="padding-left: 40px;"><span class="j153">Dividers</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/drawers/" style="padding-left: 40px;"><span class="j153">Drawers</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/expansion-panels/" style="padding-left: 40px;"><span class="j153">Expansion Panels</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/grid-list/" style="padding-left: 40px;"><span class="j153">Grid List</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/lists/" style="padding-left: 40px;"><span class="j153">Lists</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/menus/" style="padding-left: 40px;"><span class="j153">Menus</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/paper/" style="padding-left: 40px;"><span class="j153">Paper</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/pickers/" style="padding-left: 40px;"><span class="j153">Pickers</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/progress/" style="padding-left: 40px;"><span class="j153">Progress</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/selection-controls/" style="padding-left: 40px;"><span class="j153">Selection Controls</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/selects/" style="padding-left: 40px;"><span class="j153">Selects</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/snackbars/" style="padding-left: 40px;"><span class="j153">Snackbars</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/steppers/" style="padding-left: 40px;"><span class="j153">Steppers</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/tables/" style="padding-left: 40px;"><span class="j153">Tables</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/tabs/" style="padding-left: 40px;"><span class="j153">Tabs</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/text-fields/" style="padding-left: 40px;"><span class="j153">Text Fields</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-1" tabindex="0" role="button" href="https://material-ui.com/demos/tooltips/" style="padding-left: 40px;"><span class="j153">Tooltips</span></a></li></ul></div></div></div></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Component API</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Customization</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Guides</span><span class="j79"></span></button></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-0" tabindex="0" role="button" href="https://material-ui.com/page-layout-examples/" style="padding-left: 24px;"><span class="j153">Page Layout Examples</span></a></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-0" tabindex="0" role="button" href="https://material-ui.com/premium-themes/" style="padding-left: 24px;"><span class="j153">Premium Themes</span></a></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Lab</span><span class="j79"></span></button></li><li class="j350 j353 j345"><button tabindex="0" class="j67 j152 j347 j154 j157" type="button" style="padding-left: 24px;"><span class="j153">Discover More</span><span class="j79"></span></button></li><li class="j350 j353 j346"><a class="j97 j101 j67 j152 j154 j157 j348 depth-0" tabindex="0" role="button" href="https://material-ui.com/versions/" style="padding-left: 24px;"><span class="j153">Versions</span></a></li></ul></div></div></div></body></html>
