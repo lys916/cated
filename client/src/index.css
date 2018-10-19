@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   background: #ececec;
+  position: relative;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -12,4 +13,26 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.mobile-version {
+  position: absolute;
+  text-align: center;
+  color: red;
+  font-size: 25px;
+  width: 100%;
+  padding: 25px;
+  z-index: -1;
+}
+
+@media screen and (max-width: 780px) {
+  .mobile-version {
+    visibility: hidden;
+  }
+
+}
+
+@media screen and (min-width: 780px) {
+  .App {
+      display: none;
+  }
 }

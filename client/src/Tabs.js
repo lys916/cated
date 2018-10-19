@@ -24,11 +24,14 @@ class IconTabs extends React.Component {
 		if(path === '/foods'){
 			this.setState({value: 0});
 		}
-		if(path === '/drinks'){
+		if(path === '/grill'){
 			this.setState({value: 1});
 		}
-		if(path === '/supplies'){
+		if(path === '/drinks'){
 			this.setState({value: 2});
+		}
+		if(path === '/supplies'){
+			this.setState({value: 3});
 		}
 	}
 
@@ -38,9 +41,12 @@ class IconTabs extends React.Component {
 			history.push('/foods');
 		}
 		if (value === 1) {
-			history.push('/drinks');
+			history.push('/grill');
 		}
 		if (value === 2) {
+			history.push('/drinks');
+		}
+		if (value === 3) {
 			history.push('/supplies');
 		}
 		this.setState({ value });
@@ -61,6 +67,7 @@ class IconTabs extends React.Component {
 					textColor="primary"
 				>
 					<Tab className={classes.tab}  label="Foods" />
+					<Tab className={classes.tab}  label="Grilling" />
 					<Tab className={classes.tab}  label="Drinks" />
 					<Tab className={classes.tab} label="Supplies" />
 				</Tabs>

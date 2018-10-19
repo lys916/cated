@@ -30,7 +30,12 @@ const store = createStore(
 ReactDOM.render(
    <Provider store={store}>
    <MuiThemeProvider theme={theme}>
-        <App />
+        <div className="body">
+            <div className="mobile-version">
+                Desktop version of this app is not available at this time, resize your browser smaller to view in a mobile version.
+            </div>
+            <App />
+        </div> 
     </MuiThemeProvider>
    </Provider>, 
    document.getElementById('root')

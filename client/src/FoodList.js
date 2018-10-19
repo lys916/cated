@@ -39,7 +39,19 @@ import { connect } from 'react-redux';
       large: 39
     },
     id: 2
+  },{
+    image: "https://s3-media1.fl.yelpcdn.com/bphoto/35HMVs-axhVGVnmgcFuheA/o.jpg",
+    name: 'Papaya Salad',
+    desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+    tags: 'Spicy Papaya Salad',
+    price: {
+      small: 19,
+      medium: 29,
+      large: 39
+    },
+    id: 15
   },
+  
   {
     image: "https://s3.amazonaws.com/foodfornet/wp-content/uploads/2017/08/Asian-Vermicelli-Stir-Fry-Final-1.jpg",
     name: 'Stir-Fry Vermicelli Noodle',
@@ -164,7 +176,7 @@ class FoodList extends React.Component {
           component="img"
           alt="Contemplative Reptile"
           className={classes.media}
-          height="140"
+          height="160"
           image={item.image}
           title="Contemplative Reptile"
           

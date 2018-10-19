@@ -68,8 +68,8 @@ class ModalCart extends React.Component {
 			}else{
 				total += item.price;
 			}
-			
 		});
+		total = parseFloat(total).toFixed(2);
 		const { anchorEl } = this.state;
 		console.log(this.props.cart);
     const open = Boolean(anchorEl);
@@ -99,9 +99,17 @@ class ModalCart extends React.Component {
 											{item.size ? <div>
 												<div className={classes.price}>{`Size: ${item.size}`}</div>
 												<div>{`Price: $${item.price[item.size]}`}</div>
-											</div> : <div>
+											</div> : null}
+
+											{item.totalPrice ? <div>
+												<div className={classes.price}>{`${item.lb} Pound${item.lb > 1 ? 's' : ''}`}</div>
+												<div>{`Total: $${item.totalPrice}`}</div>
+											</div> : null }
+
+											{!item.size && !item.totalPrice ? <div>
+												<div>Qty: 1</div>
 												<div>{`Price: $${item.price}`}</div>
-											</div>}
+											</div> : null}
 											
 										</div>
 									</div>

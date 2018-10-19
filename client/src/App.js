@@ -5,6 +5,8 @@ import Home from './Home';
 import Settings from './Settings';
 import FoodList from './FoodList';
 import DrinkList from './DrinkList';
+import GrillingList from './GrillingList';
+import Supplies from './Supplies';
 
 import './App.css';
 
@@ -16,8 +18,9 @@ class App extends Component {
           <div>
             <Route path='/' component={Home}  />
             <Route path='/foods' component={FoodList} />
+            <Route path='/grill' component={GrillingList} />
             <Route path='/drinks' component={DrinkList} />
-            <Route path='/settings' component={Settings} />
+            <Route path='/supplies' component={Supplies} />
           </div>
         </Router>
       </div>
