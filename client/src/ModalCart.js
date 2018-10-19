@@ -4,41 +4,13 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { removeFromCart } from './actions/itemAction';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import Button from '@material-ui/core/Button';
-import AddIcon from '@material-ui/icons/Add';
 import Modal from '@material-ui/core/Modal';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import ClearIcon from '@material-ui/icons/Clear';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-// import { Link } from 'react-router-dom';
-
-const options = [
-	'Remove'
-  ];
-
-function rand() {
-	return Math.round(Math.random() * 20) - 10;
-}
-
-function getModalStyle() {
-	const top = 50;
-	const left = 50;
-
-	return {
-		top: `${top}%`,
-		left: `${left}%`,
-		transform: `translate(-${top}%, -${left}%)`,
-	};
-}
 
 class ModalCart extends React.Component {
 	state = {
@@ -50,13 +22,6 @@ class ModalCart extends React.Component {
 		anchorEl: null,
 		clickedId: null
 	};
-
-	componentDidMount(){
-		// this.props.fetchTrans(this.props.user.email);
-	}
-
-	
-
 	
 	handleChange = (prop) => (event) => {
 		this.setState({ [prop]: event.target.value, missingField: false });
@@ -98,7 +63,12 @@ class ModalCart extends React.Component {
 		const { cart, classes } = this.props;
 		let total = 0;
 		cart.forEach(item=>{
-			total += item.price[item.size];
+			if(item.size){
+				total += item.price[item.size];
+			}else{
+				total += item.price;
+			}
+			
 		});
 		const { anchorEl } = this.state;
 		console.log(this.props.cart);
@@ -126,9 +96,13 @@ class ModalCart extends React.Component {
 									<div className={classes.flex}>
 										<div><img className={classes.image} src={item.image} /></div>
 										<div className={classes.info}>
-								
-											<div className={classes.price}>{`Size: ${item.size}`}</div>
-											<div>{`Price: $${item.price[item.size]}`}</div>
+											{item.size ? <div>
+												<div className={classes.price}>{`Size: ${item.size}`}</div>
+												<div>{`Price: $${item.price[item.size]}`}</div>
+											</div> : <div>
+												<div>{`Price: $${item.price}`}</div>
+											</div>}
+											
 										</div>
 									</div>
 									<IconButton
@@ -166,39 +140,6 @@ class ModalCart extends React.Component {
 								</div>
 							)
 						})}
-						{/* <TextField
-							id="standard-dense"
-							label="Title"
-							className={classes.input}
-							margin="dense"
-							value={this.state.title}
-							onChange={this.handleChange('title')}
-							// InputProps={{
-							// 	startAdornment: <InputAdornment position="start">$</InputAdornment>,
-							//  }}
-						/>
-						<TextField
-							id="standard-multiline-static"
-							label="Description"
-							multiline
-							rows="2"
-							//  defaultValue="Default Value"
-							className={classes.input}
-							margin="normal"
-							value={this.state.desc}
-							onChange={this.handleChange('desc')}
-						/>
-						<TextField
-							id="standard-dense"
-							label="$ Amount"
-							className={classes.input}
-							margin="dense"
-							value={this.state.amount}
-							onChange={this.handleChange('amount')}
-							// InputProps={{
-							// 	startAdornment: <InputAdornment position="start">$</InputAdornment>,
-							//  }}
-						/> */}
 
 						<div className={classes.clearBtn} onClick={this.props.closeCart}>
 							<ClearIcon style={{fontSize: '18px', padding: '5px 6px 2px 6px'}} />
@@ -298,22 +239,6 @@ const styles = theme => ({
 	}
 });
 
-// const styles = {
-// 	root: {
-// 		paddingTop: 70,
-// 		paddingBottom: 100,
-// 	},
-// 	card: {
-// 		marginRight: "100px",
-// 		width: '100%',
-// 		textAlign: 'left'
-// 	},
-// 	button: {
-// 		position: 'fixed',
-// 		bottom: 80,
-// 		right: 10
-// 	}
-// };
 
 const mapStateToProps = (state) => {
 	return {

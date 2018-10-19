@@ -23,7 +23,9 @@ class Home extends React.Component {
 		delAddress: '',
 		delPhone: '',
 		delTime: new Date().addMinutes(60),
-		nameOnCard: ''
+		nameOnCard: '',
+		detailError: '',
+		checkOutError: ''
 	}
 
 	componentDidMount() {
@@ -37,7 +39,7 @@ class Home extends React.Component {
 	};
 
 	handleCloseCart = () => {
-		this.setState({ openCart: false });
+		this.handleCloseAll();
 	};
 
 	handleOpenDetails = () => {
@@ -45,11 +47,17 @@ class Home extends React.Component {
 	};
 
 	handleCloseDetails = () => {
-		this.setState({ openDetails: false, openCart: true });
+		this.setState({ openDetails: false, openCart: true, detailError: '' });
 	};
 
 	handleOpenCheckOut = () => {
-		this.setState({ openCheckOut: true, openCart: false, openDetials: false });
+		const {delName, delAddress, delPhone} = this.state;
+		if(delName !== '' || delAddress !== '' || delPhone !== ''){
+			this.setState({ openCheckOut: true, openCart: false, openDetials: false, detailError: '' });
+		}else{
+			this.setState({detailError: 'All fields are required.'});
+		}
+		
 	};
 
 	handleCloseAll = ()=> {
@@ -61,7 +69,7 @@ class Home extends React.Component {
 	};
 
 	handleChange = (key) => (event) => {
-		console.log(event.target);return;
+		console.log(event.target);
 		this.setState({ [key]: event.target.value});
 	};
 
@@ -102,7 +110,7 @@ class Home extends React.Component {
 				<HeaderBar openCart={this.handleOpenCart} history={this.props.history} path={path} />
 				<IconTabs history={this.props.history}/>
 				<ModalCart open={this.state.openCart} closeCart={this.handleCloseCart} openDetails={this.handleOpenDetails}/>
-				<ModalDetails dateChange={this.dateChange} handleChange={this.handleChange} open={this.state.openDetails} closeDetails={this.handleCloseDetails} openCheckOut={this.handleOpenCheckOut} delName={delName} delTime={delTime} delAddress={delAddress} delPhone={delPhone}/>
+				<ModalDetails detailError={this.state.detailError} dateChange={this.dateChange} handleChange={this.handleChange} open={this.state.openDetails} closeDetails={this.handleCloseDetails} openCheckOut={this.handleOpenCheckOut} delName={delName} delTime={delTime} delAddress={delAddress} delPhone={delPhone}/>
 				<StripeProvider apiKey="pk_test_RwPXTOOT26zF8BncTe2MfAUO">
 					<Elements>
 						<ModalCheckOut submitOrder={this.submitOrder} nameOnCard={nameOnCard} handleChange={this.handleChange} open={this.state.openCheckOut} closeAll={this.handleCloseAll} closeCheckOut={this.handleCloseCheckOut} />

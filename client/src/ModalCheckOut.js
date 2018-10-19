@@ -62,10 +62,6 @@ const createOptions = () => {
 class ModalCheckOut extends React.Component {
 	state = {
 		open: false,
-		fullname: '',
-		address: '', 
-        phone: '',
-        deliveryTime: '',
 		missingField: false
 	};
 

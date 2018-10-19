@@ -15,6 +15,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Badge from '@material-ui/core/Badge';
 import ModalCart from './ModalCart';
+import { signOut, signUp} from './actions/userAction'
 
 const cartItems = [
 	{
@@ -40,7 +41,11 @@ class HeaderBar extends React.Component {
 		openCart: false,
 		openMenu: false,
 		anchorEl: null,
-		cartItems
+		cartItems,
+		name: '',
+		email: '', 
+		password: '',
+		showSignUp: false
 	}
 
 	toggleDrawer = () => {
@@ -62,12 +67,38 @@ class HeaderBar extends React.Component {
 		this.setState({ anchorEl: null });
 	  };
 
+	  handleSignOut = ()=>{
+		  this.props.signOut();
+	  }
 
+	  handleSignIn = ()=>{
+		  this.props.signIn({
+			  email: this.state.email,
+			  password: this.state.password
+		  });
+	  }
+
+	  handleSignUp =()=>{
+		  console.log('signing up');
+		  this.props.signUp({
+			  name: this.state.name,
+			  email: this.state.email,
+			  password: this.state.password
+		  });
+	  }
+
+	  toggleSignUp = ()=>{
+		  this.setState({showSignUp: !this.state.showSignUp});
+	  }
+
+	  handleChange = (event)=>{
+		  console.log(event.target.value);
+		this.setState({[event.target.name]: event.target.value});
+	  }
 
 	render() {
 		const { classes, user, cart } = this.props;
 		const { anchorEl } = this.state;
-		console.log('cart lenght', cart);
 		return (
 			<div className={classes.root}>
 
@@ -121,8 +152,17 @@ class HeaderBar extends React.Component {
 				</Menu> */}
 
 					
-
-				<DrawerMenu openMenu={this.state.openMenu} toggleDrawer={this.toggleDrawer} />
+	
+				<DrawerMenu 
+					showSignUp={this.state.showSignUp} 
+					toggleSignUp={this.toggleSignUp} 
+					handleSignOut={this.handleSignOut}
+					handleSignUp={this.handleSignUp}
+					user={user} 
+					openMenu={this.state.openMenu} 
+					toggleDrawer={this.toggleDrawer}
+					handleChange={this.handleChange}
+				/>
 			</div>
 		);
 	}
@@ -156,4 +196,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {})(withStyles(styles)(HeaderBar));
+export default connect(mapStateToProps, {signOut, signUp})(withStyles(styles)(HeaderBar));

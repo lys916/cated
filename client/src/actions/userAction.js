@@ -1,67 +1,69 @@
-import { fireDatabase, fireAuth } from "../config/firebase";
-
-
-export const createUser = (user) => {
-	return (dispatch) => {
-		fireAuth.createUserWithEmailAndPassword(user.email, user.password)
-		.then(function(res){
-			localStorage.setItem('user', JSON.stringify(res.user));
-			const user = localStorage.getItem('user');
-			console.log('local user', user);
-			dispatch({
-				type: 'LOGGED_IN',
-				payload: res.user
-			});
-
-		}).catch(function(error) {
-		// Handle Errors here.
-		var errorCode = error.code;
-		var errorMessage = error.message;
-		if (errorCode == 'auth/weak-password') {
-			alert('The password is too weak.');
-		} else {
-			alert(errorMessage);
-		}
-		console.log(error);
-		});
-	}
-}
+import axios from 'axios';
 
 export const signIn = (user) => {
-	return (dispatch) => {
-		fireAuth.signInWithEmailAndPassword(user.email, user.password)
-		.then(function(res){
-			localStorage.setItem('user', JSON.stringify(res.user));
-			const user = localStorage.getItem('user');
+	if(user.email !== '' || user.password !== ''){
+	  return (dispatch) => {
+		dispatch({
+		  type: 'LOGGING_IN'
+		});
+		axios.post(`user/login`, user)
+		.then(res => {
+		  if(res.data.errorMessage){
+			dispatch({
+			  type: 'USER_ERROR_MESSAGE',
+			  payload: res.data.errorMessage
+			});
+		  }else{
+			localStorage.setItem('user', JSON.stringify(res.data));
 			dispatch({
 				type: 'LOGGED_IN',
-				payload: res.user
+				payload: res.data
 			});
-
-		}).catch(function(error) {
-		// Handle Errors here.
-		var errorCode = error.code;
-		var errorMessage = error.message;
-		if (errorCode == 'auth/weak-password') {
-			alert('The password is too weak.');
-		} else {
-			alert(errorMessage);
-		}
-		console.log(error);
+		  }
 		});
-	}
-}
-
-export const signOut = (history) => {
-	return (dispatch) => {
-		fireAuth.signOut().then(function() {
-			localStorage.removeItem('user');
-			dispatch({ type: 'LOGGED_OUT' });
-			history.push('/login');
-		 }).catch(function(error) {
-			// An error happened.
-			alert('Unable to sign out');
-			console.log(error);
-		});
+	  }
+	}else{
+	  return({
+		type: 'USER_ERROR_MESSAGE',
+		payload: 'Please enter username and password.'
+	  });
 	}
   }
+
+  export const signUp = (user) => {
+	  console.log('action sign up', user);
+	if(user.email !== '' || user.name !== '' || user.password !== ''){
+	  return (dispatch) => {
+		dispatch({
+		  type: 'SIGNING_UP'
+		});
+		axios.post(`user/signup`, user)
+		.then(res => {
+		  if(res.data.errorMessage){
+			dispatch({
+			  type: 'USER_ERROR_MESSAGE',
+			  payload: res.data.errorMessage
+			});
+		  }else{
+			alert("You have successfully signed up and logged in.");
+			localStorage.setItem('user', JSON.stringify(res.data));
+			dispatch({
+				type: 'LOGGED_IN',
+				payload: res.data
+			});
+		  }
+		});
+	  }
+	}else{
+	  return({
+		type: 'USER_ERROR_MESSAGE',
+		payload: 'Please enter username and password.'
+	  });
+	}
+  }
+
+
+export const signOut = () => {
+localStorage.removeItem('user');
+return ({ type: 'LOGGED_OUT' });
+}

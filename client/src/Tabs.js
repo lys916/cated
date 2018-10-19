@@ -21,13 +21,13 @@ class IconTabs extends React.Component {
 	componentDidMount(){
 		const path = this.props.history.location.pathname;
 		console.log('did mount path', path);
-		if(path === '/my-trans'){
+		if(path === '/foods'){
 			this.setState({value: 0});
 		}
-		if(path === '/user-list'){
+		if(path === '/drinks'){
 			this.setState({value: 1});
 		}
-		if(path === '/settings'){
+		if(path === '/supplies'){
 			this.setState({value: 2});
 		}
 	}
@@ -38,10 +38,10 @@ class IconTabs extends React.Component {
 			history.push('/foods');
 		}
 		if (value === 1) {
-			history.push('/user-list');
+			history.push('/drinks');
 		}
 		if (value === 2) {
-			history.push('/settings');
+			history.push('/supplies');
 		}
 		this.setState({ value });
 	};

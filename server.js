@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 
 const orderRouter = require('./order/OrderRoutes');
-// const dailyFoodRouter = require('./dailyFood/DailyFoodRoutes');
+const userRouter = require('./user/UserRoutes');
 // const customFoodRouter = require('./customFood/CustomFoodRoutes');
 // const systemFoodRouter = require('./systemFood/SystemFoodRoutes');
 
@@ -37,7 +37,7 @@ mongoose
     console.log('error connect to mongo');
 });
 
-// server.use('/user', userRoutes);
+server.use('/user', userRouter);
 // server.use('/dailyFood', dailyFoodRouter);
 server.use('/order', orderRouter);
 // server.use('/systemFood', systemFoodRouter);

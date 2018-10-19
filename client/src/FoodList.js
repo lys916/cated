@@ -1,19 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles, withTheme } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-import AddIcon from '@material-ui/icons/Add';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Icon from '@material-ui/core/Icon';
-import classnames from 'classnames';
 import {addToCart} from './actions/itemAction';
 import { connect } from 'react-redux';
 
@@ -94,7 +90,7 @@ import { connect } from 'react-redux';
  ]
 
 
-class FoodItems extends React.Component {
+class FoodList extends React.Component {
   state = { 
     expanded: null,
     selectedSize: null,
@@ -330,7 +326,7 @@ const styles = {
 	}
 };
 
-FoodItems.propTypes = {
+FoodList.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -341,4 +337,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {addToCart})(withStyles(styles)(FoodItems));
+export default connect(mapStateToProps, {addToCart})(withStyles(styles)(FoodList));
