@@ -14,7 +14,8 @@ orderRouter.post('/', async function(req, res){
           description: "Custom charge",
           source: req.body.token
         });
-        //comment
+        console.log(status);return;
+        // if charges is successfuly, save order to db
         res.json({status});
       } catch (err) {
         res.status(500).end();

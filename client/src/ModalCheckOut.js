@@ -128,6 +128,7 @@ class ModalCheckOut extends React.Component {
 		cart.forEach(item=>{
 			total += item.price[item.size];
 		});
+		console.log('total', total);
 		return (
 			<div className={classes.root}>
 

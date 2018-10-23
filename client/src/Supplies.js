@@ -40,11 +40,11 @@ const drinks = [
 		id: 103
 	},
 	{
-		image: "https://www.theoutdoorworld.com/prodimages/14301-DEFAULT-l.jpg",
-		name: 'Ping Pong Balls',
-		tags: 'Liqour',
-		price: 3.99,
-		unit: '6 Balls',
+		image: "https://lh3.googleusercontent.com/2UJ-zhiyVCQIPdlThVtQCZox9vKYWD72h2OM8xW-uOyPNcAqkmSoPYThBxqy52iUtGWAX7e5GldQoQnVrcKmTqm33v0bibtVb4NH04Kb63XVYaLfoq0aldY5No4qaNnc4EAFjjuCl2DvYQWJEWN0ZUpiWDukqBFsHh9CpEaQdFjOFUziOFEWQ5c2t-o-1-4Rn5gsXzEvvoiIf9GoMi4CuRim5jtj2qLhVRLuQScnPA9B77yPOmehDspkKnReFQabfxEirA8GfE12GL_hSOC7icrsFcVk8lv8qgO_JrdCfrB20CPI8LRbj1yYqOyY6XSWlIN-puBPTS1QmcyI6DzhLv5zPSCQQhvbrxb9GvnpLZDBJjdwvpabms0zQp1o_Q6-kfbRc2X_QcwhtDitKzmPrLO4l6xNt6ElHN4Wk-51_g7EldxYki2WLqeFUszipVTC-Zjyp-BUi3XFv7kkVW4CfepizoRVp0UkOOGt4NYoKb36_ek2diwTw03a5WKW3kuSh0NMuGHV-jlFOs5NfWiJNsa8mh11WllWUlDhJCk2MPK1d4O_PqMdsDynfoCGTC71gmvY1aNzjGGuaYtck124Hju7ytJrcpUQEmzyKkC1clfK_XfYbncNKlq9Cc856g=w359-h450-no",
+		name: 'Kingsford Match Light Charcoal',
+		tags: 'Charcoal',
+		price: 14.99,
+		unit: '11.6 lb',
 		id: 104
 	}
 ]
