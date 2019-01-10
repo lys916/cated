@@ -12,34 +12,10 @@ import DatePicker from './DatePicker';
 
 class ModalDetails extends React.Component {
 	state = {
-		open: false,
-		fullname: '',
-		address: '',
-		phone: '',
-		deliveryTime: '',
-		missingField: false
 	};
-	// submitOrder = async (total) => {
-	// 	let { token } = await this.props.stripe.createToken({ name: "Lo Saephan" });
-	// 	const order = {
-	// 		token: token.id,
-	// 		deliveryAddress: this.state.address,
-	// 		phone: this.state.phone,
-	// 		deliveryTime: this.state.deliveryTime,
-	// 		guestName: this.state.fullname,
-	// 		total
-	// 	}
-	// 	console.log('ORDER WAITING', order);return;
-	// 	const charged = await this.props.createOrder(order);
-	// 	if (charged.status === 200) {
-	// 		alert('Order Complete!');
-	// 		this.props.closeAll();
-	// 	}
-
-	// }
 
 	render() {
-		const { cart, classes, delName, delAddress, delPhone, delTime, dateChange, handleChange, detailError } = this.props;
+		const { } = this.props;
 		let total = 0;
 		cart.forEach(item => {
 			total += item.price[item.size];

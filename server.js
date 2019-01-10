@@ -29,7 +29,7 @@ server.use(bodyParser.json());
 // });
 
 mongoose
-  .connect('mongodb://lys:lys916@ds149742.mlab.com:49742/get-fit')
+  .connect('mongodb://lys:Lantern1@ds141043.mlab.com:41043/cated')
   .then(conn => {
     console.log('connected to mongo get-fit/cated');
   })

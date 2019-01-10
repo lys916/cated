@@ -79,7 +79,6 @@ class HeaderBar extends React.Component {
 	  }
 
 	  handleSignUp =()=>{
-		  console.log('signing up');
 		  this.props.signUp({
 			  name: this.state.name,
 			  email: this.state.email,

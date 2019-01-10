@@ -71,7 +71,7 @@ class ModalCart extends React.Component {
 		});
 		total = parseFloat(total).toFixed(2);
 		const { anchorEl } = this.state;
-		console.log(this.props.cart);
+		console.log('total', total);
     const open = Boolean(anchorEl);
 		return (
 			<div className={classes.root}>
@@ -83,15 +83,16 @@ class ModalCart extends React.Component {
 					onClose={this.props.closeCart}
 				>
 					<Card className={classes.modal}>
+						<div style={{color: 'red'}}>{this.props.cartError}</div>
 						<div className={classes.total}>
 							<div># of items: {cart.length}</div>
 							<div>Total: ${total}</div>
 						</div>
 						{this.props.cart.map((item, index)=>{
 							return(
-								<div>
+								<div key={index}>
 									<div className={classes.name}>{index + 1}. {item.name} <span className={classes.unit}>{item.unit}</span></div>
-								<div className={classes.item}>
+									<div className={classes.item}>
 									
 									<div className={classes.flex}>
 										<div><img className={classes.image} src={item.image} /></div>

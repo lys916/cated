@@ -78,15 +78,22 @@ class ModalCheckOut extends React.Component {
 		
 		const order = {
 			token: token.id,
-			deliveryAddress: this.state.address,
-			phone: this.state.phone,
-			deliveryTime: this.state.deliveryTime,
-			guestName: this.state.fullname,
+			deliveryDate: this.props.time,
+			guestInfo: {
+				name: this.props.name,
+				address: this.props.address,
+				phone: this.props.phone
+			},
+			items: this.props.cart,
 			total
+		}
+		if(this.props.user){
+			order.user = this.props.user._id
 		}
 		console.log('ORDER WAITING', order);
 		const charged = await this.props.createOrder(order);
-		if(charged.status === 200){
+		console.log('compoeennt Charged', charged);
+		if(charged._id){
 			alert('Order Complete!');
 			this.props.closeAll();
 		}
@@ -123,11 +130,16 @@ class ModalCheckOut extends React.Component {
 		
 	// }
 	render() {
-		const { cart, classes, nameOnCard, handleChange } = this.props;
+		const { cart, classes, nameOnCard, handleChange, submitOrder } = this.props;
 		let total = 0;
 		cart.forEach(item=>{
-			total += item.price[item.size];
+			if(item.size){
+				total += item.price[item.size];
+			}else{
+				total += item.price;
+			}
 		});
+		total = parseFloat(total).toFixed(2);
 		console.log('total', total);
 		return (
 			<div className={classes.root}>

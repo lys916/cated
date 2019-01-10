@@ -25,7 +25,8 @@ class Home extends React.Component {
 		delTime: new Date().addMinutes(60),
 		nameOnCard: '',
 		detailError: '',
-		checkOutError: ''
+		checkOutError: '',
+		cartError: ''
 	}
 
 	componentDidMount() {
@@ -43,7 +44,12 @@ class Home extends React.Component {
 	};
 
 	handleOpenDetails = () => {
-		this.setState({ openDetails: true, openCart: false });
+		if(this.props.cart.length > 0){
+			this.setState({ openDetails: true, openCart: false, cartError: '' });
+		}else{
+			this.setState({cartError: 'Your cart is empty'});
+		}
+		
 	};
 
 	handleCloseDetails = () => {
@@ -52,6 +58,7 @@ class Home extends React.Component {
 
 	handleOpenCheckOut = () => {
 		const {delName, delAddress, delPhone} = this.state;
+		console.log(delName, delAddress, delPhone);
 		if(delName !== '' || delAddress !== '' || delPhone !== ''){
 			this.setState({ openCheckOut: true, openCart: false, openDetials: false, detailError: '' });
 		}else{
@@ -61,7 +68,7 @@ class Home extends React.Component {
 	};
 
 	handleCloseAll = ()=> {
-		this.setState({openCart: false, openCheckOut: false, openDetails: false});
+		this.setState({openCart: false, openCheckOut: false, openDetails: false, cartError: ''});
 	}
 
 	handleCloseCheckOut = () => {
@@ -69,7 +76,7 @@ class Home extends React.Component {
 	};
 
 	handleChange = (key) => (event) => {
-		console.log(event.target);
+		console.log(event.target.value);
 		this.setState({ [key]: event.target.value});
 	};
 
@@ -77,25 +84,27 @@ class Home extends React.Component {
 		this.setState({delTime: date});
 	}
 
-	submitOrder = async (total)=>{
-        let { token } = await this.props.stripe.createToken({name: this.state.nameOnCard});
+	// submitOrder = async (total)=>{
+    //     let { token } = await this.props.stripe.createToken({name: this.state.nameOnCard});
 
-		const order = {
-			token: token.id,
-			delAddress: this.state.delAddress,
-			delPhone: this.state.delphone,
-			delTime: this.state.delTime,
-			delName: this.state.delName,
-			total
-		}
-		console.log('ORDER WAITING', order);
-		const charged = await this.props.createOrder(order);
-		if(charged.status === 200){
-			alert('Order Complete!');
-			this.props.closeAll();
-		}
+	// 	const order = {
+	// 		token: token.id,
+	// 		deliveryDate: this.state.delTime,
+	// 		guestInfo: {
+	// 			name: this.state.delName,
+	// 			address: this.state.delAddress,
+	// 			phone: this.state.delPhone
+	// 		},
+	// 		total
+	// 	}
+	// 	console.log('ORDER WAITING', order);
+	// 	const charged = await this.props.createOrder(order);
+	// 	if(charged.status === 200){
+	// 		alert('Order Complete!');
+	// 		this.props.closeAll();
+	// 	}
 		
-      }
+    //   }
 
 	render() {
 		const path = this.props.history.location.pathname;
@@ -109,11 +118,11 @@ class Home extends React.Component {
 			<div className="home">
 				<HeaderBar openCart={this.handleOpenCart} history={this.props.history} path={path} />
 				<IconTabs history={this.props.history}/>
-				<ModalCart open={this.state.openCart} closeCart={this.handleCloseCart} openDetails={this.handleOpenDetails}/>
+				<ModalCart cartError={this.state.cartError} open={this.state.openCart} closeCart={this.handleCloseCart} openDetails={this.handleOpenDetails}/>
 				<ModalDetails detailError={this.state.detailError} dateChange={this.dateChange} handleChange={this.handleChange} open={this.state.openDetails} closeDetails={this.handleCloseDetails} openCheckOut={this.handleOpenCheckOut} delName={delName} delTime={delTime} delAddress={delAddress} delPhone={delPhone}/>
 				<StripeProvider apiKey="pk_test_RwPXTOOT26zF8BncTe2MfAUO">
 					<Elements>
-						<ModalCheckOut submitOrder={this.submitOrder} nameOnCard={nameOnCard} handleChange={this.handleChange} open={this.state.openCheckOut} closeAll={this.handleCloseAll} closeCheckOut={this.handleCloseCheckOut} />
+						<ModalCheckOut submitOrder={this.submitOrder} nameOnCard={nameOnCard} handleChange={this.handleChange} open={this.state.openCheckOut} closeAll={this.handleCloseAll} closeCheckOut={this.handleCloseCheckOut} name={this.state.delName} address={this.state.delAddress} phone={this.state.delPhone} time={this.state.delTime}/>
 					</Elements>
 				</StripeProvider>
 			</div>

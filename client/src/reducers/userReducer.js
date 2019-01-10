@@ -1,7 +1,3 @@
-import { fireAuth } from "../config/firebase";
-
-
-
 let userInit = null;
 
 const user = JSON.parse(localStorage.getItem('user'));
@@ -11,9 +7,8 @@ if(user){
 
 const userReducer = (state = userInit, action) => {
 	switch (action.type) {
-
 		case 'LOGGED_IN':
-			return action.payload
+		   return action.payload
 
 		case 'LOGGED_OUT':
 			return null

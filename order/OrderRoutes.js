@@ -2,21 +2,32 @@ const express = require('express');
 const stripe = require("stripe")("sk_test_5XOQ1slHb1beF5FTI6i869at");
 const mongoose = require('mongoose');
 const orderRouter = express.Router();
+const Order = require('./OrderModel.js');
+
 
 // const CustomFood = require('./CustomFoodModel');
 
 orderRouter.post('/', async function(req, res){
-  console.log('order', req.body);
+  var total = req.body.total.replace(".", "");
+  console.log('posting order', req.body);
     try {
         let {status} = await stripe.charges.create({
-          amount: Number(req.body.total + '00'),
+          amount: Number(total),
           currency: "usd",
           description: "Custom charge",
           source: req.body.token
         });
-        console.log(status);return;
-        // if charges is successfuly, save order to db
-        res.json({status});
+        console.log('return status', status);
+        if(status === 'succeeded'){
+          console.log('saving order to mongo', req.body);
+
+          Order.create(req.body).then(order =>{
+            console.log('order saved', order);
+            res.json(order);
+          });
+        }else{
+          console.log('fail to save order');
+        }
       } catch (err) {
         res.status(500).end();
       }
