@@ -7,6 +7,7 @@ import FoodList from './FoodList';
 import DrinkList from './DrinkList';
 import GrillingList from './GrillingList';
 import Supplies from './Supplies';
+import Cart from './Cart';
 
 import './App.css';
 
@@ -21,6 +22,7 @@ class App extends Component {
             <Route path='/grill' component={GrillingList} />
             <Route path='/drinks' component={DrinkList} />
             <Route path='/supplies' component={Supplies} />
+            <Route path='/cart' component={Cart} />
           </div>
         </Router>
       </div>

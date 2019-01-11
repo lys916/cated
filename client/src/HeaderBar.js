@@ -93,7 +93,10 @@ class HeaderBar extends React.Component {
 	  handleChange = (event)=>{
 		  console.log(event.target.value);
 		this.setState({[event.target.name]: event.target.value});
-	  }
+     }
+     goToCart = ()=>{
+        this.props.history.push('/cart');
+     }
 
 	render() {
 		const { classes, user, cart } = this.props;
@@ -127,7 +130,8 @@ class HeaderBar extends React.Component {
 							// onClose={this.handleClose}
 							color="inherit"
 							// onClick={this.toggleDrawer}
-							onClick={this.props.openCart}
+                     // onClick={this.props.openCart}
+                     onClick={this.goToCart}
 						>	
 							{cart.length > 0 ? <Badge badgeContent={cart.length} color="secondary">
 							<ShoppingCart />
