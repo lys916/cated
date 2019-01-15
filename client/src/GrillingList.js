@@ -17,8 +17,10 @@ import {grillItems as items} from './dummy-data';
 class GrillingList extends React.Component {
   state = { 
     expanded: null,
-    weight: 1,
-    activeMenu: 'All'
+    weight: 0,
+    activeMenu: 'All',
+    weightError: false,
+    selectedItem: null
   };
 
   handleExpandClick = (index) => {
@@ -42,24 +44,38 @@ class GrillingList extends React.Component {
   }
   }
 
-  addToCart = ()=>{
-    let item = items[this.state.expanded];
-    item.lb = this.state.weight;
-    item.totalPrice = Number.parseFloat((item.price * item.lb)).toFixed(2);
-    this.props.addToCart(item)
-    this.setState({expanded: null, selectedSize: null});
+   addToCart = (item, index)=>{
+      
+      if(this.state.weight < 1){
+         this.setState({weightError: true, selectedItem: index});
+      }else{
+         // if user select weight from different item
+         if(this.selectedItem != index){
+            this.setState({weightError: true, selectedItem: index, weight: 0});
+         }
+         item.lb = this.state.weight;
+         item.totalPrice = Number.parseFloat((item.price * item.lb)).toFixed(2);
+         this.props.addToCart(item)
+         this.setState({weight: 0, selectedItem: null});
+      }
+    
   }
 
   toggleActive = (menu)=>{
 		this.setState({activeMenu: menu});
   }
   
-  increaseWeight = ()=>{
-    this.setState({weight: this.state.weight + 1});
+  increaseWeight = (index)=>{
+     if(this.state.selectedItem === index){
+      this.setState({weight: this.state.weight + 1, selectedItem: index, weightError: false});
+     }else{
+        this.setState({weight: 1, selectedItem: index, weightError: false});
+     }
+    
   }
-  decreaseWeight = ()=>{
-    if(this.state.weight > 1){
-      this.setState({weight: this.state.weight - 1});
+  decreaseWeight = (index)=>{
+    if(this.state.weight > 0 && this.state.selectedItem === index){
+      this.setState({weight: this.state.weight - 1, selectedItem: index});
     }
   }
 
@@ -78,7 +94,7 @@ class GrillingList extends React.Component {
     {menuItems.map((item, index)=>{
       return(
         <Card className={classes.card} >
-      <CardActionArea onClick={()=>{this.handleExpandClick(index)}}>
+      
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
@@ -98,28 +114,31 @@ class GrillingList extends React.Component {
           </Typography>
         </CardContent>
 
-          <IconButton>
-            <ExpandMoreIcon />
-          </IconButton>
-
-      </CardActionArea>
-
-
-      <Collapse in={this.state.expanded === index ? true : false} timeout="auto" unmountOnExit>
-          <CardContent className={classes.selections}>
+        <CardContent className={classes.selections}>
             <div className={classes.select}>Select Weight</div>
             <div>${item.price} per lb</div>
+
+            {this.state.weightError && this.state.selectedItem === index ? <div style={{color: 'red'}}>Please select a weight</div> : null}
+
             <div className={classes.weight}>
-              <div onClick={this.decreaseWeight} className={classes.minus}>-</div>
-              <input className={classes.input} value={this.state.weight} />
-              <div onClick={this.increaseWeight} className={classes.minus}>+</div>
+              <div onClick={()=>{this.decreaseWeight(index)}} className={classes.minus}>-</div>
+
+               {this.state.selectedItem === index ? <div className={classes.weightPrice}><span className={classes.weightNumber}>{this.state.weight}</span> <span className={classes.weightLb}>Lb / ${Number.parseFloat((item.price * this.state.weight)).toFixed(2)}</span></div> 
+               : 
+               <div className={classes.weightPrice}><span className={classes.weightNumber}>0</span> Lb / 0$</div>}
+
+              <div onClick={()=>{this.increaseWeight(index)}} className={classes.minus}>+</div>
             </div>
-            <Button size="medium" className={classes.addCart} onClick={this.addToCart}>
-          add to cart
-        </Button>
+
+            <Button variant="contained" color="primary"  size="medium" className={classes.addCart}    onClick={()=>{this.addToCart(item, index)}}>
+               add to cart
+            </Button>
 
           </CardContent>
-        </Collapse>
+
+      
+
+
 
     </Card>
       )
@@ -134,7 +153,8 @@ class GrillingList extends React.Component {
 
 const styles = {
   root: {
-    padding: 10
+    padding: 10,
+    paddingTop: 100
   },
   card: {
     textAlign: 'left',
@@ -161,6 +181,16 @@ const styles = {
   price: {
     fontSize: 13
   },
+  weightNumber: {
+     fontSize: 23,
+     fontWeigth: 'bold'
+  },
+  weightLb: {
+     paddingTop: 6
+  },
+  weightPrice: {
+     paddingTop: 6
+  },
   activeButton: {
     background: '#3651b5',
     border: '1px solid #3651b5',
@@ -184,11 +214,9 @@ const styles = {
     borderRadius: 4
   },
   addCart: {
-    width: 200,
-    borderRadius: 5,
-    border: '1px solid green',
-    color: 'green',
-    marginTop: 10
+   width: 260,
+   borderRadius: 100,
+   marginTop: 10
   },
 	subMenus: {
 		display: 'flex',
@@ -218,17 +246,20 @@ const styles = {
   weight: {
     display: 'flex',
     padding: 5,
-    justifyContent: 'center'
+    justifyContent: 'space-between',
+    width: 220,
+    margin: '10px auto'
   },
   input: {
     width: 50
   },
   minus: {
-    border: '1px solid #dedede',
-    padding: 5,
-    width: 20
-  }
-
+    border: '1px solid #95a6e5',
+    width: 20,
+    fontSize: 30,
+    padding: '2px 10px',
+    borderRadius: 4
+  },
 };
 
 GrillingList.propTypes = {

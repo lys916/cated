@@ -120,8 +120,8 @@ class HeaderBar extends React.Component {
 							<MenuIcon />
 
 						</IconButton>
-						<Button className={classes.loginButton}
-							color="inherit">CATED
+						<Button className={classes.loginButton}color="inherit" onClick={()=>{this.props.history.push('/')}}>
+                     CATED
 						</Button>
 						<IconButton
 							// aria-owns={open ? 'menu-appbar' : null}

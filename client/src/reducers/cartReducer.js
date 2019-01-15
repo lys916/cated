@@ -8,14 +8,26 @@ if(localCart){
 
 const cartReducer = (state = initCart, action) => {
 	switch (action.type) {
-		case 'ADD_TO_CART':
-		   localStorage.setItem('cart', JSON.stringify([...state, action.payload]));
-		   const cart = localStorage.getItem('cart');
-			return [...state, action.payload];
+      case 'ADD_TO_CART':
+         let found = false;
+         let newState = state.map(item=>{
+            if(action.payload._id === item.id && action.payload.size === item.size){
+               found = true;
+               item.qty++;
+            }
+            return item;
+         });
+         if(found) return newState;
+
+         let newCartItem = JSON.parse(JSON.stringify(action.payload));
+
+		   localStorage.setItem('cart', JSON.stringify([...state, newCartItem]));
+
+			return [...state, newCartItem];
 			
-		case "REMOVE_FROM_CART":
+      case "REMOVE_FROM_CART":
 			const removeItem = state.filter(item=>{
-				return item.id !== action.payload
+				return item._id !== action.payload && item.size !== action.payload.size;
 			});
 			localStorage.setItem('cart', JSON.stringify(removeItem));
 			return removeItem;

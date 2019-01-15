@@ -30,3 +30,22 @@
     transform: rotate(360deg);
   }
 }
+
+/* ANIMATION ADDED ITEM POP UP*/
+.added-popup {
+   
+   background: green;
+   paddingTop: 10px;
+   font-size: 19px;
+   position: fixed;
+   bottom: 0;
+   width: 100vw;
+   height: 40px;
+   transform: translate(0px , 50px);
+   transition:transform .5s;
+}
+
+.show-addedpopup {
+   transform: translate(0px , 0px);
+   transition:transform .5s;
+}

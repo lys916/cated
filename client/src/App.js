@@ -8,6 +8,9 @@ import DrinkList from './DrinkList';
 import GrillingList from './GrillingList';
 import Supplies from './Supplies';
 import Cart from './Cart';
+import Address from './Address';
+import Payment from './Payment';
+import IconTabs from './Tabs';
 
 import './App.css';
 
@@ -18,11 +21,14 @@ class App extends Component {
         <Router>
           <div>
             <Route path='/' component={Home}  />
-            <Route path='/foods' component={FoodList} />
-            <Route path='/grill' component={GrillingList} />
-            <Route path='/drinks' component={DrinkList} />
-            <Route path='/supplies' component={Supplies} />
+            <Route path='/t' component={IconTabs}  />
+            <Route path='/t/foods' component={FoodList} />
+            <Route path='/t/grill' component={GrillingList} />
+            <Route path='/t/drinks' component={DrinkList} />
+            <Route path='/t/supplies' component={Supplies} />
             <Route path='/cart' component={Cart} />
+            <Route path='/address' component={Address} />
+            <Route path='/payment' component={Payment} />
           </div>
         </Router>
       </div>

@@ -20,17 +20,16 @@ class IconTabs extends React.Component {
 
 	componentDidMount(){
 		const path = this.props.history.location.pathname;
-		console.log('did mount path', path);
-		if(path === '/foods'){
+		if(path === '/t/foods'){
 			this.setState({value: 0});
 		}
-		if(path === '/grill'){
+		if(path === '/t/grill'){
 			this.setState({value: 1});
 		}
-		if(path === '/drinks'){
+		if(path === '/t/drinks'){
 			this.setState({value: 2});
 		}
-		if(path === '/supplies'){
+		if(path === '/t/supplies'){
 			this.setState({value: 3});
 		}
 	}
@@ -38,16 +37,16 @@ class IconTabs extends React.Component {
 	handleChange = (event, value) => {
 		const history = this.props.history;
 		if (value === 0) {
-			history.push('/foods');
+			history.push('/t/foods');
 		}
 		if (value === 1) {
-			history.push('/grill');
+			history.push('/t/grill');
 		}
 		if (value === 2) {
-			history.push('/drinks');
+			history.push('/t/drinks');
 		}
 		if (value === 3) {
-			history.push('/supplies');
+			history.push('/t/supplies');
 		}
 		this.setState({ value });
 	};
@@ -85,7 +84,10 @@ IconTabs.propTypes = {
 const styles = {
 	root: {
 		flexGrow: 1,
-		marginTop: 56,
+      marginTop: 56,
+      position: 'fixed',
+      width: '100vw',
+      zIndex: 1
 	},
 	tab: {
 		width: '100%',

@@ -18,7 +18,10 @@ class FoodList extends React.Component {
    state = {
       expanded: null,
       selectedSize: null,
-      activeMenu: 'All'
+      selectedItem: null,
+      activeMenu: 'All',
+      addedPopup: false,
+      sizeError: false
    };
 
    handleExpandClick = (index) => {
@@ -32,21 +35,35 @@ class FoodList extends React.Component {
 
    };
 
-   toggleSelectSize = (size) => {
-      if (size === this.state.selectedSize) {
-         this.setState({ selectedSize: null });
-      } else {
-         this.setState({ selectedSize: size }, () => {
-            console.log(this.state.selectedSize);
-         });
-      }
+   toggleSelectSize = (size, index) => {
+      this.setState({
+         selectedItem: index,
+         selectedSize: size,
+         sizeError: false
+      });
    }
 
-   addToCart = () => {
-      let item = items[this.state.expanded];
-      item.size = this.state.selectedSize;
-      this.props.addToCart(item)
-      this.setState({ expanded: null, selectedSize: null });
+   addToCart = (item, index) => {
+      // if add to cart without selecting size
+      if(this.state.selectedSize === null){
+         this.setState({selectedItem: index, sizeError: true});
+      }else{
+         // if user select size from different item
+         if(this.state.selectedItem != index){
+            this.setState({selectedItem: index, sizeError: true, selectedSize: null});
+         }else{
+            item.size = this.state.selectedSize;
+            this.props.addToCart(item)
+            this.setState({
+            selectedItem: null,
+            selectedSize: null,
+            addedPopup: true
+         });
+         setTimeout(()=>{
+            this.setState({addedPopup: false});
+         }, 2000);
+         }  
+      }
    }
 
    toggleActive = (menu) => {
@@ -66,7 +83,7 @@ class FoodList extends React.Component {
       return (
          <div className={classes.root}>
 
-            {/* sub menus */}
+            {/* sub menus
             <div className={classes.subMenus}>
                <div className={this.state.activeMenu === 'All' ? classes.activeMenu : classes.menu} onClick={() => { this.toggleActive('All') }}>All</div>
                <div className={this.state.activeMenu === 'Chicken' ? classes.activeMenu : classes.menu} onClick={() => { this.toggleActive('Chicken') }}>Chicken</div>
@@ -79,11 +96,13 @@ class FoodList extends React.Component {
                <div className={this.state.activeMenu === 'Salad' ? classes.activeMenu : classes.menu} onClick={() => { this.toggleActive('Salad') }}>Salad</div>
                <div className={this.state.activeMenu === 'Appetizer' ? classes.activeMenu : classes.menu} onClick={() => { this.toggleActive('Appetizer') }}>Appetizer</div>
                <div className={this.state.activeMenu === 'Others' ? classes.activeMenu : classes.menu} onClick={() => { this.toggleActive('Others') }}>Others</div>
-            </div>
+            </div> */}
+
             {menuItems.map((item, index) => {
                return (
+                  // Each Foot Item Card
                   <Card className={classes.card} key={index}>
-                     <CardActionArea onClick={() => { this.handleExpandClick(index) }}>
+                        {/* Item Image */}
                         <CardMedia
                            component="img"
                            alt="Contemplative Reptile"
@@ -93,7 +112,7 @@ class FoodList extends React.Component {
                            title="Contemplative Reptile"
 
                         />
-
+                        {/* Item name and description */}
                         <CardContent>
                            <Typography gutterBottom variant="h6">
                               {item.name}
@@ -103,16 +122,14 @@ class FoodList extends React.Component {
                            </Typography>
                         </CardContent>
 
-                        <IconButton>
-                           <ExpandMoreIcon />
-                        </IconButton>
-
-                     </CardActionArea>
-
-
-                     <Collapse in={this.state.expanded === index ? true : false} timeout="auto" unmountOnExit>
+                        {/* Item size selection */}
                         <CardContent className={classes.selections}>
-                           <div className={classes.select}>Select size</div>
+                           <div className={classes.select}>
+                              Select size (tray)
+                           </div>
+
+                           {/* when a user doesn't select a tray size */}
+                           {this.state.sizeError && this.state.selectedItem === index ? <div style={{color: 'red'}}>Please select a size</div> : null}
 
                            <div className={classes.sizes}>
 
@@ -120,8 +137,8 @@ class FoodList extends React.Component {
                                  <div className={classes.price}>$15</div>
 
                                  <button
-                                    className={this.state.selectedSize === 'small' ? classes.activeButton : classes.button}
-                                    onClick={() => { this.toggleSelectSize('small') }}>
+                                    className={this.state.selectedSize === 'small' && this.state.selectedItem === index ? classes.activeButton : classes.sizeButton}
+                                    onClick={() => { this.toggleSelectSize('small', index) }}>
                                     Small
                                  </button>
 
@@ -129,8 +146,8 @@ class FoodList extends React.Component {
 
                               <div className={classes.size}>
                                  <div className={classes.price}>$25</div>
-                                 <button className={this.state.selectedSize === 'medium' ? classes.activeButton : classes.button}
-                                    onClick={() => { this.toggleSelectSize('medium') }}>
+                                 <button className={this.state.selectedSize === 'medium' && this.state.selectedItem === index ? classes.activeButton : classes.sizeButton}
+                                    onClick={() => { this.toggleSelectSize('medium', index) }}>
                                     Medium
                                  </button>
 
@@ -138,8 +155,8 @@ class FoodList extends React.Component {
 
                               <div className={classes.size}>
                                  <div className={classes.price}>$35</div>
-                                 <button variant="outlined" color="primary" className={this.state.selectedSize === 'large' ? classes.activeButton : classes.button}
-                                    onClick={() => { this.toggleSelectSize('large') }}>
+                                 <button variant="outlined" color="primary" className={this.state.selectedSize === 'large' && this.state.selectedItem === index ? classes.activeButton : classes.sizeButton}
+                                    onClick={() => { this.toggleSelectSize('large', index) }}>
                                     Large
                                  </button>
 
@@ -147,18 +164,17 @@ class FoodList extends React.Component {
 
 
                            </div>
-                           <Button size="medium" className={classes.addCart} onClick={this.addToCart}>
+                           {/* add to cart button */}
+                           <Button variant="contained" color="primary"  size="medium" className={classes.addCart}    onClick={()=>{this.addToCart(item, index)}}>
                               add to cart
                            </Button>
 
                         </CardContent>
-                     </Collapse>
-
                   </Card>
                )
 
             })}
-
+            <div className={`added-popup ${this.state.addedPopup ? 'show-addedpopup' : null}`} style={{color: 'white', paddingTop: 10}}>Item added!</div>
          </div>
       );
    }
@@ -167,12 +183,13 @@ class FoodList extends React.Component {
 
 const styles = {
    root: {
-      padding: 10
+      padding: 10,
+      paddingTop: 100
    },
    card: {
       textAlign: 'left',
       width: '100%',
-      marginTop: 20
+      marginTop: 40
    },
    media: {
       // ⚠️ object-fit is not supported by IE11.
@@ -183,16 +200,17 @@ const styles = {
    },
    sizes: {
       display: 'flex',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      margin: '10px 0'
    },
    selections: {
       textAlign: 'center'
    },
    select: {
-      fontSize: 13
+      fontSize: 14
    },
    price: {
-      fontSize: 13
+      fontSize: 14
    },
    activeButton: {
       background: '#3651b5',
@@ -205,7 +223,7 @@ const styles = {
       fontSize: 16,
       borderRadius: 4
    },
-   button: {
+   sizeButton: {
       background: 'white',
       border: '1px solid #95a6e5',
       color: '#3651b5',
@@ -218,9 +236,7 @@ const styles = {
    },
    addCart: {
       width: 260,
-      borderRadius: 5,
-      border: '1px solid green',
-      color: 'green',
+      borderRadius: 100,
       marginTop: 10
    },
    subMenus: {
@@ -247,7 +263,7 @@ const styles = {
       borderRadius: 4,
       color: 'white',
       fontSize: 14
-   }
+   },
 };
 
 FoodList.propTypes = {

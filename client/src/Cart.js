@@ -21,6 +21,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Input from '@material-ui/core/Input';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import { removeFromCart } from './actions/itemAction';
 
 import HeaderBar from './HeaderBar';
 
@@ -33,20 +34,31 @@ class Cart extends React.Component {
    this.setState({ [event.target.name]: event.target.value });
  };
 
+ handleRemoveFromCart = (item)=>{
+   this.props.removeFromCart(item);
+ }
 
   render(){
     const { classes, cart } = this.props;
+    console.log('cart', cart);
+    let total = null; 
+    cart.forEach(item=>{
+       total += item.price[item.size]
+    });
   return (
     <div className={classes.root}>
-      {/* Cart Header */}
-      <HeaderBar history={this.props.history} />
-
       {/* Top Total & Checkout */}
       <Card className={classes.card} >
          <CardActionArea>
-            <CardContent> 
-            <div>Total: $445</div>
-               <Button variant="contained" color="primary" className={classes.button}>
+            <CardContent>
+            <div className={classes.subTotal}>
+               <div>Subtotal (2)</div><div>${total}</div>
+            </div>
+            <div className={classes.delivery}>
+               <div>Delivery</div><div>Free</div>
+            </div>
+            <div className={classes.total}>Total: <span className={classes.totalPrice}>${total}</span></div>
+               <Button variant="contained" color="primary" className={classes.button} onClick={()=>{this.props.history.push('/payment')}}>
                   Checkout (3)
                </Button>
             </CardContent>
@@ -57,14 +69,17 @@ class Cart extends React.Component {
       <Card className={classes.card} >
 
             <CardContent>
-               {items.map((item, index)=>{
+               {cart.map((item, index)=>{
                   return(
                      <div className={classes.cartItem}>
                         <div className={classes.imgDesc}>
-                           <div className={classes.imgWrapper}><img className={classes.image} src={item.image}/></div>
+                           <div className={classes.imgWrapper}>
+                              <img className={classes.image} src={item.image}/>
+                           </div>
                            <div>
-                              <div>{item.name}</div>
-                              <div>{item.price}</div>
+                              <div className={classes.itemName}>{item.name}</div>
+                              <div className={classes.itemSize}>Size: {item.size} tray</div>
+                              <div className={classes.itemPrice}>${item.price[item.size]}</div>
                            </div>
                         </div>
                         <div className={classes.qtyRemove}>
@@ -95,7 +110,9 @@ class Cart extends React.Component {
                               </Select>
                            </FormControl>
                            </div>
-                           <div className={classes.removeBtn}><a className={classes.link} href="#">Remove</a></div>
+                           <div className={classes.removeBtn} onClick={()=>{this.handleRemoveFromCart(item)}}>
+                              Remove
+                           </div>
                         </div>
                      </div>
                   )
@@ -103,19 +120,7 @@ class Cart extends React.Component {
                })}
             </CardContent>
       </Card>
-
-      {/* BOTTOM CHECKOUT */}
-      <Card className={classes.card} >
-         <CardActionArea>
-            <CardContent> 
-            <div>Total: $445</div>
-               <Button variant="contained" color="primary" className={classes.button}>
-                  Checkout (3)
-               </Button>
-            </CardContent>
-         </CardActionArea>
-      </Card>
-    
+      {/* <div className={backBtn}>Back to shopping</div> */}
     </div>
   );
   }
@@ -126,6 +131,28 @@ const styles = theme => ({
   root: {
     padding: 10,
     paddingTop: 60
+  },
+  subTotal: {
+     display: 'flex',
+     justifyContent: 'space-between',
+     paddingBottom: 10,
+     fontSize: 17
+  },
+  delivery: {
+   display: 'flex',
+   justifyContent: 'space-between',
+   borderBottom: '1px solid #dedede',
+   paddingBottom: 20,
+   fontSize: 17
+  },
+  total: {
+   fontSize: 20,
+   textAlign: 'center',
+   marginTop: 20
+  },
+  totalPrice: {
+     fontSize: 23,
+     fontWeight: 'bold',
   },
   card: {
     textAlign: 'left',
@@ -145,6 +172,7 @@ const styles = theme => ({
       paddingBottom: 20,
       margin: '20px auto'
    },
+   // image and description
    imgDesc: {
       display: 'flex'
    },
@@ -154,6 +182,20 @@ const styles = theme => ({
    image: {
       width: '25vw'
    },
+   // descrition
+   itemName: {
+      fontSize: 17,
+      paddingBottom: 5
+   },
+   itemSize: {
+      paddingBottom: 5
+   },
+   itemPrice: {
+      fontSize: 17,
+      fontWeight: 'bold',
+      paddingBottom: 5
+   },
+   // qty and remove button
    qtyRemove: {
       display: 'flex',
       justifyContent: 'space-between',
@@ -162,13 +204,9 @@ const styles = theme => ({
    removeBtn: {
       // border: '1px solid red',
       paddingTop: 28,
-      paddingBottom: 5
-   },
-   link: {
-      color: 'black',
-      textDecoration: 'none',
+      paddingBottom: 5,
       borderBottom: '1px solid gray'
-   }
+   },
 });
 
 Cart.propTypes = {
@@ -182,4 +220,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {addToCart})(withStyles(styles)(Cart));
+export default connect(mapStateToProps, {addToCart, removeFromCart})(withStyles(styles)(Cart));
