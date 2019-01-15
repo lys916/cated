@@ -19,13 +19,39 @@ export default class App extends PureComponent {
 
     return (
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <DateTimePicker
-          value={this.props.delTime}
-          onChange={this.props.dateChange}
-          disablePast
-          label="Delivery Date and Time"
-          style={{width: '100%'}}
-        />
+         {/* <div> */}
+         <div style={{display: 'flex', justifyContent: 'space-between'}}>
+         <div>
+         <label>
+            Date
+         </label>
+         <br/>
+         <DatePicker 
+         style={{margin: '0px 5px 0px 0px'}}
+         id="outlined-bare"
+         margin="dense"
+         // className={classes.textField}
+         variant="outlined"
+            value={selectedDate} 
+            onChange={this.handleDateChange} 
+         />
+         </div>
+         <div>
+
+         <label>
+            Time
+         </label>
+         <br/>
+         <TimePicker 
+         style={{margin: '0px 0px 0px 5px'}}
+         id="outlined-bare"
+         margin="dense"
+         // className={classes.textField}
+         variant="outlined"
+            value={selectedDate} 
+            onChange={this.handleDateChange} />
+            </div>
+         </div>
       </MuiPickersUtilsProvider>
     );
   }

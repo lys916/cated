@@ -26,7 +26,14 @@ import TextField from '@material-ui/core/TextField';
 import {CardElement, CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from 'react-stripe-elements';
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import StripePayment from './StripePayment';
-import DatePicker from 'react-date-picker';
+import DateFnsUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider } from 'material-ui-pickers';
+import { TimePicker } from 'material-ui-pickers';
+import { DatePicker } from 'material-ui-pickers';
+import { DateTimePicker } from 'material-ui-pickers';
+import DatePickerUI from './DatePicker';
+
+
 
 import HeaderBar from './HeaderBar';
 
@@ -70,7 +77,7 @@ class Payment extends React.Component {
 		detailError: '',
 		checkOutError: '',
       cartError: '',
-      date: new Date()
+      selectedDate: new Date()
 	}
 
   handleChange = name => event => {
@@ -117,6 +124,10 @@ handleOpenCheckOut = () => {
    
 };
 
+handleDateChange = (date) => {
+   this.setState({ selectedDate: date });
+ }
+
 handleCloseAll = ()=> {
    this.setState({openCart: false, openCheckOut: false, openDetails: false, cartError: ''});
 }
@@ -130,9 +141,9 @@ handleChange = (key) => (event) => {
    this.setState({ [key]: event.target.value});
 };
 
-dateChange = (date) => {
-   this.setState({date: date});
-}
+handleDateChange = date => {
+   this.setState({ selectedDate: date });
+ };
 
 handleChange = (prop) => (event) => {
    this.setState({ [prop]: event.target.value, missingField: false });
@@ -140,6 +151,7 @@ handleChange = (prop) => (event) => {
 
   render(){
    const { classes, cart } = this.props;
+   const { selectedDate } = this.state;
    //  console.log('cart', cart);
    //  let total = null; 
    //  cart.forEach(item=>{
@@ -148,6 +160,7 @@ handleChange = (prop) => (event) => {
   return (
    
    <div className={classes.root}>
+
       <div className={classes.title}>Delivery Information</div>
       <Card className={classes.card}>
          <label className={classes.label}>
@@ -165,29 +178,15 @@ handleChange = (prop) => (event) => {
          </label><br/>
          <input className={classes.input} value={this.state.nameOnCard}  onChange={this.handleChange('nameOnCard')}/>
          <br/><br/>
+         
+            {/* Date and time */}
+            {/* Only works if we set up pure component? and import it */}
+            <DatePickerUI />
+         
 
-         <div className={classes.dateTime}>
-            <div className={classes.date}>
-
-            <label className={classes.label}>
-            Date
-            </label><br/>
-            <input className={classes.input} value={this.state.nameOnCard}  onChange={this.handleChange('nameOnCard')}/>
-            </div>
-
-            <div className={classes.time}>
-            <label className={classes.label}>
-            Time
-            </label><br/>
-            <input className={classes.input} value={this.state.nameOnCard}  onChange={this.handleChange('nameOnCard')}/>
-            </div>
-
-         </div>
-         <br/><br/> 
-         <DatePicker
-          onChange={this.changeDate}
-          value={this.state.date}
-        /><br/><br/>
+         <br/>
+         
+ 
       </Card>
 
       <div className={classes.title}>Payment</div>
@@ -295,6 +294,9 @@ totalPrice: {
   width: '85vw',
   background: '#008cff'
   },
+  grid: {
+   width: '60%',
+ },
 });
 
 Payment.propTypes = {
