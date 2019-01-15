@@ -22,6 +22,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Input from '@material-ui/core/Input';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { removeFromCart } from './actions/itemAction';
+import TotalCard from './TotalCard';
 
 import HeaderBar from './HeaderBar';
 
@@ -35,43 +36,30 @@ class Cart extends React.Component {
  };
 
  handleRemoveFromCart = (item)=>{
+    console.log('Item to remove', item);
    this.props.removeFromCart(item);
  }
 
+ 
+ redirect = (path)=>{
+   this.props.history.push(`./${path}`);
+}
+
   render(){
-    const { classes, cart } = this.props;
-    console.log('cart', cart);
-    let total = null; 
-    cart.forEach(item=>{
-       total += item.price[item.size]
-    });
+    const { classes, cart} = this.props;
   return (
     <div className={classes.root}>
-      {/* Top Total & Checkout */}
-      <Card className={classes.card} >
-         <CardActionArea>
-            <CardContent>
-            <div className={classes.subTotal}>
-               <div>Subtotal (2)</div><div>${total}</div>
-            </div>
-            <div className={classes.delivery}>
-               <div>Delivery</div><div>Free</div>
-            </div>
-            <div className={classes.total}>Total: <span className={classes.totalPrice}>${total}</span></div>
-               <Button variant="contained" color="primary" className={classes.button} onClick={()=>{this.props.history.push('/payment')}}>
-                  Checkout (3)
-               </Button>
-            </CardContent>
-         </CardActionArea>
-      </Card>
-
+      {cart.length > 0 ? <TotalCard path="payment" buttonName="Checkout" buttonClick={this.redirect}/> : null}
+   
       {/* Cart Item List */}
       <Card className={classes.card} >
 
             <CardContent>
+               {cart.length === 0 ? <div>Your cart is empty.</div> : null}
+
                {cart.map((item, index)=>{
                   return(
-                     <div className={classes.cartItem}>
+                     <div className={classes.eachItem}>
                         <div className={classes.imgDesc}>
                            <div className={classes.imgWrapper}>
                               <img className={classes.image} src={item.image}/>
@@ -120,57 +108,59 @@ class Cart extends React.Component {
                })}
             </CardContent>
       </Card>
+      {cart.length > 0 ? <TotalCard path="payment" buttonName="Checkout" buttonClick={this.redirect}/> : null}
       {/* <div className={backBtn}>Back to shopping</div> */}
     </div>
   );
   }
   
 }
-
+// STYLES ***
 const styles = theme => ({
   root: {
     padding: 10,
     paddingTop: 60
   },
+  card: {
+   textAlign: 'left',
+   width: '100%',
+   marginTop: 20,
+ },
+ cardTotal: {
+    color: '#333333',
+    fontSize: 16
+ },
   subTotal: {
      display: 'flex',
      justifyContent: 'space-between',
      paddingBottom: 10,
-     fontSize: 17
   },
   delivery: {
    display: 'flex',
    justifyContent: 'space-between',
    borderBottom: '1px solid #dedede',
    paddingBottom: 20,
-   fontSize: 17
   },
   total: {
-   fontSize: 20,
    textAlign: 'center',
-   marginTop: 20
+   marginTop: 20,
   },
   totalPrice: {
-     fontSize: 23,
+     fontSize: 22,
      fontWeight: 'bold',
   },
-  card: {
-    textAlign: 'left',
-    width: '100%',
-    marginTop: 20
-  },
+
   button: {
    margin: theme.spacing.unit,
    borderRadius: 500,
    width: '85vw',
    background: '#008cff'
    },
-   cartItem: {
-      width: '90vw',
-      fontSize: 16,
+   eachItem: {
       borderBottom: '1px solid #dedede',
       paddingBottom: 20,
-      margin: '20px auto'
+      margin: '20px auto',
+      fontSize: 16.
    },
    // image and description
    imgDesc: {

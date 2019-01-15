@@ -172,9 +172,9 @@ class StripePayment extends React.Component {
 						</div>
 						<br/>
 
-						<Button variant="contained" color="primary" className={classes.save} onClick={()=>{this.submitOrder(total)}}>
+						{/* <Button variant="contained" color="primary" className={classes.save} onClick={()=>{this.submitOrder(total)}}>
 							Place Order
-						</Button>
+						</Button> */}
 						{this.state.missingField ? <div>All fields required</div> : null}
 					</Card>
 

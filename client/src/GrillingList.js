@@ -54,7 +54,7 @@ class GrillingList extends React.Component {
             this.setState({weightError: true, selectedItem: index, weight: 0});
          }
          item.lb = this.state.weight;
-         item.totalPrice = Number.parseFloat((item.price * item.lb)).toFixed(2);
+         item.totalPrice = Number(Number.parseFloat((item.price * item.lb)).toFixed(2));
          this.props.addToCart(item)
          this.setState({weight: 0, selectedItem: null});
       }

@@ -32,7 +32,7 @@ import { TimePicker } from 'material-ui-pickers';
 import { DatePicker } from 'material-ui-pickers';
 import { DateTimePicker } from 'material-ui-pickers';
 import DatePickerUI from './DatePicker';
-
+import TotalCard from './TotalCard';
 
 
 import HeaderBar from './HeaderBar';
@@ -81,75 +81,79 @@ class Payment extends React.Component {
 	}
 
   handleChange = name => event => {
-   this.setState({
-     [name]: event.target.value,
-   });
- };
+      this.setState({
+      [name]: event.target.value,
+      });
+   };
 
- componentDidMount() {
-   console.log('comp mount');
-   const path = this.props.history.location.pathname;
-   
-}
-
-handleOpenCart = () => {
-   this.setState({ openCart: true });
-};
-
-handleCloseCart = () => {
-   this.handleCloseAll();
-};
-
-handleOpenDetails = () => {
-   if(this.props.cart.length > 0){
-      this.setState({ openDetails: true, openCart: false, cartError: '' });
-   }else{
-      this.setState({cartError: 'Your cart is empty'});
+   componentDidMount() {
+      console.log('comp mount');
+      const path = this.props.history.location.pathname;
+      
    }
-   
-};
 
-handleCloseDetails = () => {
-   this.setState({ openDetails: false, openCart: true, detailError: '' });
-};
+   handleOpenCart = () => {
+      this.setState({ openCart: true });
+   };
 
-handleOpenCheckOut = () => {
-   const {delName, delAddress, delPhone} = this.state;
-   console.log(delName, delAddress, delPhone);
-   if(delName !== '' || delAddress !== '' || delPhone !== ''){
-      this.setState({ openCheckOut: true, openCart: false, openDetials: false, detailError: '' });
-   }else{
-      this.setState({detailError: 'All fields are required.'});
+   handleCloseCart = () => {
+      this.handleCloseAll();
+   };
+
+   handleOpenDetails = () => {
+      if(this.props.cart.length > 0){
+         this.setState({ openDetails: true, openCart: false, cartError: '' });
+      }else{
+         this.setState({cartError: 'Your cart is empty'});
+      }
+      
+   };
+
+   handleCloseDetails = () => {
+      this.setState({ openDetails: false, openCart: true, detailError: '' });
+   };
+
+   handleOpenCheckOut = () => {
+      const {delName, delAddress, delPhone} = this.state;
+      console.log(delName, delAddress, delPhone);
+      if(delName !== '' || delAddress !== '' || delPhone !== ''){
+         this.setState({ openCheckOut: true, openCart: false, openDetials: false, detailError: '' });
+      }else{
+         this.setState({detailError: 'All fields are required.'});
+      }
+      
+   };
+
+   handleDateChange = (date) => {
+      this.setState({ selectedDate: date });
    }
-   
-};
 
-handleDateChange = (date) => {
-   this.setState({ selectedDate: date });
- }
+   handleCloseAll = ()=> {
+      this.setState({openCart: false, openCheckOut: false, openDetails: false, cartError: ''});
+   }
 
-handleCloseAll = ()=> {
-   this.setState({openCart: false, openCheckOut: false, openDetails: false, cartError: ''});
-}
+   handleCloseCheckOut = () => {
+      this.setState({ openCart: true, openCheckOut: false });
+   };
 
-handleCloseCheckOut = () => {
-   this.setState({ openCart: true, openCheckOut: false });
-};
+   handleChange = (key) => (event) => {
+      console.log(event.target.value);
+      this.setState({ [key]: event.target.value});
+   };
 
-handleChange = (key) => (event) => {
-   console.log(event.target.value);
-   this.setState({ [key]: event.target.value});
-};
+   handleDateChange = date => {
+      this.setState({ selectedDate: date });
+   };
 
-handleDateChange = date => {
-   this.setState({ selectedDate: date });
- };
+   handleChange = (prop) => (event) => {
+      this.setState({ [prop]: event.target.value, missingField: false });
+   };
 
-handleChange = (prop) => (event) => {
-   this.setState({ [prop]: event.target.value, missingField: false });
-};
+   placeOrder = ()=>{
+      alert('handle place order');
+   }
 
-  render(){
+   render(){
    const { classes, cart } = this.props;
    const { selectedDate } = this.state;
    //  console.log('cart', cart);
@@ -157,68 +161,52 @@ handleChange = (prop) => (event) => {
    //  cart.forEach(item=>{
    //     total += item.price[item.size]
    //  });
-  return (
-   
-   <div className={classes.root}>
+      return (
+         <div className={classes.root}>
+            <div className={classes.title}>Delivery Information</div>
+            <Card className={classes.card}>
 
-      <div className={classes.title}>Delivery Information</div>
-      <Card className={classes.card}>
-         <label className={classes.label}>
-            Full Name
-         </label><br/>
-         <input className={classes.input} value={this.state.nameOnCard}  onChange={this.handleChange('nameOnCard')}/>
-         <br/><br/> 
-         <label className={classes.label}>
-            Phone Number
-         </label><br/>
-         <input className={classes.input} value={this.state.nameOnCard}  onChange={this.handleChange('nameOnCard')}/>
-         <br/><br/>
-         <label className={classes.label}>
-            Address
-         </label><br/>
-         <input className={classes.input} value={this.state.nameOnCard}  onChange={this.handleChange('nameOnCard')}/>
-         <br/><br/>
-         
-            {/* Date and time */}
-            {/* Only works if we set up pure component? and import it */}
-            <DatePickerUI />
-         
+               <label className={classes.label}>
+                  Full Name
+               </label><br/>
+               <input className={classes.input} value={this.state.nameOnCard}  onChange={this.handleChange('nameOnCard')}/><br/><br/>
 
-         <br/>
-         
- 
-      </Card>
+               <label className={classes.label}>
+                  Phone Number
+               </label><br/>
+               <input className={classes.input} value={this.state.nameOnCard}  onChange={this.handleChange('nameOnCard')}/><br/><br/>
+            
+               <label className={classes.label}>
+                  Address
+               </label><br/>
+               <input className={classes.input} value={this.state.nameOnCard}  onChange={this.handleChange('nameOnCard')}/><br/><br/>
 
-      <div className={classes.title}>Payment</div>
+               {/* Date and time */}
+               {/* Only works if we set up pure component? and import it */}
+               <DatePickerUI /><br/>
+            </Card>
 
+            <div className={classes.title}>Payment</div>
 
-      {/* Card information
-      
-      <Card className={classes.card} >
-         <CardContent> */}
-         <StripeProvider apiKey="pk_test_RwPXTOOT26zF8BncTe2MfAUO">
-					<Elements>
-
-
-            <StripePayment 
-               submitOrder={this.submitOrder} 
-               nameOnCard={this.state.nameOnCard} 
-               handleChange={this.handleChange} 
-               open={this.state.openCheckOut} 
-               closeAll={this.handleCloseAll} 
-               closeCheckOut={this.handleCloseCheckOut}
-               name={this.state.delName} 
-               address={this.state.delAddress} 
-               phone={this.state.delPhone} 
-               time={this.state.delTime} />
-
-         </Elements>
-				</StripeProvider>
-   </div>
-   
-  );
-  }
-  
+            <StripeProvider apiKey="pk_test_RwPXTOOT26zF8BncTe2MfAUO">
+               <Elements>
+                  <StripePayment 
+                     submitOrder={this.submitOrder} 
+                     nameOnCard={this.state.nameOnCard} 
+                     handleChange={this.handleChange} 
+                     open={this.state.openCheckOut} 
+                     closeAll={this.handleCloseAll} 
+                     closeCheckOut={this.handleCloseCheckOut}
+                     name={this.state.delName} 
+                     address={this.state.delAddress} 
+                     phone={this.state.delPhone} 
+                     time={this.state.delTime} />
+               </Elements>
+            </StripeProvider>
+            <TotalCard buttonName="Place Order" buttonClick={this.placeOrder}/>
+         </div>
+      );
+   }
 }
 
 const styles = theme => ({
