@@ -185,6 +185,34 @@ class Payment extends React.Component {
                {/* Date and time */}
                {/* Only works if we set up pure component? and import it */}
                <DatePickerUI /><br/>
+
+               <select>
+               <option value="volvo">Volvo</option>
+               <option value="saab">Saab</option>
+               <option value="opel">Opel</option>
+               <option value="audi">Audi</option>
+               </select>
+
+               <div className={classes.timeWrapper}>
+                  <div className={classes.time}>
+                     <label className={classes.label}>
+                        Hour*
+                     </label><br/>
+                     <input className={classes.input} name="delHour" value={this.state.delAddress}  onChange={this.handleChange}/>
+                  </div>
+                  <div className={classes.time}>
+                     <label className={classes.label}>
+                        Minute*
+                     </label><br/>
+                     <input className={classes.input} name="delMin" value={this.state.delAddress}  onChange={this.handleChange}/>
+                  </div>
+                  <div>
+                     <label className={classes.label}>
+                        Am/Pm*
+                     </label><br/>
+                     <input className={classes.input} name="delAmpm" value={this.state.delAddress}  onChange={this.handleChange}/>
+                  </div>
+               </div>
             </Card>
 
             <div className={classes.title}>Payment</div>
@@ -201,6 +229,7 @@ class Payment extends React.Component {
                      name={this.state.delName} 
                      address={this.state.delAddress} 
                      phone={this.state.delPhone} 
+                     date={this.state.delDate}
                      time={this.state.delTime} 
                      path={path}
                      history={this.props.history}
@@ -255,13 +284,17 @@ backShopping: {
    paddingLeft: '3px',
    height: 42,
   },
-  dateTime: {
-     display: 'flex'
-  },
-  date: {
+  timeWrapper:{
+     width: '98.8%',
+     display: 'flex',
+     justifyContent: 'space-between',
+
+     overFlow: 'none'
 
   },
-  time: {},
+  time: {
+   marginRight: 10
+  },
   container: {
    display: 'flex',
    flexWrap: 'wrap',

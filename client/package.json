@@ -12,6 +12,7 @@
     "material-ui-pickers": "^1.0.0-rc.17",
     "react": "^16.5.2",
     "react-date-picker": "^7.1.1",
+    "react-day-picker": "^7.2.4",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",

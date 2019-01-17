@@ -19,20 +19,23 @@ class CheckoutCard extends React.Component {
    // build order object to send to server
     const order = {
        token: token.id,
-       deliveryDate: new Date(),
        guestInfo: {
-          name: 'test name',
-          address: 'test address',
-          phone: 'test phone'
+          name: this.props.name,
+          address: this.props.address,
+          phone: this.props.phone,
        },
-       items: this.props.cart,
-       total
+       orderInfor: {
+          items: this.props.cart,
+          deliveryDate: this.props.date,
+          deliveryTime: this.props.time,
+          total
+       }
     }
     if(this.props.user){
        order.user = this.props.user._id
     }
     // send order to server to charge
-    console.log('Order waiting...', order);
+    console.log('Order waiting...', order);return;
     const charged = await this.props.createOrder(order);
     console.log('Order charged!', charged);
     if(charged._id){

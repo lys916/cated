@@ -73,43 +73,33 @@ class StripePayment extends React.Component {
 
 	
 
-	submitOrder = async (total)=>{
-        let { token } = await this.props.stripe.createToken({name: "Lo Saephan"});
-			// console.log('RESSSS', res);
-			console.log('stripe token', token.id);
+	// submitOrder = async (total)=>{
+   //      let { token } = await this.props.stripe.createToken({name: "Lo Saephan"});
+	// 		// console.log('RESSSS', res);
+	// 		console.log('stripe token', token.id);
 		
-		const order = {
-			token: token.id,
-			deliveryDate: this.props.time,
-			guestInfo: {
-				name: this.props.name,
-				address: this.props.address,
-				phone: this.props.phone
-			},
-			items: this.props.cart,
-			total
-		}
-		if(this.props.user){
-			order.user = this.props.user._id
-		}
-		console.log('ORDER WAITING', order);
-		const charged = await this.props.createOrder(order);
-		console.log('compoeennt Charged', charged);
-		if(charged._id){
-			alert('Order Complete!');
-			this.props.closeAll();
-		}
-
-        // let response = await fetch("/charge", {
-        //   method: "POST",
-        //   headers: {"Content-Type": "text/plain"},
-        //   body: token.id
-        // });
-      
-        // if (response.ok) console.log("Purchase Complete!")
-		
-		
-      }
+	// 	const order = {
+	// 		token: token.id,
+	// 		deliveryDate: this.props.time,
+	// 		guestInfo: {
+	// 			name: this.props.name,
+	// 			address: this.props.address,
+	// 			phone: this.props.phone
+	// 		},
+	// 		items: this.props.cart,
+	// 		total
+	// 	}
+	// 	if(this.props.user){
+	// 		order.user = this.props.user._id
+	// 	}
+	// 	console.log('ORDER WAITING', order);return;
+	// 	const charged = await this.props.createOrder(order);
+	// 	console.log('compoeennt Charged', charged);
+	// 	if(charged._id){
+	// 		alert('Order Complete!');
+	// 		this.props.closeAll();
+	// 	}
+   // }
 
 	
 	handleChange = (prop) => (event) => {
@@ -179,7 +169,17 @@ class StripePayment extends React.Component {
 						{this.state.missingField ? <div>All fields required</div> : null}
 					</Card>
 
-                <TotalCard stripe={stripe} buttonName="Place Order" path={this.props.path} history={this.props.history}/>
+                <TotalCard 
+                  stripe={stripe} 
+                  buttonName="Place Order" 
+                  path={this.props.path} 
+                  history={this.props.history}
+                  name={this.props.name}
+                  address={this.props.address}
+                  phone={this.props.phone}
+                  date={this.props.date}
+                  time={this.props.time}
+               />
 
 			</div>
 

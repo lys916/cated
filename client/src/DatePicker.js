@@ -1,56 +1,72 @@
 import React, { PureComponent } from 'react';
+
+// material ui date picker
 import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
 import TimePicker from 'material-ui-pickers/TimePicker';
 import DatePicker from 'material-ui-pickers/DatePicker';
 import DateTimePicker from 'material-ui-pickers/DateTimePicker';
+// react day picker
+import DayPicker from 'react-day-picker';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
+
+function disableWeekends(date) {
+   return date.getDay() === 1 || date.getDay() === 2 || date.getDay() === 3 || date.getDay() === 4;
+ }
+
 
 export default class App extends PureComponent {
   state = {
-    selectedDate: new Date(),
+    selectedDate: null
   }
 
   handleDateChange = (date) => {
-    this.setState({ selectedDate: date });
+   console.log('date', date);
+    this.setState({ selectedDate: date});
   }
 
   render() {
-    const { selectedDate } = this.state;
-
     return (
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
          {/* <div> */}
-         <div style={{display: 'flex', justifyContent: 'space-between'}}>
-         <div>
+         <div style={{width: '100vw'}}>
+         <div style={{paddingRight: '40px'}}>
          <label>
             Date*
          </label>
          <br/>
-         <DatePicker 
-         style={{margin: '0px 5px 0px 0px'}}
+         <DatePicker
+         disablePast
+         shouldDisableDate={disableWeekends}
+         autoOk={true}
+         // formatDate={(date)=>{return 'testing date'}}
+         style={{marginTop: 0,width: '100%'}}
          id="outlined-bare"
          margin="dense"
          // className={classes.textField}
          variant="outlined"
-            value={selectedDate} 
+            value={this.state.selectedDate} 
             onChange={this.handleDateChange} 
          />
          </div>
-         <div>
+         {/* <div>
 
          <label>
             Time*
          </label>
          <br/>
          <TimePicker 
+         minutesStep={10}
          style={{margin: '0px 0px 0px 5px'}}
          id="outlined-bare"
          margin="dense"
+         name="time"
          // className={classes.textField}
          variant="outlined"
-            value={selectedDate} 
+            value={this.state.selectedDate} 
             onChange={this.handleDateChange} />
-            </div>
+            </div> */}
          </div>
       </MuiPickersUtilsProvider>
     );
