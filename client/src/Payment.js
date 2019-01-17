@@ -168,17 +168,17 @@ class Payment extends React.Component {
             <Card className={classes.card}>
 
                <label className={classes.label}>
-                  Name
+                  Full Name*
                </label><br/>
                <input className={classes.input} name="delName" value={this.state.delName}  onChange={this.handleChange}/><br/><br/>
 
                <label className={classes.label}>
-                  Phone Number
+                  Phone Number*
                </label><br/>
                <input className={classes.input} name="delPhone" value={this.state.delPhone}  onChange={this.handleChange}/><br/><br/>
             
                <label className={classes.label}>
-                  Address
+                  Address*
                </label><br/>
                <input className={classes.input} name="delAddress" value={this.state.delAddress}  onChange={this.handleChange}/><br/><br/>
 

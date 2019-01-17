@@ -48,7 +48,7 @@ const cartReducer = (state = initCart, action) => {
          // map it to local storage
 			localStorage.setItem('cart', JSON.stringify(updated));
          return updated;
-         
+      
          
 		case 'ORDER_MADE':
 			console.log(action.payload);

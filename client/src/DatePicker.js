@@ -23,7 +23,7 @@ export default class App extends PureComponent {
          <div style={{display: 'flex', justifyContent: 'space-between'}}>
          <div>
          <label>
-            Date
+            Date*
          </label>
          <br/>
          <DatePicker 
@@ -39,7 +39,7 @@ export default class App extends PureComponent {
          <div>
 
          <label>
-            Time
+            Time*
          </label>
          <br/>
          <TimePicker 

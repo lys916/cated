@@ -148,7 +148,7 @@ class StripePayment extends React.Component {
 					<Card className={classes.paymentData}>
 				
 						<label className={classes.label}>
-							Card Number
+							Card Number*
 						</label>
 						<div className={classes.elementInput}>
 							<CardNumberElement 
@@ -158,7 +158,7 @@ class StripePayment extends React.Component {
 						<br/>
 
 						<label className={classes.label}>
-							Expiration Date
+							Expiration Date* (mm/yy)
 						</label>
 						<div className={classes.elementInput}>
                         <CardExpiryElement {...createOptions()}/>
@@ -166,7 +166,7 @@ class StripePayment extends React.Component {
 						<br/>
 
                         <label className={classes.label}>
-							CVC
+							CVC* (3 digits)
 						</label>
 						<div className={classes.elementInput}>
 						<CardCVCElement {...createOptions()} />

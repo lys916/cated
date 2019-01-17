@@ -12,6 +12,8 @@ import Address from './Address';
 import Payment from './Payment';
 import IconTabs from './Tabs';
 import OrderCompleted from './OrderCompleted';
+import Spinner from './Spinner';
+import { connect } from 'react-redux';
 
 import './App.css';
 
@@ -33,9 +35,16 @@ class App extends Component {
             <Route path='/order-completed' component={OrderCompleted} />
           </div>
         </Router>
+        {this.props.misc.loading ? <Spinner/> : null}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+	return {
+      misc: state.misc
+   }
+}
+
+export default connect(mapStateToProps, { })(App);

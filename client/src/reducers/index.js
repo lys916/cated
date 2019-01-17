@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import transReducer from './transReducer';
+import miscReducer from './miscReducer';
 import userReducer from './userReducer';
 import cartReducer from './cartReducer';
 
 const rootReducer = combineReducers({
-   transactions: transReducer,
+   misc: miscReducer,
    user: userReducer,
    cart: cartReducer
 });

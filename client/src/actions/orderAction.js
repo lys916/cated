@@ -4,7 +4,7 @@ import axios from 'axios';
 export const createOrder = (order) => {
 	return (dispatch) => {
 		dispatch({
-			type: 'CREATING_CUSTOM_FOOD'
+			type: 'ORDERING'
 		});
 		return axios.post(`/order`, order).then(res => {
 			dispatch({
