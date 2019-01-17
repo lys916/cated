@@ -80,9 +80,10 @@ class Payment extends React.Component {
       selectedDate: new Date()
 	}
 
-  handleChange = name => event => {
+  handleChange = event => {
+     console.log(event.target.value);
       this.setState({
-      [name]: event.target.value,
+      [event.target.name]: event.target.value,
       });
    };
 
@@ -136,26 +137,26 @@ class Payment extends React.Component {
       this.setState({ openCart: true, openCheckOut: false });
    };
 
-   handleChange = (key) => (event) => {
-      console.log(event.target.value);
-      this.setState({ [key]: event.target.value});
-   };
+   // handleChange = (key) => (event) => {
+   //    console.log(event.target.value);
+   //    this.setState({ [key]: event.target.value});
+   // };
 
    handleDateChange = date => {
       this.setState({ selectedDate: date });
    };
 
-   handleChange = (prop) => (event) => {
-      this.setState({ [prop]: event.target.value, missingField: false });
-   };
+   // handleChange = (prop) => (event) => {
+   //    this.setState({ [prop]: event.target.value, missingField: false });
+   // };
 
-   placeOrder = ()=>{
-      alert('handle place order');
-   }
+   
+
 
    render(){
    const { classes, cart } = this.props;
    const { selectedDate } = this.state;
+   const path = this.props.history.location.pathname;
    //  console.log('cart', cart);
    //  let total = null; 
    //  cart.forEach(item=>{
@@ -167,19 +168,19 @@ class Payment extends React.Component {
             <Card className={classes.card}>
 
                <label className={classes.label}>
-                  Full Name
+                  Name
                </label><br/>
-               <input className={classes.input} value={this.state.nameOnCard}  onChange={this.handleChange('nameOnCard')}/><br/><br/>
+               <input className={classes.input} name="delName" value={this.state.delName}  onChange={this.handleChange}/><br/><br/>
 
                <label className={classes.label}>
                   Phone Number
                </label><br/>
-               <input className={classes.input} value={this.state.nameOnCard}  onChange={this.handleChange('nameOnCard')}/><br/><br/>
+               <input className={classes.input} name="delPhone" value={this.state.delPhone}  onChange={this.handleChange}/><br/><br/>
             
                <label className={classes.label}>
                   Address
                </label><br/>
-               <input className={classes.input} value={this.state.nameOnCard}  onChange={this.handleChange('nameOnCard')}/><br/><br/>
+               <input className={classes.input} name="delAddress" value={this.state.delAddress}  onChange={this.handleChange}/><br/><br/>
 
                {/* Date and time */}
                {/* Only works if we set up pure component? and import it */}
@@ -200,18 +201,25 @@ class Payment extends React.Component {
                      name={this.state.delName} 
                      address={this.state.delAddress} 
                      phone={this.state.delPhone} 
-                     time={this.state.delTime} />
+                     time={this.state.delTime} 
+                     path={path}
+                     history={this.props.history}
+                  />
                </Elements>
             </StripeProvider>
-            <TotalCard buttonName="Place Order" buttonClick={this.placeOrder}/>
-         </div>
+            <div className={classes.backWrapper}>
+               <Button className={classes.backShopping} variant="contained" onClick={()=>{this.props.history.push('/')}}>
+               Back to shopping
+               </Button>
+            </div>
+         </div> // root
       );
    }
 }
 
 const styles = theme => ({
   root: {
-    padding: '60px 10px'
+    padding: '60px 10px 0px 10px'
 
   },
   card: {
@@ -220,6 +228,15 @@ const styles = theme => ({
    padding: 10,
    
  },
+ backWrapper: {
+   textAlign: 'left',
+   padding: '20px 0px 30px 0px'
+},
+backShopping: {
+   fontSize: 12,
+   height: 20,
+  borderRadius: 100,
+},
  title: {
     textAlign: 'left',
     margin: '20px 0px 7px 10px',

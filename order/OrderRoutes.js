@@ -8,8 +8,18 @@ const Order = require('./OrderModel.js');
 // const CustomFood = require('./CustomFoodModel');
 
 orderRouter.post('/', async function(req, res){
-  var total = req.body.total.replace(".", "");
-  console.log('posting order', req.body);
+   
+   let total = req.body.total.toString();
+   if(total.includes(".")){
+      console.log('include .');
+      total = total.replace(".", "");
+   }else{
+      console.log('no dot');
+      total = total + "00";
+      console.log('dot total', total);
+   }
+   console.log('recieved order from client, amount', total);
+  console.log('posting order');
     try {
         let {status} = await stripe.charges.create({
           amount: Number(total),
@@ -17,12 +27,12 @@ orderRouter.post('/', async function(req, res){
           description: "Custom charge",
           source: req.body.token
         });
-        console.log('return status', status);
+        console.log('return status');
         if(status === 'succeeded'){
-          console.log('saving order to mongo', req.body);
+          console.log('saving order to mongo');
 
           Order.create(req.body).then(order =>{
-            console.log('order saved', order);
+            console.log('order saved');
             res.json(order);
           });
         }else{

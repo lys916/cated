@@ -19,6 +19,7 @@ import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import ClearIcon from '@material-ui/icons/Clear';
 import DatePicker from './DatePicker';
+import TotalCard from './TotalCard';
 import {CardElement, CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from 'react-stripe-elements';
 // import { Link } from 'react-router-dom';
 
@@ -131,7 +132,7 @@ class StripePayment extends React.Component {
 		
 	// }
 	render() {
-		const { cart, classes, nameOnCard, handleChange, submitOrder } = this.props;
+      const { cart, classes, stripe, nameOnCard, handleChange, submitOrder } = this.props;
 		let total = 0;
 		cart.forEach(item=>{
 			if(item.size){
@@ -177,6 +178,8 @@ class StripePayment extends React.Component {
 						</Button> */}
 						{this.state.missingField ? <div>All fields required</div> : null}
 					</Card>
+
+                <TotalCard stripe={stripe} buttonName="Place Order" path={this.props.path} history={this.props.history}/>
 
 			</div>
 

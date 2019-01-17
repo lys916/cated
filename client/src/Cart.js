@@ -22,6 +22,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Input from '@material-ui/core/Input';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import { removeFromCart } from './actions/itemAction';
+import { changeQty } from './actions/itemAction';
 import TotalCard from './TotalCard';
 
 import HeaderBar from './HeaderBar';
@@ -35,20 +36,29 @@ class Cart extends React.Component {
    this.setState({ [event.target.name]: event.target.value });
  };
 
+ handleChangeQty = (event, id)=>{
+    console.log(event.target.value, id);
+   this.props.changeQty({id, value: event.target.value});
+ }
+
  handleRemoveFromCart = (item)=>{
     console.log('Item to remove', item);
    this.props.removeFromCart(item);
  }
 
  
- redirect = (path)=>{
+ redirect = ({path})=>{
    this.props.history.push(`./${path}`);
 }
 
   render(){
     const { classes, cart} = this.props;
+    console.log('cart', cart);
   return (
     <div className={classes.root}>
+    
+
+      {/* Total card */}
       {cart.length > 0 ? <TotalCard path="payment" buttonName="Checkout" buttonClick={this.redirect}/> : null}
    
       {/* Cart Item List */}
@@ -62,12 +72,17 @@ class Cart extends React.Component {
                      <div className={classes.eachItem}>
                         <div className={classes.imgDesc}>
                            <div className={classes.imgWrapper}>
-                              <img className={classes.image} src={item.image}/>
+                              <img className={classes.image} src={`/images/${item.image}`}/>
                            </div>
                            <div>
                               <div className={classes.itemName}>{item.name}</div>
-                              <div className={classes.itemSize}>Size: {item.size} tray</div>
-                              <div className={classes.itemPrice}>${item.price[item.size]}</div>
+                              {item.type === 'food' ? <div className={classes.itemSize}>Size: {item.size} tray</div> : null}
+                              {item.type === 'grill' ? <div className={classes.itemSize}>Weight: {item.lb} lb</div> : null}
+                              {item.type === 'drink' ? <div className={classes.itemSize}>{item.unit}</div> : null}
+                              {item.type === 'food' ? <div className={classes.itemPrice}>${item.price[item.size] * item.qty}</div> : null}
+                              {item.type === 'grill' ? <div className={classes.itemPrice}>${item.totalPrice * item.qty}</div> : null}                            
+                              {item.type === 'drink' ? <div className={classes.itemPrice}>${item.price * item.qty}</div> : null}                            
+                              
                            </div>
                         </div>
                         <div className={classes.qtyRemove}>
@@ -78,8 +93,8 @@ class Cart extends React.Component {
                                  Qty:
                               </InputLabel>
                               <Select
-                                 value={this.state.qty}
-                                 onChange={this.handleChange}
+                                 value={item.qty}
+                                 onChange={(e)=>{this.handleChangeQty(e, item._id)}}
                                  input={<Input name="qty" id="qty-label-placeholder" />}
                                  displayEmpty
                                  name="qty"
@@ -110,6 +125,12 @@ class Cart extends React.Component {
       </Card>
       {cart.length > 0 ? <TotalCard path="payment" buttonName="Checkout" buttonClick={this.redirect}/> : null}
       {/* <div className={backBtn}>Back to shopping</div> */}
+      {/* Back to shopping */}
+      <div className={classes.backWrapper}>
+         <Button className={classes.backShopping} variant="contained" onClick={()=>{this.props.history.push('/')}}>
+         Back to shopping
+         </Button>
+      </div>
     </div>
   );
   }
@@ -118,13 +139,21 @@ class Cart extends React.Component {
 // STYLES ***
 const styles = theme => ({
   root: {
-    padding: 10,
-    paddingTop: 60
+    padding: '70px 10px 0px 10px'
   },
   card: {
    textAlign: 'left',
    width: '100%',
    marginTop: 20,
+ },
+ backWrapper: {
+    textAlign: 'left',
+    padding: '20px 0px 30px 0px'
+ },
+ backShopping: {
+    fontSize: 12,
+    height: 20,
+   borderRadius: 100,
  },
  cardTotal: {
     color: '#333333',
@@ -210,4 +239,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {addToCart, removeFromCart})(withStyles(styles)(Cart));
+export default connect(mapStateToProps, {addToCart, removeFromCart, changeQty})(withStyles(styles)(Cart));

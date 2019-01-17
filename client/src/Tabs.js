@@ -29,9 +29,9 @@ class IconTabs extends React.Component {
 		if(path === '/t/drinks'){
 			this.setState({value: 2});
 		}
-		if(path === '/t/supplies'){
-			this.setState({value: 3});
-		}
+		// if(path === '/t/supplies'){
+		// 	this.setState({value: 3});
+		// }
 	}
 
 	handleChange = (event, value) => {
@@ -45,9 +45,9 @@ class IconTabs extends React.Component {
 		if (value === 2) {
 			history.push('/t/drinks');
 		}
-		if (value === 3) {
-			history.push('/t/supplies');
-		}
+		// if (value === 3) {
+		// 	history.push('/t/supplies');
+		// }
 		this.setState({ value });
 	};
 
@@ -68,7 +68,7 @@ class IconTabs extends React.Component {
 					<Tab className={classes.tab}  label="Foods" />
 					<Tab className={classes.tab}  label="Grilling" />
 					<Tab className={classes.tab}  label="Drinks" />
-					<Tab className={classes.tab} label="Supplies" />
+					{/* <Tab className={classes.tab} label="Supplies" /> */}
 				</Tabs>
 			</Paper>
 			

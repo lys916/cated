@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { createOrder } from './actions/orderAction'
+import { createOrder } from './actions/orderAction';
 // import { addTran, fetchTrans } from './actions/tranAction';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';

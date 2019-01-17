@@ -24,6 +24,10 @@ class FoodList extends React.Component {
       sizeError: false
    };
 
+   componentWillMount() {
+      window.scrollTo(0, 0);
+    }
+
    handleExpandClick = (index) => {
       if (this.state.expanded === index) {
          this.setState({ expanded: null, selectedSize: null });
@@ -107,8 +111,7 @@ class FoodList extends React.Component {
                            component="img"
                            alt="Contemplative Reptile"
                            className={classes.media}
-                           height="160"
-                           image={item.image}
+                           image={`/images/${item.image}`}
                            title="Contemplative Reptile"
 
                         />
@@ -137,8 +140,8 @@ class FoodList extends React.Component {
                                  <div className={classes.price}>$15</div>
 
                                  <button
-                                    className={this.state.selectedSize === 'small' && this.state.selectedItem === index ? classes.activeButton : classes.sizeButton}
-                                    onClick={() => { this.toggleSelectSize('small', index) }}>
+                                    className={this.state.selectedSize === 'Small' && this.state.selectedItem === index ? classes.activeButton : classes.sizeButton}
+                                    onClick={() => { this.toggleSelectSize('Small', index) }}>
                                     Small
                                  </button>
 
@@ -146,8 +149,8 @@ class FoodList extends React.Component {
 
                               <div className={classes.size}>
                                  <div className={classes.price}>$25</div>
-                                 <button className={this.state.selectedSize === 'medium' && this.state.selectedItem === index ? classes.activeButton : classes.sizeButton}
-                                    onClick={() => { this.toggleSelectSize('medium', index) }}>
+                                 <button className={this.state.selectedSize === 'Medium' && this.state.selectedItem === index ? classes.activeButton : classes.sizeButton}
+                                    onClick={() => { this.toggleSelectSize('Medium', index) }}>
                                     Medium
                                  </button>
 
@@ -155,8 +158,8 @@ class FoodList extends React.Component {
 
                               <div className={classes.size}>
                                  <div className={classes.price}>$35</div>
-                                 <button variant="outlined" color="primary" className={this.state.selectedSize === 'large' && this.state.selectedItem === index ? classes.activeButton : classes.sizeButton}
-                                    onClick={() => { this.toggleSelectSize('large', index) }}>
+                                 <button variant="outlined" color="primary" className={this.state.selectedSize === 'Large' && this.state.selectedItem === index ? classes.activeButton : classes.sizeButton}
+                                    onClick={() => { this.toggleSelectSize('Large', index) }}>
                                     Large
                                  </button>
 
@@ -183,8 +186,7 @@ class FoodList extends React.Component {
 
 const styles = {
    root: {
-      padding: 10,
-      paddingTop: 100
+      padding: '100px 10px 50px 10px'
    },
    card: {
       textAlign: 'left',

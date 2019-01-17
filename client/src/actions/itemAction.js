@@ -11,3 +11,10 @@ export const removeFromCart = (item) => {
       payload: item
    })
 }
+
+export const changeQty = (data) => {
+	return ({
+      type: 'CHANGE_QTY',
+      payload: data
+   })
+}

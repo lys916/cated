@@ -32,10 +32,24 @@ const cartReducer = (state = initCart, action) => {
             }else{
                return true
             }
-			});
+         });
+         // map it to local storage
 			localStorage.setItem('cart', JSON.stringify(removeItem));
-			return removeItem;
-
+         return removeItem;
+         
+         case "CHANGE_QTY":
+         const updated = state.map(item=>{
+            if(item._id === action.payload.id){
+               item.qty = action.payload.value;
+               return item
+            }
+            return item;
+         });
+         // map it to local storage
+			localStorage.setItem('cart', JSON.stringify(updated));
+         return updated;
+         
+         
 		case 'ORDER_MADE':
 			console.log(action.payload);
 			localStorage.removeItem('cart');

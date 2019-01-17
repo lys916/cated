@@ -12,14 +12,14 @@ import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {addToCart} from './actions/itemAction';
 import { connect } from 'react-redux';
-import {grillItems as items} from './dummy-data';
+import {drinkItems as items} from './dummy-data';
 
-class GrillingList extends React.Component {
+class DrinkList2 extends React.Component {
   state = { 
     expanded: null,
-    weight: 0,
+    qty: 1,
     activeMenu: 'All',
-    weightError: false,
+    qtyError: false,
     selectedItem: null
   };
 
@@ -27,16 +27,7 @@ class GrillingList extends React.Component {
    window.scrollTo(0, 0);
  }
 
-  handleExpandClick = (index) => {
-    if(this.state.expanded === index){
-      this.setState({expanded: null, selectedSize: null});
-    }else{
-      this.setState({ expanded: index, selectedSize: null }, ()=>{
-        console.log(this.state.expanded);
-      });
-    }
-    
-  };
+
 
   toggleSelectSize = (size)=>{
     if(size === this.state.selectedSize){
@@ -48,20 +39,22 @@ class GrillingList extends React.Component {
   }
   }
 
-   addToCart = (item, index)=>{
-      
-      if(this.state.weight < 1){
-         this.setState({weightError: true, selectedItem: index});
-      }else{
-         // if user select weight from different item
-         if(this.selectedItem != index){
-            this.setState({weightError: true, selectedItem: index, weight: 0});
-         }
-         item.lb = this.state.weight;
-         item.totalPrice = Number(Number.parseFloat((item.price * item.lb)).toFixed(2));
-         this.props.addToCart(item)
-         this.setState({weight: 0, selectedItem: null});
-      }
+   addToCart = (item)=>{
+      item.qty = this.state.qty;
+      this.props.addToCart(item)
+
+
+      // if(this.state.qty >){
+      //    this.setState({qtyError: true, selectedItem: index});
+      // }else{
+      //    // if user select weight from different item
+      //    if(this.selectedItem != index){
+      //       this.setState({qtyError: true, selectedItem: index, qty: 1});
+      //    }
+      //    item.totalPrice = Number(Number.parseFloat((item.price * item.lb)).toFixed(2));
+      //    this.props.addToCart(item)
+      //    this.setState({qty: 1, selectedItem: null});
+      // }
     
   }
 
@@ -69,17 +62,17 @@ class GrillingList extends React.Component {
 		this.setState({activeMenu: menu});
   }
   
-  increaseWeight = (index)=>{
+  increaseQty = (index)=>{
      if(this.state.selectedItem === index){
-      this.setState({weight: this.state.weight + 1, selectedItem: index, weightError: false});
+      this.setState({qty: this.state.qty + 1, selectedItem: index, qtyError: false});
      }else{
-        this.setState({weight: 1, selectedItem: index, weightError: false});
+        this.setState({qty: 2, selectedItem: index, qtyError: false});
      }
     
   }
-  decreaseWeight = (index)=>{
-    if(this.state.weight > 0 && this.state.selectedItem === index){
-      this.setState({weight: this.state.weight - 1, selectedItem: index});
+  decreaseQty = (index)=>{
+    if(this.state.qty > 1 && this.state.selectedItem === index){
+      this.setState({qty: this.state.qty - 1, selectedItem: index});
     }
   }
 
@@ -101,39 +94,51 @@ class GrillingList extends React.Component {
       
         <CardMedia
           component="img"
-          alt="image"
+          alt={item.name}
           className={classes.media}
           image={`/images/${item.image}`}
-          title="Contemplative Reptile"
+          title={item.name}
           
         />
 
         <CardContent>
-          <Typography gutterBottom variant="h6">
-            {item.name}
-          </Typography>
-          <Typography variant="body1" gutterBottom>
-           {item.desc}
-          </Typography>
+          <div className={classes.itemName}>{item.name}</div>
+          <div className={classes.itemDesc}>{item.desc}</div>
+          <div className={classes.itemPrice}>${item.price}</div>
         </CardContent>
 
         <CardContent className={classes.selections}>
-            <div className={classes.select}>Select Weight</div>
-            <div>${item.price} per lb</div>
+            <div className={classes.select}>Select Quantity</div>
+            
 
-            {this.state.weightError && this.state.selectedItem === index ? <div style={{color: 'red'}}>Please select a weight</div> : null}
+            {/* {this.state.weightError && this.state.selectedItem === index ? <div style={{color: 'red'}}>Please select a weight</div> : null} */}
 
-            <div className={classes.weight}>
-              <div onClick={()=>{this.decreaseWeight(index)}} className={classes.minus}>-</div>
+            <div className={classes.qty}>
+               {/* decrease qty */}
+              <div onClick={()=>{this.decreaseQty(index)}} className={classes.minus}>-</div>
+               {/* selected qty */}
+               {this.state.selectedItem === index ? 
+                  <div className={classes.qtyPrice}>
+                     <span>qty: </span>
+                     <span className={classes.qtyNumber}>
+                        {this.state.qty} 
+                     </span>
+                     <span>
+                     <span> / </span> ${Number(item.price * this.state.qty)}
+                     </span>
+                  </div> 
+                  : 
+               <div className={classes.qtyPrice}>
+                  <span>qty: </span> 
+                  <span className={classes.qtyNumber}>1</span> 
+                  <span>
+                  <span> / </span> ${item.price}</span>
+               </div>}
 
-               {this.state.selectedItem === index ? <div className={classes.weightPrice}><span className={classes.weightNumber}>{this.state.weight}</span> <span className={classes.weightLb}>Lb / ${Number.parseFloat((item.price * this.state.weight)).toFixed(2)}</span></div> 
-               : 
-               <div className={classes.weightPrice}><span className={classes.weightNumber}>0</span> Lb / 0$</div>}
-
-              <div onClick={()=>{this.increaseWeight(index)}} className={classes.minus}>+</div>
+              <div onClick={()=>{this.increaseQty(index)}} className={classes.minus}>+</div>
             </div>
 
-            <Button variant="contained" color="primary"  size="medium" className={classes.addCart}    onClick={()=>{this.addToCart(item, index)}}>
+            <Button variant="contained" color="primary"  size="medium" className={classes.addCart}    onClick={()=>{this.addToCart(item)}}>
                add to cart
             </Button>
 
@@ -155,17 +160,24 @@ class GrillingList extends React.Component {
 }
 
 const styles = {
-   root: {
-      padding: '100px 10px 50px 10px'
-   },
-   card: {
-      textAlign: 'left',
-      width: '100%',
-      marginTop: 40
-   },
+  root: {
+   padding: '100px 10px 50px 10px'
+  },
+  card: {
+    textAlign: 'left',
+    width: '100%',
+    marginTop: 40
+  },
   media: {
+     borderBottom: '1px solid #dedede'
     // ⚠️ object-fit is not supported by IE11.
-    objectFit: 'cover'
+   //  objectFit: 'cover'
+  },
+  itemName:{fontSize: 23},
+  itemPrice:{
+   fontSize: 22,
+   fontWeigth: 'bold',
+   paddingTop: 10
   },
   size: {
     margin: 5
@@ -183,15 +195,17 @@ const styles = {
   price: {
     fontSize: 13
   },
-  weightNumber: {
+  qtyNumber: {
      fontSize: 23,
      fontWeigth: 'bold'
   },
-  weightLb: {
-     paddingTop: 6
+  qtyTotal: {
+     paddingTop: 6,
+     fontSize: 17
   },
-  weightPrice: {
-     paddingTop: 6
+  qtyPrice: {
+     paddingBottom: 6,
+     fontSize: 17
   },
   activeButton: {
     background: '#3651b5',
@@ -245,7 +259,7 @@ const styles = {
 		color: 'white',
 		fontSize: 14
   },
-  weight: {
+  qty: {
     display: 'flex',
     padding: 5,
     justifyContent: 'space-between',
@@ -264,7 +278,7 @@ const styles = {
   },
 };
 
-GrillingList.propTypes = {
+DrinkList2.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
@@ -275,4 +289,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {addToCart})(withStyles(styles)(GrillingList));
+export default connect(mapStateToProps, {addToCart})(withStyles(styles)(DrinkList2));
