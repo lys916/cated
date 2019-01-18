@@ -10,20 +10,38 @@ const cartReducer = (state = initCart, action) => {
 	switch (action.type) {
       case 'ADD_TO_CART':
          let found = false;
+         // if item already exists in the shopping cart, update the item
          let newState = state.map(item=>{
-            if(action.payload._id === item.id && action.payload.size === item.size){
+            if(action.payload.type === 'food' && action.payload._id === item._id && action.payload.size === item.size){
                found = true;
                item.qty++;
             }
+            if(action.payload.type === 'drink' && action.payload._id === item._id){
+               found = true;
+               item.qty = item.qty + action.payload.qty;
+            }
+            if(action.payload.type === 'grill' && action.payload._id === item._id){
+               found = true;
+               item.lb = item.lb + action.payload.lb;
+               item.totalPrice = item.price * item.lb;
+            }
             return item;
          });
-         if(found) return newState;
 
-         let newCartItem = JSON.parse(JSON.stringify(action.payload));
+         
+         // return updated item in shopping cart
+         if(found){
+            // map new state to local storage
+            localStorage.setItem('cart', JSON.stringify(newState));
+            return newState;
+         }
 
-		   localStorage.setItem('cart', JSON.stringify([...state, newCartItem]));
+         // map new state to local storage
+         let newItemStr = JSON.parse(JSON.stringify(action.payload));
+         localStorage.setItem('cart', JSON.stringify([...state, newItemStr]));
 
-			return [...state, newCartItem];
+         //return state + new item
+			return [...state, action.payload];
 			
       case "REMOVE_FROM_CART":
 			const removeItem = state.filter(item=>{

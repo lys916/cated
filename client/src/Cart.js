@@ -80,9 +80,8 @@ class Cart extends React.Component {
                               {item.type === 'grill' ? <div className={classes.itemSize}>Weight: {item.lb} lb</div> : null}
                               {item.type === 'drink' ? <div className={classes.itemSize}>{item.unit}</div> : null}
                               {item.type === 'food' ? <div className={classes.itemPrice}>${item.price[item.size] * item.qty}</div> : null}
-                              {item.type === 'grill' ? <div className={classes.itemPrice}>${item.totalPrice * item.qty}</div> : null}                            
-                              {item.type === 'drink' ? <div className={classes.itemPrice}>${item.price * item.qty}</div> : null}                            
-                              
+                              {item.type === 'grill' ? <div className={classes.itemPrice}>${(item.totalPrice * item.qty).toFixed(2)}</div> : null}                            
+                              {item.type === 'drink' ? <div className={classes.itemPrice}>${item.price * item.qty}</div> : null}  
                            </div>
                         </div>
                         <div className={classes.qtyRemove}>

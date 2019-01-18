@@ -128,13 +128,25 @@ class GrillingList extends React.Component {
             {this.state.weightError && this.state.selectedItem === index ? <div style={{color: 'red'}}>Please select a weight</div> : null}
 
             <div className={classes.weight}>
-              <div onClick={()=>{this.decreaseWeight(index)}} className={classes.minus}>-</div>
+               {/* <div onClick={()=>{this.decreaseWeight(index)}} className={classes.minus}>-</div> */}
+               <Button variant="outlined" size="medium" 
+                  color="primary" className={classes.margin} 
+                  onClick={()=>{this.decreaseWeight(index)}}
+               >
+                  -
+               </Button>
 
+               {/* show 0 lb if no item is selected */}
                {this.state.selectedItem === index ? <div className={classes.weightPrice}><span className={classes.weightNumber}>{this.state.weight}</span> <span className={classes.weightLb}>Lb / ${Number.parseFloat((item.price * this.state.weight)).toFixed(2)}</span></div> 
-               : 
+                  : 
                <div className={classes.weightPrice}><span className={classes.weightNumber}>0</span> Lb / 0$</div>}
 
-              <div onClick={()=>{this.increaseWeight(index)}} className={classes.minus}>+</div>
+               <Button variant="outlined" size="medium" 
+                  color="primary" className={classes.margin} 
+                  onClick={()=>{this.increaseWeight(index)}}
+               >
+                  +
+               </Button>
             </div>
 
             <Button variant="contained" color="primary"  size="medium" className={classes.addCart}    onClick={()=>{this.addToCart(item, index)}}>
@@ -158,10 +170,19 @@ class GrillingList extends React.Component {
   
 }
 
-const styles = {
+const styles = theme=>({
    root: {
       padding: '100px 10px 50px 10px'
    },
+   margin: {
+      margin: theme.spacing.unit,
+      minHeight: 0,
+      minWidth: 0,
+      width: 50,
+      padding: '0px 0px 2px 0px',
+      fontSize: 29,
+    fontFamily: "'Quattrocento Sans', sans-serif"
+    },
    card: {
       textAlign: 'left',
       width: '100%',
@@ -192,6 +213,13 @@ image: {
   price: {
     fontSize: 13
   },
+  weight: {
+   display: 'flex',
+   padding: 5,
+   justifyContent: 'space-between',
+   width: 260,
+   margin: '10px auto'
+ },
   weightNumber: {
      fontSize: 23,
      fontWeigth: 'bold'
@@ -200,7 +228,7 @@ image: {
      paddingTop: 6
   },
   weightPrice: {
-     paddingTop: 6
+     paddingTop: 16
   },
   activeButton: {
     background: '#3651b5',
@@ -254,13 +282,7 @@ image: {
 		color: 'white',
 		fontSize: 14
   },
-  weight: {
-    display: 'flex',
-    padding: 5,
-    justifyContent: 'space-between',
-    width: 220,
-    margin: '10px auto'
-  },
+  
   input: {
     width: 50
   },
@@ -268,10 +290,10 @@ image: {
     border: '1px solid #95a6e5',
     width: 20,
     fontSize: 30,
-    padding: '2px 10px',
+    padding: '2px 12px 5px 12px',
     borderRadius: 4
   },
-};
+});
 
 GrillingList.propTypes = {
   classes: PropTypes.object.isRequired,

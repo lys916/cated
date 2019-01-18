@@ -42,6 +42,7 @@ class DrinkList2 extends React.Component {
    addToCart = (item)=>{
       item.qty = this.state.qty;
       this.props.addToCart(item)
+      this.setState({qty: 1, selectedItem: null});
 
 
       // if(this.state.qty >){
@@ -110,7 +111,15 @@ class DrinkList2 extends React.Component {
 
             <div className={classes.qty}>
                {/* decrease qty */}
-              <div onClick={()=>{this.decreaseQty(index)}} className={classes.minus}>-</div>
+              {/* <div onClick={()=>{this.decreaseQty(index)}} className={classes.minus}>-</div> */}
+
+              <Button variant="outlined" size="medium" 
+                  color="primary" className={classes.margin} 
+                  onClick={()=>{this.decreaseQty(index)}}
+               >
+                  -
+               </Button>
+
                {/* selected qty */}
                {this.state.selectedItem === index ? 
                   <div className={classes.qtyPrice}>
@@ -130,7 +139,17 @@ class DrinkList2 extends React.Component {
                   <span> / </span> ${item.price}</span>
                </div>}
 
-              <div onClick={()=>{this.increaseQty(index)}} className={classes.minus}>+</div>
+              {/* <div onClick={()=>{this.increaseQty(index)}} className={classes.minus}>+</div> */}
+
+              <Button variant="outlined" size="medium" 
+                  color="primary" className={classes.margin} 
+                  onClick={()=>{this.increaseQty(index)}}
+               >
+                  +
+               </Button>
+
+               
+
             </div>
 
             <Button variant="contained" color="primary"  size="medium" className={classes.addCart}    onClick={()=>{this.addToCart(item)}}>
@@ -154,7 +173,7 @@ class DrinkList2 extends React.Component {
   
 }
 
-const styles = {
+const styles = theme=>({
   root: {
    padding: '100px 10px 50px 10px'
   },
@@ -199,8 +218,8 @@ const styles = {
      fontSize: 17
   },
   qtyPrice: {
-     paddingBottom: 6,
-     fontSize: 17
+     paddingTop: 16,
+     fontSize: 17,
   },
   activeButton: {
     background: '#3651b5',
@@ -258,7 +277,7 @@ const styles = {
     display: 'flex',
     padding: 5,
     justifyContent: 'space-between',
-    width: 220,
+    width: 260,
     margin: '10px auto'
   },
   input: {
@@ -271,7 +290,16 @@ const styles = {
     padding: '2px 10px',
     borderRadius: 4
   },
-};
+  margin: {
+   margin: theme.spacing.unit,
+   minHeight: 0,
+   minWidth: 0,
+   width: 50,
+   padding: '0px 0px 2px 0px',
+   fontSize: 29,
+ fontFamily: "'Quattrocento Sans', sans-serif"
+ },
+});
 
 DrinkList2.propTypes = {
   classes: PropTypes.object.isRequired,
