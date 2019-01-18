@@ -107,14 +107,18 @@ class FoodList extends React.Component {
                   // Each Foot Item Card
                   <Card className={classes.card} key={index}>
                         {/* Item Image */}
-                        <CardMedia
+                        {/* <CardMedia
                            component="img"
                            alt="Contemplative Reptile"
                            className={classes.media}
                            image={`/images/${item.image}`}
                            title="Contemplative Reptile"
 
-                        />
+                        /> */}
+                        <div style={{padding: '15px 15px 0px 15px'}}>
+                           <img className={classes.image} src={`/images/${item.image}`} />
+                        </div>
+
                         {/* Item name and description */}
                         <CardContent>
                            <Typography gutterBottom variant="h6">
@@ -195,7 +199,11 @@ const styles = {
    },
    media: {
       // ⚠️ object-fit is not supported by IE11.
-      objectFit: 'cover'
+   },
+   image: {
+      width: '100%',
+      borderRadius: 5,
+      border: '1px solid #dedede'
    },
    size: {
       margin: 5

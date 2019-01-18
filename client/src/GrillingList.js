@@ -99,14 +99,18 @@ class GrillingList extends React.Component {
       return(
         <Card className={classes.card} >
       
-        <CardMedia
+        {/* <CardMedia
           component="img"
           alt="image"
           className={classes.media}
           image={`/images/${item.image}`}
           title="Contemplative Reptile"
           
-        />
+        /> */}
+
+        <div style={{padding: '15px 15px 0px 15px'}}>
+            <img className={classes.image} src={`/images/${item.image}`} />
+         </div>
 
         <CardContent>
           <Typography gutterBottom variant="h6">
@@ -163,10 +167,15 @@ const styles = {
       width: '100%',
       marginTop: 40
    },
-  media: {
-    // ⚠️ object-fit is not supported by IE11.
-    objectFit: 'cover'
-  },
+//   media: {
+//     // ⚠️ object-fit is not supported by IE11.
+//     objectFit: 'cover'
+//   },
+image: {
+   width: '100%',
+   borderRadius: 4,
+   border: '1px solid #dedede'
+},
   size: {
     margin: 5
   },

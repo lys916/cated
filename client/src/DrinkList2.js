@@ -92,14 +92,9 @@ class DrinkList2 extends React.Component {
       return(
         <Card className={classes.card} >
       
-        <CardMedia
-          component="img"
-          alt={item.name}
-          className={classes.media}
-          image={`/images/${item.image}`}
-          title={item.name}
-          
-        />
+         <div style={{padding: '15px 15px 0px 15px'}}>
+            <img className={classes.image} src={`/images/${item.image}`} />
+         </div>
 
         <CardContent>
           <div className={classes.itemName}>{item.name}</div>
@@ -168,11 +163,11 @@ const styles = {
     width: '100%',
     marginTop: 40
   },
-  media: {
-     borderBottom: '1px solid #dedede'
-    // ⚠️ object-fit is not supported by IE11.
-   //  objectFit: 'cover'
-  },
+  image: {
+   width: '100%',
+   borderRadius: 5,
+   border: '1px solid #dedede'
+},
   itemName:{fontSize: 23},
   itemPrice:{
    fontSize: 22,
