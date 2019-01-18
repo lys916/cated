@@ -4,8 +4,11 @@ const mongoose = require('mongoose');
 const orderRouter = express.Router();
 const Order = require('./OrderModel.js');
 
+var accountSid = 'AC73ba0bc327ba7720bf0ffc2cfbb5abe1'; // Your Account SID from www.twilio.com/console
+var authToken = 'bf0d5407abcde1f5496ec68f30baabc4';   // Your Auth Token from www.twilio.com/console
 
-// const CustomFood = require('./CustomFoodModel');
+var twilio = require('twilio');
+var client = new twilio(accountSid, authToken);
 
 orderRouter.post('/', async function(req, res){
    
@@ -29,6 +32,20 @@ orderRouter.post('/', async function(req, res){
         });
         console.log('return status');
         if(status === 'succeeded'){
+
+         console.log('order charged, sending sms');
+         client.messages.create({
+            body: 'We have receieved your order.',
+            to: '+1'+req.body.orderInfo.delPhone,  // Text this number
+            from: '+19166196281' // From a valid Twilio number
+        })
+        .then((message) =>{
+         console.log('sms sent', message.sid)
+        }).catch(err=>{
+           console.log('err sms', err);
+        });
+        
+
           console.log('saving order to mongo');
 
           Order.create(req.body).then(order =>{

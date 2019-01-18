@@ -28,6 +28,7 @@
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.4",
     "nodemon": "^1.18.4",
-    "stripe": "^6.12.1"
+    "stripe": "^6.12.1",
+    "twilio": "^3.27.1"
   }
 }

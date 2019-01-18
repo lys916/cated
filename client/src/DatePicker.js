@@ -21,10 +21,6 @@ export default class App extends PureComponent {
     selectedDate: null
   }
 
-  handleDateChange = (date) => {
-   console.log('date', date);
-    this.setState({ selectedDate: date});
-  }
 
   render() {
     return (
@@ -39,15 +35,14 @@ export default class App extends PureComponent {
          <DatePicker
          disablePast
          shouldDisableDate={disableWeekends}
-         autoOk={true}
          // formatDate={(date)=>{return 'testing date'}}
          style={{marginTop: 0,width: '100%'}}
          id="outlined-bare"
          margin="dense"
          // className={classes.textField}
          variant="outlined"
-            value={this.state.selectedDate} 
-            onChange={this.handleDateChange} 
+            value={this.props.date} 
+            onChange={this.props.handleDateChange} 
          />
          </div>
          {/* <div>

@@ -66,18 +66,14 @@ const createOptions = () => {
 
 class Payment extends React.Component {
    state = {
-		openCart: false,
-		openCheckOut: false,
-		openDetails: false, 
 		delName: '',
 		delAddress: '',
 		delPhone: '',
-		delTime: new Date().addMinutes(60),
+      delHour: '',
+      delMinute: '',
+      delAmpm: '',
 		nameOnCard: '',
-		detailError: '',
-		checkOutError: '',
-      cartError: '',
-      selectedDate: new Date()
+      selectedDate: null
 	}
 
   handleChange = event => {
@@ -141,22 +137,21 @@ class Payment extends React.Component {
    //    console.log(event.target.value);
    //    this.setState({ [key]: event.target.value});
    // };
-
-   handleDateChange = date => {
-      this.setState({ selectedDate: date });
-   };
+   
+  handleDateChange = (date) => {
+    this.setState({ selectedDate: date});
+  }
 
    // handleChange = (prop) => (event) => {
    //    this.setState({ [prop]: event.target.value, missingField: false });
    // };
-
-   
 
 
    render(){
    const { classes, cart } = this.props;
    const { selectedDate } = this.state;
    const path = this.props.history.location.pathname;
+   console.log('render', this.state.delHour);
    //  console.log('cart', cart);
    //  let total = null; 
    //  cart.forEach(item=>{
@@ -184,33 +179,55 @@ class Payment extends React.Component {
 
                {/* Date and time */}
                {/* Only works if we set up pure component? and import it */}
-               <DatePickerUI /><br/>
+               <DatePickerUI handleDateChange={this.handleDateChange} date={this.state.selectedDate}/><br/>
 
-               <select>
-               <option value="volvo">Volvo</option>
-               <option value="saab">Saab</option>
-               <option value="opel">Opel</option>
-               <option value="audi">Audi</option>
-               </select>
+               
 
                <div className={classes.timeWrapper}>
                   <div className={classes.time}>
                      <label className={classes.label}>
                         Hour*
                      </label><br/>
-                     <input className={classes.input} name="delHour" value={this.state.delAddress}  onChange={this.handleChange}/>
+                     <select className={classes.input} name="delHour" onChange={this.handleChange}>
+                        <option value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                     </select>
                   </div>
                   <div className={classes.time}>
                      <label className={classes.label}>
                         Minute*
                      </label><br/>
-                     <input className={classes.input} name="delMin" value={this.state.delAddress}  onChange={this.handleChange}/>
+                     <select className={classes.input} name="delMinute" onChange={this.handleChange}>
+                        <option value=""></option>
+                        <option value="00">00</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                     </select>
                   </div>
-                  <div>
+                  <div className={classes.time}>
                      <label className={classes.label}>
                         Am/Pm*
                      </label><br/>
-                     <input className={classes.input} name="delAmpm" value={this.state.delAddress}  onChange={this.handleChange}/>
+                     <select className={classes.input} name="delAmpm" onChange={this.handleChange}>
+                        <option value=""></option>
+                        {this.state.delHour === '9' || this.state.delHour === '10' || this.state.delHour === '11' ? <option value="AM">AM</option> : null}
+                        {this.state.delHour === '12' ? <option value="PM">PM</option> : null}
+                        {Number(this.state.delHour) >= 1 && Number(this.state.delHour) <= 8 ? <option value="PM">PM</option> : null}
+                        {/* <option value="am">AM</option>
+                        <option value="pm">PM</option> */}
+                     </select>
                   </div>
                </div>
             </Card>
@@ -233,6 +250,7 @@ class Payment extends React.Component {
                      time={this.state.delTime} 
                      path={path}
                      history={this.props.history}
+                     orderData={this.state}
                   />
                </Elements>
             </StripeProvider>
@@ -278,14 +296,14 @@ backShopping: {
   },
   input: {
    width: '98.8%',
-   fontSize: 18,
+   fontSize: 17,
    borderRadius: 6,
    border: '1px solid #ababab',
    paddingLeft: '3px',
    height: 42,
   },
   timeWrapper:{
-     width: '98.8%',
+     width: '100%',
      display: 'flex',
      justifyContent: 'space-between',
 
@@ -293,7 +311,7 @@ backShopping: {
 
   },
   time: {
-   marginRight: 10
+   width: '25%'
   },
   container: {
    display: 'flex',

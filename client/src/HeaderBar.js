@@ -99,7 +99,11 @@ class HeaderBar extends React.Component {
      }
 
 	render() {
-		const { classes, user, cart } = this.props;
+      const { classes, user, cart } = this.props;
+      let itemCount = 0;
+      cart.forEach(item=>{
+         itemCount = itemCount + item.qty
+      });
 		const { anchorEl } = this.state;
 		return (
 			<div className={classes.root}>
@@ -133,7 +137,7 @@ class HeaderBar extends React.Component {
                      // onClick={this.props.openCart}
                      onClick={this.goToCart}
 						>	
-							{cart.length > 0 ? <Badge badgeContent={cart.length} color="secondary">
+							{cart.length > 0 ? <Badge badgeContent={itemCount} color="secondary">
 							<ShoppingCart />
           					</Badge> : <ShoppingCart />}
 							

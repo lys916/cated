@@ -174,11 +174,8 @@ class StripePayment extends React.Component {
                   buttonName="Place Order" 
                   path={this.props.path} 
                   history={this.props.history}
-                  name={this.props.name}
-                  address={this.props.address}
-                  phone={this.props.phone}
-                  date={this.props.date}
-                  time={this.props.time}
+                  handleChange={this.props.handleChange}
+                  orderData={this.props.orderData}
                />
 
 			</div>

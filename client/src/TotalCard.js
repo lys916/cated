@@ -17,25 +17,33 @@ class CheckoutCard extends React.Component {
        console.log('stripe token', token);
     
    // build order object to send to server
-    const order = {
-       token: token.id,
-       guestInfo: {
-          name: this.props.name,
-          address: this.props.address,
-          phone: this.props.phone,
-       },
-       orderInfor: {
-          items: this.props.cart,
-          deliveryDate: this.props.date,
-          deliveryTime: this.props.time,
-          total
-       }
-    }
+   const orderInfo = this.props.orderData;
+   orderInfo.total = total;
+   orderInfo.items = this.props.cart;
+   const order = {
+      orderInfo,
+      token: token.id,
+      total: total
+   }
+   //  const order = {
+   //     token: token.id,
+   //     guestInfo: {
+   //        name: this.props.name,
+   //        address: this.props.address,
+   //        phone: this.props.phone,
+   //     },
+   //     orderInfor: {
+   //        items: this.props.cart,
+   //        deliveryDate: this.props.date,
+   //        deliveryTime: this.props.time,
+   //        total
+   //     }
+   //  }
     if(this.props.user){
        order.user = this.props.user._id
     }
     // send order to server to charge
-    console.log('Order waiting...', order);return;
+    console.log('Order waiting...', order);
     const charged = await this.props.createOrder(order);
     console.log('Order charged!', charged);
     if(charged._id){
