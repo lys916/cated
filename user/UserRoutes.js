@@ -5,19 +5,25 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 userRouter.post('/signup', function(req, res){
-	const { email, password, name } = req.body;
-	User.find({email}).then(userFound=>{
+   console.log('user signing up');
+   const { emailPhone, password, name } = req.body;
+
+	User.find({emailPhone}).then(userFound=>{
 		console.log('user found', userFound);
 		if(userFound.length > 0){
-			res.json({errorMessage: 'You already have an account with his email. Please log in.'})
+			res.json({errorMessage: 'You already have an account with his email or phone number. Please log in.'})
 		}else{
 			const user = new User();
-			user.email = email;
-			user.name = name;
+			user.emailPhone = emailPhone;
+         user.name = name;
+         user.confirmed = false;
+         user.confirmationNumber = '91622'
 
 			bcrypt.hash(password, 11, (err, hash) => {
 				if (err) throw err;
-				user.password = hash;
+            user.password = hash;
+            
+            console.log('user to save', user);
 				user.save().then(savedUser => {
 					res.json(savedUser);
 				});

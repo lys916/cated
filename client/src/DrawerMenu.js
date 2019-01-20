@@ -8,7 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
-const DrawerMenu = ({ openMenu, toggleDrawer, classes, user, handleSignOut, handleSignIn, email, password, handleChange, toggleSignUp, showSignUp, handleSignUp }) => {
+const DrawerMenu = ({ openMenu, toggleDrawer, classes, user, handleSignOut, handleSignIn, emailPhone, name, password, handleChange, toggleSignUp, showSignUp, handleSignUp }) => {
 	return (
 		<Drawer anchor="left" open={openMenu} onClose={toggleDrawer} style={styles.menu}>
 			{user ? <div
@@ -42,15 +42,15 @@ const DrawerMenu = ({ openMenu, toggleDrawer, classes, user, handleSignOut, hand
 					<div style={styles.title}>Sign up</div><br/>
 
                <label style={styles.label}>Full Name</label>
-					<input style={styles.input}  value={email} onChange={handleChange}  name="email"/>
-               <br/><br/>
+					<input style={styles.name}  value={name} onChange={handleChange}  name="name"/>
+               <br/>
                
                <label style={styles.label}>Email or Phone Number</label>
-					<input style={styles.input}  value={email} onChange={handleChange}  name="email"/>
-               <br/><br/>
+					<input style={styles.email}  value={emailPhone} onChange={handleChange}  name="emailPhone"/>
+               <br/>
 
                <label style={styles.label}>Password</label>
-					<input style={styles.input} value={password} onChange={handleChange} name="password"/><br/>
+					<input style={styles.password} value={password} onChange={handleChange} name="password"/><br/>
                <br/>
 
                <Button variant="contained" 
@@ -68,11 +68,11 @@ const DrawerMenu = ({ openMenu, toggleDrawer, classes, user, handleSignOut, hand
 					<div style={styles.title}>Log in to manage your account</div><br/>
                
                <label style={styles.label}>Email or Phone Number</label>
-					<input style={styles.input}  value={email} onChange={handleChange}  name="email"/>
-               <br/><br/>
+					<input style={styles.email}  value={emailPhone} onChange={handleChange}  name="emailPhone"/>
+               <br/>
 
                <label style={styles.label}>Password</label>
-					<input style={styles.input} value={password} onChange={handleChange} name="password"/><br/>
+					<input style={styles.password} value={password} onChange={handleChange} name="password"/><br/>
                <br/>
 
                <Button variant="contained" 
@@ -98,15 +98,11 @@ const styles = {
 		width: '75vw',
 		textAlign: 'center'
 	},
-	// input: {
-	// 	padding: 10, 
-	// 	margin: 5
-   // }, 
    inputWrapper: {
       textAlign: 'left',
       padding: 15
    },
-   input: {
+   password: {
       width: '100%',
       fontSize: 17,
       borderRadius: 6,
@@ -114,8 +110,26 @@ const styles = {
       paddingLeft: '3px',
       height: 42,
      },
+     email: {
+      width: '100%',
+      fontSize: 17,
+      borderRadius: 6,
+      border: '1px solid #ababab',
+      paddingLeft: '3px',
+      height: 42,
+      marginBottom: 10
+     },
+     name: {
+      width: '100%',
+      fontSize: 17,
+      borderRadius: 6,
+      border: '1px solid #ababab',
+      paddingLeft: '3px',
+      height: 42,
+      marginBottom: 10
+     },
 	title: {
-      marginTop: 20,
+      marginTop: 10,
       textAlign: 'center',
       fontWeight: 'bold'
 	},

@@ -32,6 +32,10 @@ class Cart extends React.Component {
    qty: 1
   };
 
+  componentWillMount() {
+   window.scrollTo(0, 0);
+ }
+
   handleChange = event => {
    this.setState({ [event.target.name]: event.target.value });
  };

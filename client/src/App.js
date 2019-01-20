@@ -10,6 +10,7 @@ import Supplies from './Supplies';
 import Cart from './Cart';
 import Address from './Address';
 import Payment from './Payment';
+import ConfirmUser from './ConfirmUser';
 import IconTabs from './Tabs';
 import OrderCompleted from './OrderCompleted';
 import Spinner from './Spinner';
@@ -33,6 +34,7 @@ class App extends Component {
             <Route path='/address' component={Address} />
             <Route path='/payment' component={Payment} />
             <Route path='/order-completed' component={OrderCompleted} />
+            <Route path='/confirm' component={ConfirmUser} />
           </div>
         </Router>
         {this.props.misc.loading ? <Spinner/> : null}

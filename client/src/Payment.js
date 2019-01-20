@@ -83,6 +83,10 @@ class Payment extends React.Component {
       });
    };
 
+   componentWillMount() {
+      window.scrollTo(0, 0);
+    }
+
    componentDidMount() {
       console.log('comp mount');
       const path = this.props.history.location.pathname;
@@ -182,13 +186,13 @@ class Payment extends React.Component {
                <DatePickerUI handleDateChange={this.handleDateChange} date={this.state.selectedDate}/><br/>
 
                
-
+               
                <div className={classes.timeWrapper}>
                   <div className={classes.time}>
-                     <label className={classes.label}>
-                        Hour*
-                     </label><br/>
-                     <select className={classes.input} name="delHour" onChange={this.handleChange}>
+                  <label className={classes.label}>
+                  Time* <br/><span style={{fontSize: 12, paddingLeft: 3}}>Hour</span>
+               </label><br/>
+                     <select className={classes.input} placeholder="hour" name="delHour" onChange={this.handleChange}>
                         <option value=""></option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -205,9 +209,9 @@ class Payment extends React.Component {
                      </select>
                   </div>
                   <div className={classes.time}>
-                     <label className={classes.label}>
-                        Minute*
-                     </label><br/>
+                  <label className={classes.label}>
+                  <br/><span style={{fontSize: 12, paddingLeft: 3}}>Minute</span>
+               </label><br/>
                      <select className={classes.input} name="delMinute" onChange={this.handleChange}>
                         <option value=""></option>
                         <option value="00">00</option>
@@ -217,9 +221,9 @@ class Payment extends React.Component {
                      </select>
                   </div>
                   <div className={classes.time}>
-                     <label className={classes.label}>
-                        Am/Pm*
-                     </label><br/>
+                  <label className={classes.label}>
+                  <br/><span style={{fontSize: 12, paddingLeft: 3}}>Am/pm</span>
+               </label><br/>
                      <select className={classes.input} name="delAmpm" onChange={this.handleChange}>
                         <option value=""></option>
                         {this.state.delHour === '9' || this.state.delHour === '10' || this.state.delHour === '11' ? <option value="AM">AM</option> : null}
@@ -301,6 +305,7 @@ backShopping: {
    border: '1px solid #ababab',
    paddingLeft: '3px',
    height: 42,
+   background: 'white'
   },
   timeWrapper:{
      width: '100%',
@@ -311,7 +316,7 @@ backShopping: {
 
   },
   time: {
-   width: '25%'
+   width: '30%'
   },
   container: {
    display: 'flex',

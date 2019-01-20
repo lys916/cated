@@ -107,7 +107,8 @@ class Home extends React.Component {
     //   }
 
 	render() {
-		const path = this.props.history.location.pathname;
+      const path = this.props.history.location.pathname;
+
 		if(path === '/'){
 			this.props.history.push('/t/foods');
 		}

@@ -43,7 +43,7 @@ class HeaderBar extends React.Component {
 		anchorEl: null,
 		cartItems,
 		name: '',
-		email: '', 
+		emailPhone: '', 
 		password: '',
 		showSignUp: false
 	}
@@ -81,9 +81,9 @@ class HeaderBar extends React.Component {
 	  handleSignUp =()=>{
 		  this.props.signUp({
 			  name: this.state.name,
-			  email: this.state.email,
+			  emailPhone: this.state.emailPhone,
 			  password: this.state.password
-		  });
+		  }, this.props.history);
 	  }
 
 	  toggleSignUp = ()=>{
@@ -168,7 +168,10 @@ class HeaderBar extends React.Component {
 					user={user} 
 					openMenu={this.state.openMenu} 
 					toggleDrawer={this.toggleDrawer}
-					handleChange={this.handleChange}
+               handleChange={this.handleChange}
+               name={this.state.name}
+               emailPhone={this.state.emailPhone}
+               password={this.state.password}
 				/>
 			</div>
 		);

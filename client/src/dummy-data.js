@@ -2,7 +2,7 @@ const foodItems = [
    {
       image: "chicken-feet-salad.png",
       name: 'Chicken Feet Salad',
-      desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+      desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail.',
       tags: 'Chicken Feet Salad',
       price: {
          Small: 19,
@@ -16,7 +16,7 @@ const foodItems = [
    {
       image: "beef-larb-cooked.png",
       name: 'Beef Larb Cooked',
-      desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+      desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
       tags: 'Beef Salad Larb Laab',
       price: {
          Small: 19,
@@ -30,7 +30,7 @@ const foodItems = [
    {
       image: "beef-larb-raw.png",
       name: 'Beef Larb Raw',
-      desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+      desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
       tags: 'Beef Salad Larb Laab',
       price: {
          Small: 19,
@@ -44,7 +44,7 @@ const foodItems = [
    {
       image: "papaya-salad.png",
       name: 'Papaya Salad',
-      desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+      desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
       tags: 'Spicy Papaya Salad',
       price: {
          Small: 19,
@@ -59,7 +59,7 @@ const foodItems = [
    // {
    //    image: "sample.png",
    //    name: 'Stir-Fry Vermicelli Noodle',
-   //    desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+   //    desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
    //    tags: 'Vermicelli Noodle Stir',
    //    price: {
    //       Small: 19,
@@ -73,7 +73,7 @@ const foodItems = [
    {
       image: "grilled-wings.png",
       name: 'Grilled Wings',
-      desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+      desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
       price: {
          Small: 19,
          Medium: 29,
@@ -86,7 +86,7 @@ const foodItems = [
    {
       image: "bbq-ribs.png",
       name: 'BBQ Pork Ribs',
-      desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+      desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
       price: {
          Small: 19,
          Medium: 29,
@@ -99,7 +99,7 @@ const foodItems = [
    {
       image: "mien-salad.png",
       name: 'Mien Salad',
-      desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+      desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
       price: {
          Small: 19,
          Medium: 29,
@@ -184,7 +184,7 @@ const grillItems = [
    {
       image: "wings-raw.png",
       name: 'Garlic Black Pepper Wing',
-     desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+     desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
      tags: 'Garlic Black Pepper Chicken Wing Mid Joint',
      price: 3.99,
      type: 'grill',
@@ -194,6 +194,7 @@ const grillItems = [
    {
       image: "tritip-raw.png",
       name: "Tri Tip Lightly Marinated",
+      desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
     tags: 'Tri Tip Lightly Marinated',
     price: 7.99,
     type: 'grill',
@@ -203,7 +204,7 @@ const grillItems = [
   {
    image: "short-ribs-raw.png",
    name: 'Korean BBQ Short Ribs',
-    desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+    desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
     tags: 'Korean BBQ Short Ribs',
     price: 4.99,
     qty: 1,
@@ -213,7 +214,7 @@ const grillItems = [
 //   {
 //    image: "sample.png",
 //    name: 'Sweet Pepper Ribs',
-//     desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+//     desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
 //     price: 3.99,
 //     type: 'grill',
 //     qty: 1,
@@ -222,7 +223,7 @@ const grillItems = [
   {
    image: "pork-belly-raw.png",
    name: 'Pork Belly Lightly Marinated',
-    desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+    desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
     price: 4.99,
     type: 'grill',
     qty: 1,
@@ -231,7 +232,7 @@ const grillItems = [
 //   {
 //    image: "sample.png",
 //    name: 'Top Round Steak',
-//     desc: 'This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors. This is one of the party favorites. It is spicy and full of flavors',
+//     desc: 'Pancetta chuck drumstick kevin brisket. Buffalo ground round pastrami, ham corned beef ham hock flank chicken. Swine pork loin ham hock corned beef picanha sirloin tail. ',
 //     price: 5.99,
 //     type: 'grill',
 //     qty: 1,
