@@ -2,13 +2,12 @@ const express = require('express');
 
 const orderRouter = express.Router();
 const Order = require('./OrderModel.js');
-const {STRIPE_SECRET_KEY} = require('../config');
+const {STRIPE_SECRET_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN} = require('../config');
 const stripe = require("stripe")(STRIPE_SECRET_KEY);
 console.log(STRIPE_SECRET_KEY);
-var accountSid = 'AC73ba0bc327ba7720bf0ffc2cfbb5abe1'; // Your Account SID from www.twilio.com/console
-var authToken = 'bf0d5407abcde1f5496ec68f30baabc4';   // Your Auth Token from www.twilio.com/console
+
 var twilio = require('twilio');
-var client = new twilio(accountSid, authToken);
+var client = new twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 
 // /order/
 orderRouter.post('/', async function(req, res){
