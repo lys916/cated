@@ -1,5 +1,5 @@
 const express = require('express');
-const stripe = require("stripe")("sk_test_5XOQ1slHb1beF5FTI6i869at");
+const stripe = require("stripe")("sk_live_f2lTVF3WUvaNVitOAAOSSyCk");
 const orderRouter = express.Router();
 const Order = require('./OrderModel.js');
 // twilio
@@ -25,7 +25,8 @@ orderRouter.post('/', async function(req, res){
    try {
       // charging
       let {status} = await stripe.charges.create({
-         amount: Number(total),
+         // amount: Number(total),
+         amount: 50,
          currency: "usd",
          description: "Custom charge",
          source: req.body.token

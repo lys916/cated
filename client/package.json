@@ -9,7 +9,7 @@
     "axios": "^0.18.0",
     "date-fns": "^2.0.0-alpha.25",
     "firebase": "^5.5.3",
-    "material-ui-pickers": "^1.0.0-rc.17",
+    "material-ui-pickers": "^2.2.1",
     "react": "^16.5.2",
     "react-date-picker": "^7.1.1",
     "react-day-picker": "^7.2.4",

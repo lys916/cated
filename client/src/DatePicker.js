@@ -2,15 +2,16 @@ import React, { PureComponent } from 'react';
 
 // material ui date picker
 import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils';
-import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
-import TimePicker from 'material-ui-pickers/TimePicker';
-import DatePicker from 'material-ui-pickers/DatePicker';
-import DateTimePicker from 'material-ui-pickers/DateTimePicker';
-// react day picker
-import DayPicker from 'react-day-picker';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
-import 'react-day-picker/lib/style.css';
+import MuiPickersUtilsProvider from 'material-ui-pickers/MuiPickersUtilsProvider';
 
+// import TimePicker from 'material-ui-pickers/TimePicker';
+import DatePicker from 'material-ui-pickers/DatePicker';
+// import DateTimePicker from 'material-ui-pickers/DateTimePicker';
+// react day picker
+// import DayPicker from 'react-day-picker';
+// import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
+console.log(MuiPickersUtilsProvider);
 function disableWeekends(date) {
    return date.getDay() === 1 || date.getDay() === 2 || date.getDay() === 3 || date.getDay() === 4;
  }
