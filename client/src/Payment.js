@@ -38,7 +38,7 @@ import TotalCard from './TotalCard';
 
 import HeaderBar from './HeaderBar';
 
-const { REACT_APP_STRIPE_API_KEY, REACT_APP_STRIPE_API_KEY_TEST } = process.env;
+const { REACT_APP_STRIPE_API_KEY, REACT_APP_STRIPE_TEST_API_KEY } = process.env;
 
 console.log(REACT_APP_STRIPE_API_KEY);
 console.log(REACT_APP_STRIPE_API_KEY_TEST);
@@ -292,7 +292,7 @@ class Payment extends React.Component {
 
         <div className={classes.title}>Payment</div>
 
-        <StripeProvider apiKey={REACT_APP_STRIPE_API_KEY_TEST}>
+        <StripeProvider apiKey={REACT_APP_STRIPE_TEST_API_KEY}>
           <Elements>
             <StripePayment
               submitOrder={this.submitOrder}
