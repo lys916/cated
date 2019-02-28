@@ -39,6 +39,9 @@ import HeaderBar from './HeaderBar';
 
 const {REACT_APP_STRIPE_API_KEY, REACT_APP_STRIPE_API_KEY_TEST} = process.env;
 
+console.log(REACT_APP_STRIPE_API_KEY);
+console.log(REACT_APP_STRIPE_API_KEY_TEST);
+
 Date.prototype.addMinutes = function(minutes) {
 	this.setMinutes(this.getMinutes() + minutes);
 	return this;
