@@ -6,8 +6,7 @@ if(process.ENV !== 'production'){
 const stripe = require("stripe")(process.env.STRIPE_TEST_SECRET_KEY);
 const orderRouter = express.Router();
 const Order = require('./OrderModel.js');
-console.log('test heroku', process.env.TEST_HEROKU);
-console.log('heroku env vars', process.env.STRIPE_SECRET_KEY);
+
 // twilio
 var accountSid = process.env.TWILIO_ACCOUNT_SID; // Your Account SID from www.twilio.com/console
 var authToken = process.env.TWILIO_AUTH_TOKEN;   // Your Auth Token from www.twilio.com/console
