@@ -1,3 +1,4 @@
+import {REACT_APP_STRIPE_API_KEY} from '../../.env';
 let userInit = null;
 
 const user = JSON.parse(localStorage.getItem('user'));
