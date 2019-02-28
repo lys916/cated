@@ -73,13 +73,52 @@ class Payment extends React.Component {
       delMinute: '',
       delAmpm: '',
 		nameOnCard: '',
-      selectedDate: null
+      selectedDate: null,
+      delNameError: false,
+      delPhoneError: false,
+      delAddressError: false,
+      delDateError: false,
+      delHourError: false,
+      delMinuteError: false,
+      delAmpmError: false
 	}
 
-  handleChange = event => {
-     console.log(event.target.value);
+   checkFormData = ()=>{
+      const {delName, delAddress, delPhone, selectedDate, delHour, delMinute, delAmpm} = this.state;
+      if(delName === ''){
+         this.setState({delNameError: true});
+      }
+      if(delAddress === ''){
+         this.setState({delAddressError: true});
+      }
+      if(delPhone === ''){
+         this.setState({delPhoneError: true});
+      }
+      if(!selectedDate){
+         this.setState({delDateError: true});
+      }
+      if(delHour === ''){
+         this.setState({delHourError: true});
+      }
+      if(delMinute === ''){
+         this.setState({delMinuteError: true});
+      }
+      if(delAmpm === ''){
+         this.setState({delAmpmError: true});
+      }
+      if(delName !== '' && delAddress !== '' && delPhone !== '' && selectedDate && delHour !== '' && delMinute !== '' && delAmpm !== ''){
+         return true;
+      }else{
+         return false;
+      }
+
+   }
+
+   handleChange = event => {
+      console.log([event.target.name + 'Error']);
       this.setState({
       [event.target.name]: event.target.value,
+      [event.target.name + 'Error']: false
       });
    };
 
@@ -126,7 +165,7 @@ class Payment extends React.Component {
    };
 
    handleDateChange = (date) => {
-      this.setState({ selectedDate: date });
+      this.setState({ selectedDate: date, delDateError: false });
    }
 
    handleCloseAll = ()=> {
@@ -142,9 +181,6 @@ class Payment extends React.Component {
    //    this.setState({ [key]: event.target.value});
    // };
    
-  handleDateChange = (date) => {
-    this.setState({ selectedDate: date});
-  }
 
    // handleChange = (prop) => (event) => {
    //    this.setState({ [prop]: event.target.value, missingField: false });
@@ -155,7 +191,7 @@ class Payment extends React.Component {
    const { classes, cart } = this.props;
    const { selectedDate } = this.state;
    const path = this.props.history.location.pathname;
-   console.log('render', this.state.delHour);
+   console.log('render', this.state);
    //  console.log('cart', cart);
    //  let total = null; 
    //  cart.forEach(item=>{
@@ -168,29 +204,41 @@ class Payment extends React.Component {
 
                <label className={classes.label}>
                   Full Name*
-               </label><br/>
+               </label>
+
+               {this.state.delNameError ? <span className={classes.error}> &nbsp; Full name is required.</span> : null }
+               
+               <br/>
                <input className={classes.input} name="delName" value={this.state.delName}  onChange={this.handleChange}/><br/><br/>
 
                <label className={classes.label}>
                   Phone Number*
-               </label><br/>
+               </label>
+               {this.state.delPhoneError ? <span className={classes.error}> &nbsp; Phone number name is required.</span> : null }
+               <br/>
                <input className={classes.input} name="delPhone" value={this.state.delPhone}  onChange={this.handleChange}/><br/><br/>
             
                <label className={classes.label}>
                   Address*
-               </label><br/>
+               </label>
+               {this.state.delAddressError ? <span className={classes.error}> &nbsp; Full name is required.</span> : null }
+               <br/>
                <input className={classes.input} name="delAddress" value={this.state.delAddress}  onChange={this.handleChange}/><br/><br/>
 
                {/* Date and time */}
                {/* Only works if we set up pure component? and import it */}
-               <DatePickerUI handleDateChange={this.handleDateChange} date={this.state.selectedDate}/><br/>
+               
+               <DatePickerUI handleDateChange={this.handleDateChange} dateError={this.state.delDateError} date={this.state.selectedDate}/><br/>
 
                
-               
+               {this.state.delHourError ? <div className={classes.error}> &nbsp; Hour is required.</div> : null }
+               {this.state.delMinuteError ? <div className={classes.error}> &nbsp; Minute is required.</div> : null }
+               {this.state.delAmpmError ? <div className={classes.error}> &nbsp; AmPm is required.</div> : null }
                <div className={classes.timeWrapper}>
                   <div className={classes.time}>
                   <label className={classes.label}>
-                  Time* <br/><span style={{fontSize: 12, paddingLeft: 3}}>Hour</span>
+                  Time* 
+                  <br/><span style={{fontSize: 12, paddingLeft: 3}}>Hour</span>
                </label><br/>
                      <select className={classes.input} placeholder="hour" name="delHour" onChange={this.handleChange}>
                         <option value=""></option>
@@ -238,7 +286,7 @@ class Payment extends React.Component {
 
             <div className={classes.title}>Payment</div>
 
-            <StripeProvider apiKey="pk_test_RwPXTOOT26zF8BncTe2MfAUO">
+            <StripeProvider apiKey="pk_live_yVR9sKt9JtZVzfslsJI69m5k">
                <Elements>
                   <StripePayment 
                      submitOrder={this.submitOrder} 
@@ -247,14 +295,10 @@ class Payment extends React.Component {
                      open={this.state.openCheckOut} 
                      closeAll={this.handleCloseAll} 
                      closeCheckOut={this.handleCloseCheckOut}
-                     name={this.state.delName} 
-                     address={this.state.delAddress} 
-                     phone={this.state.delPhone} 
-                     date={this.state.delDate}
-                     time={this.state.delTime} 
                      path={path}
                      history={this.props.history}
                      orderData={this.state}
+                     checkFormData={this.checkFormData}
                   />
                </Elements>
             </StripeProvider>
@@ -285,7 +329,6 @@ const styles = theme => ({
 },
 backShopping: {
    fontSize: 12,
-   height: 20,
   borderRadius: 100,
 },
  title: {
@@ -358,6 +401,10 @@ totalPrice: {
   grid: {
    width: '60%',
  },
+ error: {
+    color: 'red',
+    fontSize: 13
+ }
 });
 
 Payment.propTypes = {

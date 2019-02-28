@@ -35,7 +35,6 @@ const styles = {
    },
    backShopping: {
       fontSize: 12,
-      height: 20,
       marginTop: 30,
      borderRadius: 100,
    },

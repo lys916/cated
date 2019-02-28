@@ -122,7 +122,7 @@ class Home extends React.Component {
 				<ModalCart cartError={this.state.cartError} open={this.state.openCart} closeCart={this.handleCloseCart} openDetails={this.handleOpenDetails}/>
 				<ModalDetails detailError={this.state.detailError} dateChange={this.dateChange} handleChange={this.handleChange} open={this.state.openDetails} closeDetails={this.handleCloseDetails} openCheckOut={this.handleOpenCheckOut} delName={delName} delTime={delTime} delAddress={delAddress} delPhone={delPhone}/>
 
-				<StripeProvider apiKey="pk_test_RwPXTOOT26zF8BncTe2MfAUO">
+				<StripeProvider apiKey="pk_live_yVR9sKt9JtZVzfslsJI69m5k">
 					<Elements>
 						<ModalCheckOut submitOrder={this.submitOrder} nameOnCard={nameOnCard} handleChange={this.handleChange} open={this.state.openCheckOut} closeAll={this.handleCloseAll} closeCheckOut={this.handleCloseCheckOut} name={this.state.delName} address={this.state.delAddress} phone={this.state.delPhone} time={this.state.delTime}/>
 					</Elements>

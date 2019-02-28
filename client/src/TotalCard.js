@@ -10,46 +10,51 @@ import { createOrder } from './actions/orderAction';
 class CheckoutCard extends React.Component {
    state = {};
 
+	 handleCheckForm = (total) => {
+		 const isComplete = this.props.checkFormData();
+
+		 if(isComplete){
+			 this.placeOrder(total);
+		 }
+	 }
+
    placeOrder = async (total)=>{
+		 // check if form is complete at payment.js
+		 
+		 console.log('total', total);
+		 console.log('totalcard props', this.props);
       console.log('stripe', this.props.stripe);
       let { token } = await this.props.stripe.createToken();
+			if(!token){
+				this.props.paymentError(true);
+			}else{
+				this.props.paymentError(false);
        // console.log('RESSSS', res);
        console.log('stripe token', token);
     
-   // build order object to send to server
-   const orderInfo = this.props.orderData;
-   orderInfo.total = total;
-   orderInfo.items = this.props.cart;
-   const order = {
-      orderInfo,
-      token: token.id,
-      total: total
-   }
-   //  const order = {
-   //     token: token.id,
-   //     guestInfo: {
-   //        name: this.props.name,
-   //        address: this.props.address,
-   //        phone: this.props.phone,
-   //     },
-   //     orderInfor: {
-   //        items: this.props.cart,
-   //        deliveryDate: this.props.date,
-   //        deliveryTime: this.props.time,
-   //        total
-   //     }
-   //  }
-    if(this.props.user){
-       order.user = this.props.user._id
-    }
-    // send order to server to charge
-    console.log('Order waiting...', order);
-    const charged = await this.props.createOrder(order);
-    console.log('Order charged!', charged);
-    if(charged._id){
-      this.props.history.push('/order-completed');
-      //  this.props.closeAll();
-    }
+				// build order object to send to server
+				const orderInfo = this.props.orderData;
+				orderInfo.total = total;
+				orderInfo.items = this.props.cart;
+				const order = {
+						orderInfo,
+						token: token.id,
+						total: total
+				}
+
+				if(this.props.user){
+					order.user = this.props.user._id
+				}
+				// send order to server to charge
+				console.log('Order waiting...', order);
+				const charged = await this.props.createOrder(order);
+				if(charged.chargeError){
+					alert('Unable to charge your card');
+				}
+				if(charged._id){
+					this.props.history.push('/order-completed');
+					//  this.props.closeAll();
+				}
 
       // let response = await fetch("/charge", {
       //   method: "POST",
@@ -58,6 +63,7 @@ class CheckoutCard extends React.Component {
       // });
     
       // if (response.ok) console.log("Purchase Complete!")
+			}
     
     
     }
@@ -92,11 +98,11 @@ class CheckoutCard extends React.Component {
 					</div>
       
 
-               {this.props.path === '/payment' ? 
+          {this.props.path === '/payment' ? 
                   <Button variant="contained" 
 						   color="primary" 
 						   className={classes.button} 
-						   onClick={()=>{this.placeOrder(total)}}>
+						   onClick={()=>{this.handleCheckForm(total)}}>
 							{this.props.buttonName} ({cart.length})
 					   </Button> : <Button variant="contained" 
 						color="primary" 

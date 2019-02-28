@@ -7,11 +7,20 @@ export const createOrder = (order) => {
 			type: 'ORDERING'
 		});
 		return axios.post(`/order`, order).then(res => {
-			dispatch({
-				type: 'ORDER_MADE',
-				payload: res.data
-			});
-			return res.data
+			if(res.data.chargeError){
+				dispatch({
+					type: 'ORDER_ERROR',
+					payload: res.data
+				});
+				return res.data
+			}else{
+				dispatch({
+					type: 'ORDER_MADE',
+					payload: res.data
+				});
+				return res.data
+			}
+			
 		});
 	}
 }

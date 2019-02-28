@@ -155,7 +155,6 @@ const styles = theme => ({
  },
  backShopping: {
     fontSize: 12,
-    height: 20,
    borderRadius: 100,
  },
  cardTotal: {

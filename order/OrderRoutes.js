@@ -1,5 +1,6 @@
 const express = require('express');
 const stripe = require("stripe")("sk_live_f2lTVF3WUvaNVitOAAOSSyCk");
+// const stripe = require("stripe")("sk_test_5XOQ1slHb1beF5FTI6i869at");
 const orderRouter = express.Router();
 const Order = require('./OrderModel.js');
 // twilio
@@ -10,6 +11,7 @@ var client = new twilio(accountSid, authToken);
 
 // /order/
 orderRouter.post('/', async function(req, res){
+   console.log('making order server');
    // build total for stripe to charge
    let total = req.body.total.toString();
 
@@ -53,7 +55,8 @@ orderRouter.post('/', async function(req, res){
       }
    // stripe fail charging
    } catch (err) {
-      res.status(500).end();
+      console.log('catch error', err);
+      res.json({chargeError: true})
    }
 });
 

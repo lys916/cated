@@ -47,12 +47,16 @@ const createOptions = () => {
 
 class StripePayment extends React.Component {
 	state = {
-		missingField: false
+		paymentError: false
 	};
 
 	handleChange = (prop) => (event) => {
 		this.setState({ [prop]: event.target.value, missingField: false });
 	};
+
+	paymentError = (boo)=>{
+		this.setState({paymentError: boo});
+	}
 
 	render() {
       const { cart, classes, stripe, nameOnCard, handleChange, submitOrder } = this.props;
@@ -69,7 +73,7 @@ class StripePayment extends React.Component {
 		return (
 			<div className={classes.root}>
             <Card className={classes.paymentData}>
-         
+							{this.state.paymentError ? <div className={classes.paymentError}>Unable to process your payment. Please make sure your card informations are correct.</div>:null}
                <label className={classes.label}>
                   Card Number*
                </label>
@@ -106,6 +110,8 @@ class StripePayment extends React.Component {
                history={this.props.history}
                handleChange={this.props.handleChange}
                orderData={this.props.orderData}
+							 checkFormData={this.props.checkFormData}
+							 paymentError={this.paymentError}
             />
 
 			</div>
@@ -144,6 +150,10 @@ const styles = theme => ({
       fontSize: 15,
       textAlign: 'left'
 	},
+	paymentError: {
+		color: 'red',
+		paddingBottom: 5
+	}
 	// save: {
 	// 	width: '100%',
 	// 	margin: '20px 0px 40px 0px'

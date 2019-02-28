@@ -5,6 +5,9 @@ const miscReducer = (state = {loading: false}, action) => {
       
       case 'ORDER_MADE':
          return {...state, loading: false};
+
+		case 'ORDER_ERROR':
+         return {...state, loading: false};
          
 		default:
 			return state;
