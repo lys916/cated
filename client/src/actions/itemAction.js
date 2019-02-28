@@ -4,6 +4,7 @@ export const addToCart = (item) => {
       payload: item
    })
 }
+//
 
 export const removeFromCart = (item) => {
 	return ({

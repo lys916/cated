@@ -5,6 +5,8 @@ if(user){
    userInit = user;
 }
 
+console.log('enviroment?', process.env);
+
 const userReducer = (state = userInit, action) => {
 	switch (action.type) {
       case 'LOGGED_IN':

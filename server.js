@@ -42,6 +42,8 @@ server.use('/user', userRouter);
 server.use('/order', orderRouter);
 // server.use('/systemFood', systemFoodRouter);
 
+console.log('??????', process.env);
+
 // serve static assets if we're in production
 if(process.env.NODE_ENV === 'production'){
   // set static folder
