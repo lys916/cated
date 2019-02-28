@@ -37,6 +37,8 @@ import TotalCard from './TotalCard';
 
 import HeaderBar from './HeaderBar';
 
+const {REACT_APP_STRIPE_API_KEY, REACT_APP_STRIPE_API_KEY_TEST} = process.env;
+
 Date.prototype.addMinutes = function(minutes) {
 	this.setMinutes(this.getMinutes() + minutes);
 	return this;
@@ -286,7 +288,7 @@ class Payment extends React.Component {
 
             <div className={classes.title}>Payment</div>
 
-            <StripeProvider apiKey="pk_live_yVR9sKt9JtZVzfslsJI69m5k">
+            <StripeProvider apiKey={REACT_APP_STRIPE_API_KEY_TEST}>
                <Elements>
                   <StripePayment 
                      submitOrder={this.submitOrder} 

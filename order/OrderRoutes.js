@@ -1,13 +1,18 @@
 const express = require('express');
-const stripe = require("stripe")("sk_live_f2lTVF3WUvaNVitOAAOSSyCk");
-// const stripe = require("stripe")("sk_test_5XOQ1slHb1beF5FTI6i869at");
+if(process.ENV !== 'production'){
+   require('dotenv').load();
+}
+// const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.STRIPE_TEST_SECRET_KEY);
 const orderRouter = express.Router();
 const Order = require('./OrderModel.js');
+console.log(process.env.TEST_HEROKU);
 // twilio
-var accountSid = 'AC73ba0bc327ba7720bf0ffc2cfbb5abe1'; // Your Account SID from www.twilio.com/console
-var authToken = 'bf0d5407abcde1f5496ec68f30baabc4';   // Your Auth Token from www.twilio.com/console
+var accountSid = process.env.TWILIO_ACCOUNT_SID; // Your Account SID from www.twilio.com/console
+var authToken = process.env.TWILIO_AUTH_TOKEN;   // Your Auth Token from www.twilio.com/console
 var twilio = require('twilio');
 var client = new twilio(accountSid, authToken);
+
 
 // /order/
 orderRouter.post('/', async function(req, res){
